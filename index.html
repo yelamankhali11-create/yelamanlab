@@ -6,7 +6,7 @@
 <title>Yelaman Lab — систематизация бизнеса</title>
 <meta name="description" content="От хаоса в бизнесе — к системе. Финансовый учёт, маркетинг, продажи, автоматизация, сайты и AI для малого и среднего бизнеса в Казахстане.">
 <meta property="og:title" content="Yelaman Lab — от хаоса в бизнесе к системе">
-<meta property="og:description" content="Финансы, маркетинг, продажи, автоматизация и AI. Бесплатная диагностика бизнеса.">
+<meta property="og:description" content="Финансы, маркетинг, продажи, автоматизация и AI. Диагностика бизнеса за 30 минут.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://yelamanlab.netlify.app/img/qural-saiman-case.jpg">
 <meta property="og:url" content="https://yelamanlab.netlify.app/">
@@ -56,6 +56,13 @@ nav.scrolled{background:rgba(7,8,12,.82);backdrop-filter:blur(14px);-webkit-back
 .nav-links{display:flex;gap:28px;font-size:14px;font-weight:600;color:var(--muted)}
 .nav-links a:hover{color:var(--text)}
 .nav-cta{height:42px;padding:0 18px;font-size:14px}
+.nav-r{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid var(--line2);border-radius:999px;padding:3px;background:rgba(255,255,255,.03)}
+.lang button{padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;color:var(--muted);transition:.2s}
+.lang button.on{background:var(--text);color:var(--bg)}
+html[lang=kk] .pk.best::before{content:"Жиі таңдайды"}
+.logo{white-space:nowrap}
+@media(max-width:480px){.nav-cta{display:none}}
 @media(max-width:900px){.nav-links{display:none}}
 
 /* HERO */
@@ -68,9 +75,8 @@ nav.scrolled{background:rgba(7,8,12,.82);backdrop-filter:blur(14px);-webkit-back
 .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border:1px solid var(--line2);border-radius:999px;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:26px;background:rgba(255,255,255,.02)}
 .badge b{background:var(--lime);color:#0a0c06;padding:3px 10px;border-radius:999px;font-size:12px}
 .hero h1{font-size:clamp(38px,6.6vw,84px);margin-bottom:24px}
-.hero h1 .strike{position:relative;color:var(--dim)}
-.hero h1 .strike::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height:6px;background:var(--red);border-radius:4px;transform:scaleX(0);transform-origin:left;animation:strike 1s .6s forwards cubic-bezier(.7,0,.2,1)}
-@keyframes strike{to{transform:scaleX(1)}}
+.hero h1 .chaos{display:inline-block;color:var(--red);animation:jitter 2.4s 1s infinite}
+@keyframes jitter{0%,88%,100%{transform:none}90%{transform:translate(-3px,1px) rotate(-2deg)}92%{transform:translate(3px,-1px) rotate(2deg)}94%{transform:translate(-2px,0)}96%{transform:translate(2px,1px)}}
 .hero .lead{margin-bottom:34px}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
 .hero-trust{display:flex;gap:28px;margin-top:44px;flex-wrap:wrap}
@@ -339,7 +345,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--dim);fo
     <div class="nav-links">
       <a href="#services">Услуги</a><a href="#cases">Примеры</a><a href="#calc">Калькулятор</a><a href="#process">Как работаем</a><a href="#faq">FAQ</a>
     </div>
-    <a class="btn btn-lime nav-cta" data-cta="Здравствуйте! Хочу бесплатную диагностику бизнеса." href="#">Диагностика</a>
+    <div class="nav-r"><div class="lang"><button data-l="ru" class="on">РУС</button><button data-l="kz">ҚАЗ</button></div><a class="btn btn-lime nav-cta" data-cta="Здравствуйте! Хочу записаться на диагностику бизнеса." href="#">Диагностика</a></div>
   </div>
 </nav>
 
@@ -348,11 +354,11 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--dim);fo
   <div class="grid-bg"></div>
   <div class="wrap hero-in">
     <div>
-      <div class="badge rv"><b>0 ₸</b> Бесплатная диагностика бизнеса за 30 минут</div>
-      <h1 class="rv">От <span class="strike">хаоса</span><br>в бизнесе —<br>к <span class="hl">системе.</span></h1>
+      <div class="badge rv"><b>30 мин</b> Диагностика бизнеса · 10 000 ₸</div>
+      <h1 class="rv" data-kz="Бизнесті<br><span class=&quot;chaos&quot;>хаостан</span> —<br><span class=&quot;hl&quot;>жүйеге.</span>">От <span class="chaos">хаоса</span><br>в бизнесе —<br>к <span class="hl">системе.</span></h1>
       <p class="lead rv">Наводим порядок в финансах, маркетинге и продажах. Автоматизируем рутину, делаем сайты и AI-ассистентов — чтобы бизнес работал и приносил прибыль без вас 24/7.</p>
       <div class="hero-ctas rv">
-        <a class="btn btn-lime" data-cta="Здравствуйте! Хочу бесплатную диагностику бизнеса." href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>Получить диагностику</a>
+        <a class="btn btn-lime" data-cta="Здравствуйте! Хочу записаться на диагностику бизнеса." href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>Получить диагностику</a>
         <a class="btn btn-ghost" href="#cases">Смотреть примеры работ</a>
       </div>
       <div class="hero-trust rv">
@@ -395,7 +401,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--dim);fo
 <section id="services" style="background:var(--bg2)">
   <div class="wrap">
     <div class="eyebrow rv">Услуги</div>
-    <h2 class="rv">Собираем систему<br>из <span class="hl">пяти блоков</span></h2>
+    <h2 class="rv" data-kz="Жүйені<br><span class=&quot;hl&quot;>алты блоктан</span> құрамыз">Собираем систему<br>из <span class="hl">шести блоков</span></h2>
     <p class="lead rv">Можно внедрить один блок или всё под ключ. Каждый блок — это понятный результат, а не «консультация ради консультации».</p>
     <div class="svc-grid">
       <div class="svc rv" style="--c:rgba(198,255,61,.2)"><div class="svc-n"><div class="svc-ic">📊</div>01</div><h3>Финансы и управленческий учёт</h3><p>P&L, ДДС, юнит-экономика и дашборд в Excel / Google Sheets. Видите прибыль по каждому направлению.</p><ul><li>P&L</li><li>ДДС</li><li>Точка безубыточности</li><li>Дашборд</li></ul></div>
@@ -550,9 +556,9 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--dim);fo
       <div class="calc-r">
         <span style="color:var(--muted);font-size:14px;position:relative">Вы недополучаете каждый месяц</span>
         <div class="loss" id="lossM">0 ₸</div>
-        <div class="loss-y">Это <b id="lossY">0 ₸</b> в год. Система вернёт около <b id="lossR" style="color:var(--lime)">0 ₸</b> в месяц.</div>
+        <div class="loss-y" data-kz="Бұл жылына <b id=&quot;lossY&quot;>0 ₸</b>. Жүйе айына шамамен <b id=&quot;lossR&quot; style=&quot;color:var(--lime)&quot;>0 ₸</b> қайтарады.">Это <b id="lossY">0 ₸</b> в год. Система вернёт около <b id="lossR" style="color:var(--lime)">0 ₸</b> в месяц.</div>
         <a class="btn btn-lime" id="calcCta" href="#">Вернуть эти деньги →</a>
-        <div class="calc-note">Расчёт ориентировочный. Точную цифру покажем на бесплатной диагностике.</div>
+        <div class="calc-note">Расчёт ориентировочный. Точную цифру покажем на диагностике.</div>
       </div>
     </div>
   </div>
@@ -562,9 +568,9 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--dim);fo
 <section id="process">
   <div class="wrap">
     <div class="eyebrow rv">Как работаем</div>
-    <h2 class="rv">Четыре шага<br>к <span class="hl">управляемому</span> бизнесу</h2>
+    <h2 class="rv" data-kz="Басқарылатын<br><span class=&quot;hl&quot;>бизнеске</span> төрт қадам">Четыре шага<br>к <span class="hl">управляемому</span> бизнесу</h2>
     <div class="steps">
-      <div class="step rv"><span class="free">0 ₸</span><h3>Диагностика</h3><p>30–40 минут созвона или встречи. Находим, где теряются деньги и время, и показываем 3 быстрых решения.</p></div>
+      <div class="step rv"><span class="free">10 000 ₸</span><h3>Диагностика</h3><p>30–40 минут созвона или встречи. Находим, где теряются деньги и время, и показываем 3 быстрых решения.</p></div>
       <div class="step rv"><h3>Карта системы</h3><p>Схема бизнеса: финансы, воронка, процессы. План внедрения со сроками и фиксированной ценой.</p></div>
       <div class="step rv"><h3>Внедрение</h3><p>Собираем таблицы, CRM, сайт, автоматизацию и AI. Обучаем команду — с видеоинструкциями.</p></div>
       <div class="step rv"><h3>Сопровождение</h3><p>Ежемесячный разбор цифр, доработки и поддержка. Система живёт и растёт вместе с бизнесом.</p></div>
@@ -607,10 +613,10 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--dim);fo
     <h2 class="rv">Частые вопросы</h2>
     <div class="faq rv">
       <details><summary>Мой бизнес маленький — мне это нужно?</summary><p>Как раз малому бизнесу система нужна больше всего: каждый потерянный клиент и каждая лишняя трата заметны сразу. Начинаем с одного блока — без больших бюджетов.</p></details>
-      <details><summary>Что происходит на бесплатной диагностике?</summary><p>Задаём 15–20 вопросов о деньгах, клиентах и процессах. В конце вы получаете список «дыр», где теряются деньги, и 3 решения, которые можно внедрить даже без нас.</p></details>
+      <details><summary>Что происходит на диагностике?</summary><p>Задаём 15–20 вопросов о деньгах, клиентах и процессах. В конце вы получаете список «дыр», где теряются деньги, и 3 решения, которые можно внедрить даже без нас.</p></details>
       <details><summary>Работаете только в Караганде?</summary><p>Нет. Работаем онлайн по всему Казахстану и СНГ. Встречи — в Zoom / Google Meet или лично, если вы рядом.</p></details>
       <details><summary>Нужно ли покупать дорогие программы?</summary><p>Чаще всего нет. Строим систему на Google Sheets, Excel, WhatsApp, Kaspi и бесплатных инструментах. CRM подбираем под размер бизнеса.</p></details>
-      <details><summary>Сколько стоит?</summary><p>Цена фиксируется после диагностики и зависит от объёма. Вы заранее знаете сумму и сроки, никаких «доплат по ходу».</p></details>
+      <details><summary>Сколько стоит?</summary><p>Диагностика — 10 000 ₸. Стоимость внедрения фиксируется после диагностики и зависит от объёма: вы заранее знаете сумму и сроки, никаких «доплат по ходу».</p></details>
       <details><summary>Что если я не разберусь в системе?</summary><p>Каждый инструмент сдаём с видеоинструкцией и обучаем команду. В пакетах «Система» и «Под ключ» есть сопровождение.</p></details>
     </div>
   </div>
@@ -620,10 +626,10 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--dim);fo
 <section class="final">
   <div class="wrap">
     <div class="final-box rv">
-      <h2>Покажем, где ваш бизнес теряет деньги — бесплатно</h2>
-      <p>30 минут разговора. Вы уйдёте с конкретным планом, даже если не будете работать с нами.</p>
+      <h2>Покажем, где ваш бизнес теряет деньги</h2>
+      <p>30 минут разбора · 10 000 ₸. Вы уйдёте с конкретным планом, даже если не будете работать с нами дальше.</p>
       <div class="btns">
-        <a class="btn btn-dark" data-cta="Здравствуйте! Хочу бесплатную диагностику бизнеса." href="#">Записаться на диагностику</a>
+        <a class="btn btn-dark" data-cta="Здравствуйте! Хочу записаться на диагностику бизнеса." href="#">Записаться на диагностику</a>
         <a class="btn btn-line" href="https://instagram.com/yelamanlab" target="_blank" rel="noopener">Instagram @yelamanlab</a>
       </div>
     </div>
@@ -638,253 +644,9 @@ footer{border-top:1px solid var(--line);padding:34px 0 110px;color:var(--dim);fo
   </div>
 </footer>
 
-<div class="mcta" id="mcta"><a class="btn btn-lime" data-cta="Здравствуйте! Хочу бесплатную диагностику бизнеса." href="#">Бесплатная диагностика →</a></div>
+<div class="mcta" id="mcta"><a class="btn btn-lime" data-cta="Здравствуйте! Хочу записаться на диагностику бизнеса." href="#">Диагностика · 10 000 ₸ →</a></div>
 
-<script>
-/* ========= НАСТРОЙКИ ========= */
-const CONFIG = {
-  whatsapp: "",            // номер WhatsApp без +, например "77001234567". Пусто → кнопки ведут в Instagram Direct
-  instagram: "yelamanlab"
-};
-/* ============================ */
-
-const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-const fmt = n => Math.round(n).toLocaleString("ru-RU").replace(/,/g, " ");
-const tg = n => fmt(n) + " ₸";
-const short = n => { const a = Math.abs(n), s = n < 0 ? "−" : ""; return a >= 1e6 ? s + (a/1e6).toFixed(a >= 1e7 ? 0 : 1).replace(".", ",") + " млн ₸" : s + fmt(a) + " ₸"; };
-$("#yr").textContent = new Date().getFullYear();
-
-function ctaLink(text){
-  return CONFIG.whatsapp
-    ? "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text)
-    : "https://ig.me/m/" + CONFIG.instagram;
-}
-function wireCtas(){ $$("[data-cta]").forEach(a => { a.href = ctaLink(a.dataset.cta); a.target = "_blank"; a.rel = "noopener"; }); }
-wireCtas();
-
-/* nav + sticky cta */
-addEventListener("scroll", () => {
-  $("#nav").classList.toggle("scrolled", scrollY > 20);
-  $("#mcta").classList.toggle("show", scrollY > innerHeight * .8 && (innerHeight + scrollY) < document.body.scrollHeight - 300);
-}, {passive:true});
-
-/* reveal */
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
-$$(".rv").forEach((el, i) => { el.style.transitionDelay = (i % 4) * 70 + "ms"; io.observe(el); });
-
-/* marquee */
-const mqItems = ["Финансовый учёт","P&L и ДДС","Карта пути клиента","Воронка продаж","CRM","WhatsApp-автоматизация","Kaspi","Сайты","AI-ассистенты","Дашборды","Регламенты"];
-$("#mq").innerHTML = [0,1].map(() => "<span>" + mqItems.join("</span><span>") + "</span>").join("");
-
-/* ===== chaos -> system ===== */
-const chips = [
-  {t:"Заявки", i:"💬", c:[8,6], s:[38,0]},
-  {t:"Финансы", i:"📊", c:[52,62], s:[37,18]},
-  {t:"Маркетинг", i:"🧭", c:[58,2], s:[4,36]},
-  {t:"Продажи", i:"🤝", c:[6,74], s:[60,36]},
-  {t:"Склад", i:"📦", c:[38,32], s:[6,54]},
-  {t:"Сайт", i:"🌐", c:[4,40], s:[62,54]},
-  {t:"Kaspi", i:"💳", c:[64,28], s:[39,72]},
-];
-const stage = $("#csStage");
-chips.forEach((c, k) => { const d = document.createElement("div"); d.className = "chip"; d.innerHTML = "<i>" + c.i + "</i>" + c.t; d.dataset.k = k; stage.appendChild(d); });
-function setMode(m){
-  const sys = m === "system";
-  $("#cs").classList.toggle("system", sys);
-  $$(".cs-toggle button").forEach(b => { b.classList.toggle("on", b.dataset.m === m); b.classList.toggle("sys", sys && b.dataset.m === m); });
-  $$(".chip").forEach(d => {
-    const c = chips[d.dataset.k], p = sys ? c.s : c.c;
-    d.style.left = p[0] + "%"; d.style.top = p[1] + "%";
-    d.style.transform = sys ? "rotate(0)" : "rotate(" + ((d.dataset.k * 37) % 24 - 12) + "deg)";
-  });
-  $("#csTxt").textContent = sys ? "Каждый процесс на месте, цифры в реальном времени, бизнес работает без вас" : "Заявки теряются, прибыль неизвестна, всё держится на владельце";
-  $("#csVal").textContent = sys ? "+40%" : "−30%";
-  $("#csVal").style.color = sys ? "var(--lime)" : "var(--red)";
-}
-$$(".cs-toggle button").forEach(b => b.onclick = () => { clearInterval(csTimer); setMode(b.dataset.m); });
-setMode("chaos");
-let csOn = false; const csTimer = setInterval(() => { csOn = !csOn; setMode(csOn ? "system" : "chaos"); }, 3200);
-
-/* ===== tabs ===== */
-$$(".tab").forEach(t => t.onclick = () => {
-  $$(".tab").forEach(x => x.classList.toggle("on", x === t));
-  $$(".panel").forEach(p => p.classList.toggle("on", p.id === "p-" + t.dataset.t));
-  if (t.dataset.t === "ai") playAi();
-});
-
-/* ===== FINANCE (Excel mock) ===== */
-const F = { check: 2200, perDay: 90, growth: 4, cogs: 32, fixed: 2280000 };
-const months = ["Янв","Фев","Мар","Апр","Май","Июн"];
-const inputsDef = [
-  ["check","Средний чек, ₸", v => fmt(v), "Вводные!B5"],
-  ["perDay","Чеков в день", v => fmt(v), "Вводные!B6"],
-  ["growth","Рост в месяц, %", v => v, "Вводные!B7"],
-  ["cogs","Себестоимость, %", v => v, "Вводные!B9"],
-  ["fixed","Пост. расходы / мес, ₸", v => fmt(v), "Аренда + ФОТ + маркетинг + прочее"],
-];
-function calcFin(){
-  return months.map((m, k) => {
-    const checks = Math.round(F.perDay * Math.pow(1 + F.growth/100, k) * 30);
-    const rev = checks * F.check, cogs = rev * F.cogs/100, var2 = rev * .0395;
-    const profit = rev - cogs - F.fixed - var2;
-    return {m, checks, rev, cogs, gross: rev - cogs, fixed: F.fixed, tax: var2, profit};
-  });
-}
-function renderFin(){
-  const d = calcFin();
-  const cols = "<thead><tr><th class='rn'></th><th>A</th>" + d.map((_, i) => "<th>" + "BCDEFG"[i] + "</th>").join("") + "<th>H</th></tr></thead>";
-  let rows = "", r = 1;
-  inputsDef.forEach(([k, label, f, src]) => {
-    rows += "<tr><td class='rn'>" + (r++) + "</td><td>" + label + "</td><td class='in' colspan='1'><input data-k='" + k + "' data-src='" + src + "' value='" + f(F[k]) + "' inputmode='numeric'></td><td colspan='6' style='color:#9aa3b2;text-align:left;font-size:12px'>← измените значение</td></tr>";
-  });
-  rows += "<tr><td class='rn'>" + (r++) + "</td><td colspan='8' style='background:#1d2433;color:#fff;font-weight:800'>P&amp;L, ₸</td></tr>";
-  rows += "<tr><td class='rn'>" + (r++) + "</td><td><b>Статья</b></td>" + d.map(x => "<td><b>" + x.m + "</b></td>").join("") + "<td><b>Итого</b></td></tr>";
-  const line = (label, key, cls, f) => {
-    const tot = d.reduce((s, x) => s + x[key], 0);
-    return "<tr class='" + (cls||"") + "' data-f='" + (f||"") + "'><td class='rn'>" + (r++) + "</td><td>" + label + "</td>" +
-      d.map(x => "<td class='" + (key === "profit" ? (x[key] < 0 ? "neg" : "pos") : "") + "'>" + (key === "checks" ? fmt(x[key]) : (key==="profit"||key==="rev"||key==="gross" ? fmt(x[key]) : "−" + fmt(x[key]))) + "</td>").join("") +
-      "<td class='" + (key === "profit" ? (tot < 0 ? "neg" : "pos") : "") + "'>" + (key==="checks"||key==="profit"||key==="rev"||key==="gross" ? fmt(tot) : "−" + fmt(tot)) + "</td></tr>";
-  };
-  rows += line("Чеков", "checks", "", "= Чеков в день × (1+рост)^мес × 30");
-  rows += line("Выручка", "rev", "tot", "= Чеков × Средний чек");
-  rows += line("Себестоимость", "cogs", "", "= Выручка × Себестоимость %");
-  rows += line("Валовая прибыль", "gross", "", "= Выручка − Себестоимость");
-  rows += line("Постоянные расходы", "fixed", "", "= Аренда + ФОТ + Маркетинг + Прочее");
-  rows += line("Налог + Kaspi", "tax", "", "= Выручка × (3% + 0,95%)");
-  rows += line("Чистая прибыль", "profit", "tot", "= Валовая − Постоянные − Налоги");
-  $("#xlT").innerHTML = cols + "<tbody>" + rows + "</tbody>";
-  $$("#xlT input").forEach(inp => {
-    inp.onfocus = () => { $("#fxCell").textContent = "B" + (inputsDef.findIndex(x => x[0] === inp.dataset.k) + 1); $("#fxF").textContent = inp.dataset.src; inp.select(); };
-    inp.onchange = inp.onblur = () => {
-      const v = parseFloat(inp.value.replace(/[^\d.,]/g, "").replace(",", "."));
-      if (!isNaN(v) && v >= 0) F[inp.dataset.k] = v;
-      renderFin();
-    };
-    inp.onkeydown = e => { if (e.key === "Enter") inp.blur(); };
-  });
-  $$("#xlT tr[data-f]").forEach(tr => tr.onmouseenter = () => { if (tr.dataset.f){ $("#fxCell").textContent = "fx"; $("#fxF").textContent = tr.dataset.f; } });
-
-  const max = Math.max(...d.map(x => Math.abs(x.profit)), 1);
-  $("#bars").innerHTML = d.map(x => "<div class='bar'><small>" + short(x.profit).replace(" ₸","") + "</small><i class='" + (x.profit < 0 ? "n" : "") + "' style='height:" + (Math.abs(x.profit)/max*100) + "%'></i><small>" + x.m + "</small></div>").join("");
-  const tp = d.reduce((s, x) => s + x.profit, 0), tr = d.reduce((s, x) => s + x.rev, 0);
-  $("#chTot").textContent = "Выручка: " + short(tr);
-  $("#k1").textContent = short(tp); $("#k1").style.color = tp < 0 ? "var(--red)" : "var(--lime)";
-  $("#k2").textContent = tr ? (tp/tr*100).toFixed(1).replace(".", ",") + "%" : "—";
-  const margin = F.check * (1 - F.cogs/100 - .0395);
-  $("#k3").textContent = margin > 0 ? Math.ceil(F.fixed / margin / 30) + " чеков/день" : "не достижима";
-  const avg = tp / 6;
-  $("#k4").textContent = avg > 0 ? (12000000 / avg).toFixed(1).replace(".", ",") + " мес." : "не окупается";
-}
-renderFin();
-
-/* ===== CJM ===== */
-const cjm = {
-  stages: [["01","Узнаёт"],["02","Изучает"],["03","Записывается"],["04","Визит"],["05","Возвращается"]],
-  rows: [
-    ["Действия клиента", [["Видит Reels у подруги","Ищет «маникюр рядом» в 2ГИС"],["Смотрит профиль и работы","Сравнивает цены"],["Пишет в Direct","Ждёт ответа, выбирает время"],["Приходит, ждёт мастера","Платит Kaspi"],["Думает о следующей записи","Советует подруге"]]],
-    ["Точки контакта", [["Instagram Reels","2ГИС, таргет"],["Профиль, Highlights","Отзывы"],["Direct, WhatsApp"],["Администратор, мастер","Kaspi QR"],["WhatsApp-напоминание","Программа лояльности"]]],
-    ["Боли", [["Не понятно, чем вы лучше"],["Нет цен в профиле","Мало отзывов"],["Отвечают через 3 часа","Нет онлайн-записи"],["Ожидание 15 минут"],["О ней забывают","Нет повода вернуться"]], "pn"],
-    ["Решение", [["Оффер в шапке и Reels с результатом"],["Прайс и отзывы в Highlights"],["AI-ответ за 5 сек + онлайн-запись"],["Напоминание за 2 часа","Чек-лист сервиса"],["Авто-напоминание через 21 день","Бонус за друга"]], "sl"],
-    ["Метрика", [["Охват → переходы в профиль"],["Профиль → Direct, %"],["Direct → запись, %"],["Доходимость, %"],["Повторные визиты, %"]], "mt"],
-  ],
-  emo: [3, 2, 0.6, 2.4, 3.6]
-};
-(function renderCjm(){
-  let h = "<div class='rl'>Этап</div>" + cjm.stages.map(s => "<div class='st'><small>" + s[0] + "</small>" + s[1] + "</div>").join("");
-  h += "<div class='rl'>Эмоции</div><div class='emo'>" + emoSvg() + "</div>";
-  cjm.rows.forEach(([label, cells, cls]) => {
-    h += "<div class='rl'>" + label + "</div>" + cells.map(c => "<div class='" + (cls||"") + "'><ul>" + c.map(x => "<li>" + x + "</li>").join("") + "</ul></div>").join("");
-  });
-  $("#cjm").innerHTML = h;
-})();
-function emoSvg(){
-  const W = 1000, Hh = 120, pts = cjm.emo.map((v, i) => [W/10 + i*W/5, Hh - 18 - v/4*(Hh - 36)]);
-  let d = "M" + pts[0];
-  for (let i = 1; i < pts.length; i++){ const [x0,y0] = pts[i-1], [x1,y1] = pts[i], cx = (x0+x1)/2; d += " C" + cx + "," + y0 + " " + cx + "," + y1 + " " + x1 + "," + y1; }
-  const face = v => v >= 3 ? "😍" : v >= 2 ? "🙂" : v >= 1.2 ? "😐" : "😤";
-  return "<svg viewBox='0 0 " + W + " " + Hh + "' preserveAspectRatio='none'><defs><linearGradient id='eg' x1='0' x2='1'><stop offset='0' stop-color='#8b7bff'/><stop offset='.45' stop-color='#ff5c6c'/><stop offset='1' stop-color='#c6ff3d'/></linearGradient></defs>" +
-    "<line x1='0' x2='" + W + "' y1='" + Hh/2 + "' y2='" + Hh/2 + "' stroke='#1f2430' stroke-dasharray='4 6'/>" +
-    "<path d='" + d + "' fill='none' stroke='url(#eg)' stroke-width='3.5' vector-effect='non-scaling-stroke'/>" +
-    pts.map((p, i) => "<text x='" + p[0] + "' y='" + (p[1] + 7) + "' font-size='22' text-anchor='middle'>" + face(cjm.emo[i]) + "</text>").join("") + "</svg>";
-}
-
-/* funnel */
-function renderFunnel(){
-  const a = +$("#s1").value, b = +$("#s2").value, c = +$("#s3").value, ch = +$("#s4").value;
-  $("#sv1").textContent = fmt(a); $("#sv2").textContent = b + "%"; $("#sv3").textContent = c + "%"; $("#sv4").textContent = tg(ch);
-  const rec = a * b/100, vis = rec * c/100, rev = vis * ch;
-  const base = 300 * .22 * .70 * ch;
-  $("#fnRows").innerHTML = [["Пишут в Direct", a, 100], ["Записались", rec, Math.max(rec/a*100, 18)], ["Пришли и оплатили", vis, Math.max(vis/a*100, 12)]]
-    .map(([l, v, w]) => "<div class='fn-row'><div class='fn-bar' style='width:" + w + "%'>" + fmt(v) + "</div><span>" + l + "</span></div>").join("");
-  $("#fnRev").textContent = tg(rev);
-  const dlt = rev - base;
-  $("#fnDelta").innerHTML = Math.abs(dlt) < 1 ? "Сейчас: типичная воронка без системы" : (dlt > 0 ? "<span style='color:var(--lime)'>+" + tg(dlt) + "</span> к текущей воронке" : "<span style='color:var(--red)'>" + tg(dlt) + "</span> к текущей воронке");
-}
-["#s1","#s2","#s3","#s4"].forEach(s => $(s).oninput = renderFunnel);
-renderFunnel();
-
-/* ===== automation flow ===== */
-const flowSteps = [
-  "→ Новый визит из Instagram (био-ссылка)",
-  "→ Заказ #1048: перфоратор, 2 дня, доставка",
-  "✓ Договор подписан SMS-кодом · ИИН проверен",
-  "✓ Оплата Kaspi 12 000 ₸ · чек получен",
-  "✓ Google Sheets обновлён · склад: перфоратор 3 → 2",
-  "✓ Уведомление владельцу и курьеру отправлено — 0 действий вручную"
-];
-let flowBusy = false;
-$("#runFlow").onclick = async () => {
-  if (flowBusy) return; flowBusy = true;
-  const nodes = $$("#flow .node"), log = $("#flowLog");
-  log.innerHTML = "";
-  for (let i = 0; i < nodes.length; i++){
-    nodes.forEach((n, j) => n.classList.toggle("act", j === i));
-    const line = document.createElement("div"); line.textContent = flowSteps[i]; if (flowSteps[i][0] === "✓") line.className = "ok";
-    log.appendChild(line);
-    await new Promise(r => setTimeout(r, 850));
-  }
-  nodes.forEach(n => n.classList.add("act"));
-  setTimeout(() => { nodes.forEach(n => n.classList.remove("act")); flowBusy = false; }, 1600);
-};
-
-/* ===== AI chat ===== */
-const dialog = [
-  ["in","Здравствуйте, сколько стоит маникюр с покрытием?"],
-  ["out","Здравствуйте! 💅 Маникюр с покрытием гель-лак — 8 000 ₸, с дизайном — от 9 500 ₸. Есть свободные окна сегодня в 17:00 и завтра в 11:30. Записать вас?"],
-  ["in","Завтра 11:30 можно"],
-  ["out","Отлично! Записала вас на завтра, 11:30, мастер Айгерим ✨ Как вас зовут?"],
-  ["in","Дана"],
-  ["out","Дана, вы записаны ✅ Адрес: ул. Пример, 10. Напомню за 2 часа. Для брони можно внести 2 000 ₸ через Kaspi — отправить ссылку?"],
-];
-let aiRun = 0;
-async function playAi(){
-  const id = ++aiRun, body = $("#waBody"); body.innerHTML = "";
-  const t = () => new Date().toLocaleTimeString("ru-RU", {hour:"2-digit", minute:"2-digit"});
-  for (const [who, text] of dialog){
-    if (id !== aiRun) return;
-    if (who === "out"){
-      $("#waSt").textContent = "печатает…";
-      const ty = document.createElement("div"); ty.className = "typing"; ty.innerHTML = "<i></i><i></i><i></i>"; body.appendChild(ty);
-      await new Promise(r => setTimeout(r, 1100)); ty.remove(); $("#waSt").textContent = "в сети";
-    } else await new Promise(r => setTimeout(r, 700));
-    if (id !== aiRun) return;
-    const m = document.createElement("div"); m.className = "msg " + who; m.innerHTML = text + "<small>" + t() + (who === "out" ? " ✓✓" : "") + "</small>";
-    body.appendChild(m); body.scrollTop = body.scrollHeight;
-  }
-}
-$("#replayAi").onclick = playAi;
-
-/* ===== loss calculator ===== */
-function renderCalc(){
-  const n = +$("#c1").value, ch = +$("#c2").value, lp = +$("#c3").value, rp = +$("#c4").value;
-  $("#cv1").textContent = fmt(n); $("#cv2").textContent = tg(ch); $("#cv3").textContent = lp + "%"; $("#cv4").textContent = rp + "%";
-  const conv = .3, loss = n * lp/100 * conv * ch, ret = loss * rp/100;
-  $("#lossM").textContent = tg(loss); $("#lossY").textContent = tg(loss * 12); $("#lossR").textContent = tg(ret);
-  $("#calcCta").href = ctaLink("Здравствуйте! Посчитал(а) на сайте: теряю около " + tg(loss) + " в месяц (" + fmt(n) + " заявок, чек " + tg(ch) + "). Хочу диагностику.");
-  $("#calcCta").target = "_blank";
-}
-["#c1","#c2","#c3","#c4"].forEach(s => $(s).oninput = renderCalc);
-renderCalc();
-</script>
+<script src="kz.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
