@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Анкета перед диагностикой — Yelaman Lab</title>
+<meta name="description" content="Анкета перед диагностикой бизнеса. 10–15 минут — и на встрече мы сразу перейдём к решениям.">
+<meta property="og:title" content="Анкета перед диагностикой — Yelaman Lab">
+<meta property="og:image" content="https://yelamanlab.netlify.app/img/qural-saiman-case.jpg">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#07080c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080c'/%3E%3Cpath d='M16 18l10 14v14M48 18L38 32' stroke='%23c6ff3d' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080c;--bg2:#0c0e14;--card:#10131a;--line:#1f2430;--line2:#2a3040;--text:#eef0f4;--muted:#8c94a4;--dim:#5f6878;--lime:#c6ff3d;--red:#ff5c6c;
+  --h:"Unbounded",system-ui,sans-serif;--b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--b);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:0;z-index:20;background:rgba(7,8,12,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--h);font-weight:700;font-size:15px;color:var(--text);text-decoration:none;white-space:nowrap}
+.mark{width:30px;height:30px;border-radius:9px;background:var(--lime);display:grid;place-items:center}
+.mark svg{width:17px;height:17px}
+html[lang=kk]{--h:"Montserrat",system-ui,sans-serif}
+html[lang=kk] h1,html[lang=kk] .sec h2{font-weight:800}
+.lang{display:flex;border:1px solid var(--line2);border-radius:999px;padding:3px}
+.lang button{background:none;border:0;cursor:pointer;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:800;color:var(--muted)}
+.lang button.on{background:var(--text);color:var(--bg)}
+.progress{height:3px;background:var(--line)}
+.progress i{display:block;height:100%;width:0;background:var(--lime);transition:width .3s}
+.hero{padding:36px 0 8px}
+.eb{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:12px}
+h1{font-family:var(--h);font-size:clamp(26px,6vw,40px);line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
+.lead{color:var(--muted);font-size:16px}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:22px 0 6px}
+.info div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:13px;color:var(--muted)}
+.info b{display:block;color:var(--text);font-size:15px;margin-bottom:2px}
+@media(max-width:560px){.info{grid-template-columns:1fr}}
+.sec{margin-top:26px;border:1px solid var(--line);border-radius:22px;background:var(--card);padding:22px 18px}
+.sec h2{font-family:var(--h);font-size:18px;display:flex;gap:10px;align-items:center;margin-bottom:4px}
+.sec h2 span{flex:none;width:30px;height:30px;border-radius:9px;background:var(--lime);color:#0a0c06;display:grid;place-items:center;font-size:13px}
+.sec .hint{color:var(--muted);font-size:14px;margin-bottom:8px}
+.q{margin-top:18px}
+.q label.t{display:block;font-weight:700;font-size:15px;margin-bottom:8px}
+.q label.t small{font-weight:500;color:var(--dim);margin-left:4px}
+.q .req{color:var(--red)}
+input[type=text],input[type=tel],textarea{width:100%;background:var(--bg2);border:1px solid var(--line2);border-radius:12px;padding:12px 14px;font-size:16px;outline:none;transition:border-color .2s}
+textarea{min-height:88px;resize:vertical}
+input:focus,textarea:focus{border-color:var(--lime)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:inline-block;padding:9px 14px;border-radius:999px;border:1px solid var(--line2);background:var(--bg2);font-size:14px;font-weight:600;cursor:pointer;transition:.15s;user-select:none}
+.opt input:checked+span{background:var(--lime);color:#0a0c06;border-color:var(--lime)}
+.opt input:focus-visible+span{outline:2px solid var(--lime);outline-offset:2px}
+.prep{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.prep li{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.prep li::before{content:"□";color:var(--lime);font-weight:800}
+.files{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:999px;font-weight:800;font-size:15px;border:0;cursor:pointer;text-decoration:none;text-align:center}
+.btn-lime{background:var(--lime);color:#0a0c06}
+.btn-ghost{background:transparent;border:1px solid var(--line2);color:var(--text)}
+.submit{margin:28px 0 20px;display:flex;flex-direction:column;gap:10px}
+.submit .btn{width:100%;min-height:58px;font-size:16px}
+.err{color:var(--red);font-size:14px;min-height:20px}
+.saved{color:var(--dim);font-size:13px;text-align:center}
+footer{padding:20px 0 60px;color:var(--dim);font-size:13px;text-align:center}
+.done{display:none;margin-top:16px;padding:16px;border-radius:16px;background:rgba(198,255,61,.08);border:1px solid rgba(198,255,61,.35);font-size:15px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <a class="logo" href="./"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#0a0c06" stroke-width="3" stroke-linecap="round"><path d="M5 5l6 8v6M19 5l-5 6.5"/></svg></span>Yelaman Lab</a>
+    <div class="lang"><button data-l="ru" class="on">РУС</button><button data-l="kz">ҚАЗ</button></div>
+  </div>
+  <div class="progress"><i id="bar"></i></div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="eb" data-i="eb"></div>
+    <h1 data-i="h1"></h1>
+    <p class="lead" data-i="lead"></p>
+    <div class="info">
+      <div><b data-i="i1b"></b><span data-i="i1"></span></div>
+      <div><b data-i="i2b"></b><span data-i="i2"></span></div>
+      <div><b data-i="i3b"></b><span data-i="i3"></span></div>
+    </div>
+  </section>
+  <form id="f" novalidate></form>
+
+  <section class="sec">
+    <h2><span>✓</span><b data-i="prepT"></b></h2>
+    <p class="hint" data-i="prepH"></p>
+    <ul class="prep" id="prep"></ul>
+    <div class="files"><a class="btn btn-ghost" href="files/Yelaman-Lab-diagnostika.xlsx" download data-i="xls"></a></div>
+  </section>
+
+  <div class="submit">
+    <div class="err" id="err"></div>
+    <button class="btn btn-lime" id="send" type="button"></button>
+    <button class="btn btn-ghost" id="copy" type="button"></button>
+    <div class="saved" data-i="saved"></div>
+    <div class="done" id="done"></div>
+  </div>
+</main>
+<footer>© Yelaman Lab · yelamanlab.netlify.app</footer>
+
+<script>
+const WA = "77022541366";
+const T = {
+ ru:{eb:"Перед диагностикой",h1:"Анкета о вашем бизнесе",lead:"Ответьте на вопросы до встречи — тогда на диагностике мы не тратим время на сбор информации и сразу переходим к цифрам и решениям. Точные цифры не обязательны: «примерно» — тоже хороший ответ.",
+  i1b:"10–15 минут",i1:"на заполнение",i2b:"Конфиденциально",i2:"ответы видит только Еламан",i3b:"Диагностика · 10 000 ₸",i3:"после анкеты согласуем время",
+  prepT:"Подготовьте к встрече",prepH:"Если что-то есть под рукой — отправьте в WhatsApp до встречи. Если нет — ничего страшного.",
+  prep:["Выручка и основные расходы за последние 3–6 месяцев (Excel, 1С, Kaspi-выписка или даже фото тетради)","Ваш прайс-лист","Скриншоты 3–5 переписок с клиентами в WhatsApp / Direct (имена можно скрыть)","Скриншот статистики Instagram за 30 дней (охват, переходы в профиль)","Список того, что вы или сотрудники делаете руками каждый день"],
+  xls:"⬇ Скачать Excel-шаблон для цифр",send:"Отправить ответы в WhatsApp",copy:"Скопировать ответы",saved:"Ответы сохраняются на этом устройстве — можно вернуться и дописать позже.",
+  req:"Заполните обязательные поля:",copied:"Скопировано. Вставьте ответы в WhatsApp-чат с Еламаном: +7 702 254 13 66",
+  doneTxt:"Открылся WhatsApp с вашими ответами — нажмите «Отправить». Если WhatsApp не открылся, нажмите «Скопировать ответы» и отправьте их на +7 702 254 13 66.",
+  msgHead:"Анкета перед диагностикой — Yelaman Lab",many:"можно несколько"},
+ kz:{eb:"Диагностикаға дейін",h1:"Бизнесіңіз туралы сауалнама",lead:"Сұрақтарға кездесуге дейін жауап беріңіз — сонда диагностикада ақпарат жинауға уақыт жоғалтпай, бірден сандар мен шешімдерге көшеміз. Нақты сан міндетті емес: «шамамен» де — жақсы жауап.",
+  i1b:"10–15 минут",i1:"толтыруға",i2b:"Құпия",i2:"жауаптарды тек Еламан көреді",i3b:"Диагностика · 10 000 ₸",i3:"сауалнамадан кейін уақытты келісеміз",
+  prepT:"Кездесуге дайындаңыз",prepH:"Қолыңызда бар болса — кездесуге дейін WhatsApp-қа жіберіңіз. Жоқ болса — оқасы жоқ.",
+  prep:["Соңғы 3–6 айдағы түсім мен негізгі шығындар (Excel, 1С, Kaspi-үзінді немесе дәптердің фотосы)","Прайс-парағыңыз","Клиенттермен WhatsApp / Direct-тегі 3–5 хат алмасудың скриншоты (есімдерді жасыруға болады)","Instagram-ның 30 күндік статистикасының скриншоты (қамту, профильге өту)","Сіз не қызметкерлер күнде қолмен істейтін жұмыстардың тізімі"],
+  xls:"⬇ Сандарға арналған Excel үлгісін жүктеу",send:"Жауаптарды WhatsApp-қа жіберу",copy:"Жауаптарды көшіру",saved:"Жауаптар осы құрылғыда сақталады — кейін қайта кіріп, толықтыруға болады.",
+  req:"Міндетті жолдарды толтырыңыз:",copied:"Көшірілді. Жауаптарды Еламанмен WhatsApp-чатқа қойыңыз: +7 702 254 13 66",
+  doneTxt:"WhatsApp жауаптарыңызбен ашылды — «Жіберу» батырмасын басыңыз. Ашылмаса, «Жауаптарды көшіру» батырмасын басып, +7 702 254 13 66 нөміріне жіберіңіз.",
+  msgHead:"Диагностика алдындағы сауалнама — Yelaman Lab",many:"бірнешеуін таңдауға болады"}
+};
+// [id, type, label ru, label kz, [options ru, options kz], required, placeholder ru, placeholder kz]
+const S = [
+ {ru:"О бизнесе",kz:"Бизнес туралы",q:[
+  ["name","text","Ваше имя и должность","Есіміңіз және лауазымыңыз",null,1],
+  ["phone","tel","Телефон / WhatsApp","Телефон / WhatsApp",null,1],
+  ["biz","text","Название бизнеса и ниша","Бизнес атауы және саласы",null,1,"Например: салон красоты «Sakura»","Мысалы: «Sakura» сұлулық салоны"],
+  ["city","text","Город и количество точек / филиалов","Қала және нүкте / филиал саны",null,1],
+  ["links","text","Instagram / сайт / 2GIS","Instagram / сайт / 2GIS",null,0],
+  ["age","radio","Сколько лет работает бизнес?","Бизнес неше жыл жұмыс істеп келеді?",[["до 1 года","1–3 года","3–5 лет","больше 5 лет"],["1 жылға дейін","1–3 жыл","3–5 жыл","5 жылдан көп"]],0],
+  ["staff","radio","Сколько людей в команде?","Командада неше адам бар?",[["только я","2–5","6–15","16–50","больше 50"],["тек мен","2–5","6–15","16–50","50-ден көп"]],0],
+ ]},
+ {ru:"Деньги",kz:"Ақша",q:[
+  ["rev","radio","Средняя выручка в месяц","Айлық орташа түсім",[["до 1 млн ₸","1–3 млн ₸","3–10 млн ₸","10–30 млн ₸","больше 30 млн ₸"],["1 млн ₸-ге дейін","1–3 млн ₸","3–10 млн ₸","10–30 млн ₸","30 млн ₸-ден көп"]],1],
+  ["profit","radio","Знаете ли вы чистую прибыль по месяцам?","Айлар бойынша таза пайданы білесіз бе?",[["да, точно","примерно","нет"],["иә, нақты","шамамен","жоқ"]],1],
+  ["acc","check","Где ведёте учёт денег?","Ақша есебін қайда жүргізесіз?",[["тетрадь","Excel / Google Sheets","1С","бухгалтер","Kaspi / банк","нигде"],["дәптер","Excel / Google Sheets","1С","бухгалтер","Kaspi / банк","еш жерде"]],0],
+  ["costs","textarea","Основные расходы в месяц (примерно)","Айлық негізгі шығындар (шамамен)",null,0,"Аренда, зарплаты, закуп, реклама, прочее","Жалдау, жалақы, тауар алу, жарнама, басқа"],
+  ["gap","radio","Бывают кассовые разрывы (нечем заплатить вовремя)?","Кассалық үзіліс болады ма (уақытында төлейтін ақша жоқ)?",[["часто","иногда","нет"],["жиі","кейде","жоқ"]],0],
+ ]},
+ {ru:"Клиенты и маркетинг",kz:"Клиенттер және маркетинг",q:[
+  ["src","check","Откуда приходят клиенты?","Клиенттер қайдан келеді?",[["Instagram","таргет-реклама","2GIS","сарафан / рекомендации","Kaspi","сайт","WhatsApp-рассылки","проходящий трафик"],["Instagram","таргет-жарнама","2GIS","ауызша / ұсыныс","Kaspi","сайт","WhatsApp-таратылым","өтіп бара жатқандар"]],1],
+  ["leads","text","Сколько обращений (заявок) в месяц?","Айына неше өтінім келеді?",null,0,"Примерно, например 150","Шамамен, мысалы 150"],
+  ["check","text","Средний чек, ₸","Орташа чек, ₸",null,0],
+  ["repeat","radio","Какая доля клиентов возвращается повторно?","Клиенттердің қаншасы қайта келеді?",[["меньше 20%","20–40%","40–60%","больше 60%","не знаю"],["20%-дан аз","20–40%","40–60%","60%-дан көп","білмеймін"]],0],
+  ["ads","text","Бюджет на рекламу в месяц, ₸","Айлық жарнама бюджеті, ₸",null,0],
+ ]},
+ {ru:"Продажи и процессы",kz:"Сату және процестер",q:[
+  ["where","check","Где принимаете заявки?","Өтінімдерді қайда қабылдайсыз?",[["WhatsApp","Instagram Direct","звонки","сайт","лично","Telegram"],["WhatsApp","Instagram Direct","қоңырау","сайт","жеке","Telegram"]],0],
+  ["speed","radio","Как быстро отвечаете на новую заявку?","Жаңа өтінімге қаншалықты тез жауап бересіз?",[["до 5 минут","до 1 часа","в течение дня","по-разному"],["5 минутқа дейін","1 сағатқа дейін","күн ішінде","әртүрлі"]],0],
+  ["crm","radio","Есть ли CRM или таблица заявок?","CRM немесе өтінімдер кестесі бар ма?",[["CRM","таблица","нет"],["CRM","кесте","жоқ"]],0],
+  ["manual","textarea","Что вы или сотрудники делаете руками каждый день?","Сіз не қызметкерлер күнде қолмен не істейсіздер?",null,0,"Например: отвечаем на одни и те же вопросы, переписываем заказы в тетрадь…","Мысалы: бірдей сұрақтарға жауап береміз, тапсырысты дәптерге көшіреміз…"],
+ ]},
+ {ru:"Цели",kz:"Мақсаттар",q:[
+  ["pain","textarea","Главная проблема бизнеса прямо сейчас","Бизнестің қазіргі басты мәселесі",null,1],
+  ["goal","textarea","Чего хотите добиться за 6 месяцев?","6 айда неге жеткіңіз келеді?",null,1,"В цифрах, если можно","Мүмкін болса, санмен"],
+  ["tried","textarea","Что уже пробовали и что не сработало?","Не істеп көрдіңіз, не нәтиже бермеді?",null,0],
+  ["fmt","radio","Удобный формат диагностики","Диагностиканың ыңғайлы форматы",[["онлайн (Zoom / Meet)","звонок WhatsApp","встреча лично"],["онлайн (Zoom / Meet)","WhatsApp қоңырау","жеке кездесу"]],0],
+  ["when","text","Удобные дни и время","Ыңғайлы күндер мен уақыт",null,0],
+ ]},
+];
+let LANG = "ru", data = {};
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const k = (ru, kz) => LANG === "kz" ? kz : ru;
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+try { data = JSON.parse(localStorage.getItem("yl-brief") || "{}") || {}; } catch(e){ data = {}; }
+function save(){ try { localStorage.setItem("yl-brief", JSON.stringify(data)); } catch(e){} }
+
+function render(){
+  const tr = T[LANG];
+  $$("[data-i]").forEach(el => { el.textContent = tr[el.dataset.i]; });
+  $("#prep").innerHTML = tr.prep.map(p => "<li>" + esc(p) + "</li>").join("");
+  $("#send").textContent = tr.send; $("#copy").textContent = tr.copy;
+  document.documentElement.lang = LANG === "kz" ? "kk" : "ru";
+  document.title = k("Анкета перед диагностикой — Yelaman Lab", "Диагностика алдындағы сауалнама — Yelaman Lab");
+  $$(".lang button").forEach(b => b.classList.toggle("on", b.dataset.l === LANG));
+  $("#f").innerHTML = S.map((sec, si) => "<section class='sec'><h2><span>" + (si + 1) + "</span>" + k(sec.ru, sec.kz) + "</h2>" + sec.q.map(field).join("") + "</section>").join("");
+  $$("#f input, #f textarea").forEach(el => el.addEventListener("input", collect));
+  progress();
+}
+function field([id, type, ru, kz, opts, req, hru, hkz]){
+  const star = req ? " <span class='req'>*</span>" : "";
+  const v = data[id];
+  const ph = hru ? " placeholder='" + esc(k(hru, hkz)) + "'" : "";
+  if (type === "textarea") return "<div class='q'><label class='t' for='" + id + "'>" + k(ru, kz) + star + "</label><textarea id='" + id + "'" + ph + ">" + esc(v || "") + "</textarea></div>";
+  if (type === "radio" || type === "check"){
+    const shown = k(opts[0], opts[1]);
+    const sel = Array.isArray(v) ? v : (v != null ? [v] : []);
+    return "<div class='q'><label class='t'>" + k(ru, kz) + star + (type === "check" ? " <small>" + T[LANG].many + "</small>" : "") + "</label><div class='opts'>" +
+      shown.map((o, i) => "<label class='opt'><input type='" + (type === "check" ? "checkbox" : "radio") + "' name='" + id + "' value='" + i + "'" + (sel.includes(i) ? " checked" : "") + "><span>" + esc(o) + "</span></label>").join("") + "</div></div>";
+  }
+  return "<div class='q'><label class='t' for='" + id + "'>" + k(ru, kz) + star + "</label><input type='" + type + "' id='" + id + "' value='" + esc(v || "") + "'" + ph + (type === "tel" ? " inputmode='tel'" : "") + "></div>";
+}
+function collect(){
+  S.forEach(sec => sec.q.forEach(([id, type]) => {
+    if (type === "radio"){ const c = $("#f input[name='" + id + "']:checked"); data[id] = c ? +c.value : null; }
+    else if (type === "check"){ data[id] = $$("#f input[name='" + id + "']:checked").map(c => +c.value); }
+    else { const el = $("#" + id); data[id] = el ? el.value.trim() : ""; }
+  }));
+  save(); progress();
+}
+function filled(id, type){ const v = data[id]; return type === "check" ? Array.isArray(v) && v.length > 0 : v !== null && v !== undefined && v !== ""; }
+function progress(){
+  const all = S.flatMap(s => s.q);
+  $("#bar").style.width = Math.round(all.filter(([id, type]) => filled(id, type)).length / all.length * 100) + "%";
+}
+function message(){
+  const lines = ["*" + T[LANG].msgHead + "*", ""];
+  S.forEach(sec => {
+    if (!sec.q.some(([id, type]) => filled(id, type))) return;
+    lines.push("*" + k(sec.ru, sec.kz) + "*");
+    sec.q.forEach(([id, type, ru, kz, opts]) => {
+      if (!filled(id, type)) return;
+      let v = data[id];
+      if (type === "radio") v = k(opts[0], opts[1])[v];
+      else if (type === "check") v = v.map(i => k(opts[0], opts[1])[i]).join(", ");
+      lines.push("• " + k(ru, kz) + ": " + v);
+    });
+    lines.push("");
+  });
+  return lines.join("\n").trim();
+}
+const missing = () => S.flatMap(s => s.q).filter(q => q[5] && !filled(q[0], q[1])).map(q => k(q[2], q[3]));
+$("#send").onclick = () => {
+  collect();
+  const m = missing();
+  if (m.length){ $("#err").textContent = T[LANG].req + " " + m.join(", "); $("#err").scrollIntoView({block:"center"}); return; }
+  $("#err").textContent = "";
+  window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(message()), "_blank", "noopener");
+  $("#done").textContent = T[LANG].doneTxt; $("#done").style.display = "block";
+};
+$("#copy").onclick = async () => {
+  collect();
+  const txt = message();
+  try { await navigator.clipboard.writeText(txt); }
+  catch(e){ const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch(_){} ta.remove(); }
+  $("#done").textContent = T[LANG].copied; $("#done").style.display = "block";
+};
+$$(".lang button").forEach(b => b.onclick = () => { collect(); LANG = b.dataset.l; try { localStorage.setItem("yl-lang", LANG); } catch(e){} render(); });
+try { LANG = localStorage.getItem("yl-lang") === "kz" ? "kz" : "ru"; } catch(e){}
+const qp = new URLSearchParams(location.search).get("lang"); if (qp) LANG = (qp === "kz" || qp === "kk") ? "kz" : "ru";
+render();
+</script>
+</body>
+</html>
