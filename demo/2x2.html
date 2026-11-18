@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2x2 — языковая школа, Шахтинск</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--ink:#14213d;--mute:#5b6478;--line:#e3e8f2;--blue:#2f5bea;--blue2:#e8eeff;--yel:#ffc93c;--green:#1faa59;--wa:#25d366;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Montserrat,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+.demo{background:var(--ink);color:#fff;font-size:13px;text-align:center;padding:8px 16px}
+.demo b{color:var(--yel)}
+header{padding:28px 0 8px}
+.top{display:flex;align-items:center;gap:14px}
+.logo{width:64px;height:64px;border-radius:18px;background:var(--blue);color:#fff;font-weight:800;font-size:26px;display:grid;place-items:center;box-shadow:0 8px 20px #2f5bea33;flex:none}
+.logo span{color:var(--yel)}
+h1{font-size:26px;font-weight:800;line-height:1.15}
+.sub{color:var(--mute);font-size:14px;margin-top:4px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+.pill.star{background:#fff7dd;border-color:#ffe29a}
+.hero{background:linear-gradient(135deg,var(--blue),#5b7cff);color:#fff;border-radius:var(--r);padding:24px;margin:16px 0;display:grid;gap:14px}
+.hero h2{font-size:22px;line-height:1.25}
+.hero p{opacity:.9;font-size:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:14px 20px;font:700 15px Montserrat,sans-serif;cursor:pointer;text-decoration:none}
+.btn.y{background:var(--yel);color:var(--ink)}
+.btn.w{background:var(--wa);color:#fff;width:100%}
+section{margin:28px 0}
+h3{font-size:20px;font-weight:800;margin-bottom:12px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.card h4{font-size:16px;margin-bottom:4px}
+.card .age{font-size:12px;font-weight:700;color:var(--blue);background:var(--blue2);display:inline-block;border-radius:8px;padding:3px 8px;margin-bottom:8px}
+.card p{font-size:13px;color:var(--mute)}
+.price{font-size:18px;font-weight:800;margin-top:10px}
+.price small{font-size:12px;color:var(--mute);font-weight:600}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);font-size:13px}
+th,td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line)}
+th{background:var(--blue2);color:var(--blue);font-weight:700}
+td:first-child,th:first-child{text-align:left;font-weight:700}
+.tw{overflow-x:auto;border-radius:var(--r)}
+form{display:grid;gap:12px}
+label{font-size:13px;font-weight:700;display:grid;gap:6px}
+input,select{font:500 15px Montserrat,sans-serif;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;width:100%}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;font:600 13px Montserrat,sans-serif;cursor:pointer;color:var(--ink)}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.chip.off{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.two{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.note{font-size:12px;color:var(--mute)}
+.lbl{font-size:13px;font-weight:700;margin-bottom:6px}
+.admin{background:var(--ink);color:#fff;border-radius:var(--r);padding:22px}
+.admin h3{color:#fff}
+.admin .lead{color:#c9d2e8;font-size:14px;margin-bottom:16px}
+.chat{background:#0b141a;border-radius:16px;padding:14px;display:grid;gap:8px;font-size:13px}
+.bub{background:#005c4b;color:#e9edef;border-radius:10px 10px 10px 2px;padding:9px 11px;max-width:92%}
+.bub i{display:block;font-style:normal;font-size:11px;color:#8fd3c2;margin-bottom:3px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.stat{background:#ffffff12;border-radius:14px;padding:12px}
+.stat b{font-size:22px;display:block}
+.stat span{font-size:11px;color:#c9d2e8}
+.list{background:#ffffff0d;border-radius:14px;overflow:hidden}
+.row{display:grid;grid-template-columns:1.4fr 1fr .9fr;gap:8px;padding:10px 12px;font-size:13px;border-bottom:1px solid #ffffff14}
+.row:last-child{border:0}
+.ok{color:#6ee7a1;font-weight:700}.due{color:#ffd166;font-weight:700}
+.adm-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+footer{text-align:center;color:var(--mute);font-size:12px;padding:28px 16px 40px}
+footer a{color:var(--blue);font-weight:700}
+@media(max-width:520px){h1{font-size:22px}.two{grid-template-columns:1fr}.stat b{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="demo"><b>Демо-версия</b> для школы 2x2 · курсы, цены и расписание примерные — заменим на ваши</div>
+
+<header class="wrap">
+  <div class="top">
+    <div class="logo">2<span>x</span>2</div>
+    <div>
+      <h1>2x2 — языковая школа</h1>
+      <div class="sub">Шахтинск · пр. Абая, 54, офис 502, 5 этаж</div>
+    </div>
+  </div>
+  <div class="pills">
+    <span class="pill star">⭐ 5,0 в 2ГИС</span>
+    <span class="pill">Дети · подростки · взрослые</span>
+    <span class="pill">Пробный урок</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <h2>Английский, на котором ребёнок начинает говорить</h2>
+    <p>Мини-группы до 8 человек, разговорная практика с первого занятия. Запишитесь на пробный урок — выберите курс и удобное время прямо здесь.</p>
+    <div><a href="#book" class="btn y">Записаться на пробный урок →</a></div>
+  </div>
+
+  <section>
+    <h3>Курсы</h3>
+    <div class="grid" id="courses"></div>
+  </section>
+
+  <section>
+    <h3>Расписание групп</h3>
+    <div class="tw"><table>
+      <tr><th>Группа</th><th>Пн/Ср</th><th>Вт/Чт</th><th>Сб</th></tr>
+      <tr><td>Kids 6–9</td><td>15:00</td><td>15:00</td><td>10:00</td></tr>
+      <tr><td>Junior 10–13</td><td>16:30</td><td>16:30</td><td>11:30</td></tr>
+      <tr><td>Teens 14–17</td><td>18:00</td><td>18:00</td><td>13:00</td></tr>
+      <tr><td>Взрослые</td><td>19:30</td><td>19:30</td><td>—</td></tr>
+    </table></div>
+  </section>
+
+  <section id="book">
+    <h3>Запись на пробный урок</h3>
+    <div class="card">
+      <form id="f">
+        <label>Курс<select id="course"></select></label>
+        <div class="two">
+          <label>Имя ученика<input id="kid" placeholder="Например, Айару" required></label>
+          <label>Возраст<input id="age" type="number" min="4" max="70" placeholder="8" required></label>
+        </div>
+        <div><div class="lbl">День</div><div class="chips" id="days"></div></div>
+        <div><div class="lbl">Время</div><div class="chips" id="times"></div><div class="note" style="margin-top:6px">Зачёркнутое время уже занято</div></div>
+        <div class="two">
+          <label>Имя родителя<input id="parent" placeholder="Ваше имя" required></label>
+          <label>Телефон<input id="phone" type="tel" placeholder="+7 7__ ___ __ __" required></label>
+        </div>
+        <button class="btn w" type="submit">Отправить заявку в WhatsApp</button>
+        <div class="note">Заявка сразу приходит администратору школы — без звонков и ожидания ответа.</div>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <div class="admin">
+      <h3>А это видит школа</h3>
+      <p class="lead">Всё ниже работает автоматически — администратору не нужно писать каждому родителю вручную.</p>
+      <div class="adm-grid">
+        <div class="chat">
+          <div class="bub"><i>Напоминание · за день до урока</i>Здравствуйте, Айгерим! Напоминаем: завтра у Айару пробный урок в 2x2 в 15:00, пр. Абая 54, офис 502. Ждём вас 😊</div>
+          <div class="bub"><i>Оплата · 1 число месяца</i>Добрый день! Напоминаем об оплате за декабрь — 18 000 ₸ (Kids 6–9). Оплатить можно через Kaspi.</div>
+          <div class="bub"><i>Пропуски · после 2 пропусков</i>Здравствуйте! Данияр пропустил 2 урока. Всё в порядке? Можем подобрать более удобную группу.</div>
+        </div>
+        <div>
+          <div class="stats">
+            <div class="stat"><b>46</b><span>учеников</span></div>
+            <div class="stat"><b>39</b><span>оплатили</span></div>
+            <div class="stat"><b>5</b><span>заявок на пробный</span></div>
+          </div>
+          <div class="list">
+            <div class="row"><span>Айару, 8</span><span>Kids 6–9</span><span class="ok">оплачено</span></div>
+            <div class="row"><span>Данияр, 12</span><span>Junior</span><span class="due">до 05.12</span></div>
+            <div class="row"><span>Милана, 15</span><span>Teens</span><span class="ok">оплачено</span></div>
+            <div class="row"><span>Ерасыл, 7</span><span>Kids 6–9</span><span class="due">пробный · пт</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Демо подготовил <a href="https://wa.me/77075834515">Yelaman Lab</a> — онлайн-запись, автоматизация и маркетинг для бизнеса</footer>
+
+<script>
+const SCHOOL_WA='77003349335';
+const courses=[
+ {n:'Kids 6–9',a:'6–9 лет',d:'Игровой английский: песни, карточки, первые фразы.',p:'18 000'},
+ {n:'Junior 10–13',a:'10–13 лет',d:'Грамматика + разговорная практика, задания онлайн.',p:'20 000'},
+ {n:'Teens 14–17',a:'14–17 лет',d:'Уверенный английский, подготовка к ЕНТ и IELTS.',p:'22 000'},
+ {n:'Взрослые',a:'18+',d:'Для работы и путешествий, с нуля или с любого уровня.',p:'22 000'}
+];
+const cEl=document.getElementById('courses'),sel=document.getElementById('course');
+courses.forEach(c=>{cEl.insertAdjacentHTML('beforeend',`<div class="card"><span class="age">${c.a}</span><h4>${c.n}</h4><p>${c.d}</p><div class="price">${c.p} ₸ <small>/ месяц · 8 занятий</small></div></div>`);sel.insertAdjacentHTML('beforeend',`<option>${c.n}</option>`)});
+const days=['Пн','Вт','Ср','Чт','Сб'],times=['10:00','11:30','15:00','16:30','18:00','19:30'],busy={'Пн':['15:00'],'Ср':['18:00'],'Сб':['10:00']};
+let day='Пн',time='';
+function draw(){
+ document.getElementById('days').innerHTML=days.map(d=>`<button type="button" class="chip${d===day?' on':''}" data-d="${d}">${d}</button>`).join('');
+ document.getElementById('times').innerHTML=times.map(t=>{const b=(busy[day]||[]).includes(t);return `<button type="button" class="chip${b?' off':''}${t===time?' on':''}" data-t="${t}" ${b?'disabled':''}>${t}</button>`}).join('');
+}
+document.getElementById('days').onclick=e=>{const d=e.target.dataset.d;if(d){day=d;time='';draw()}};
+document.getElementById('times').onclick=e=>{const t=e.target.dataset.t;if(t){time=t;draw()}};
+draw();
+document.getElementById('f').onsubmit=e=>{
+ e.preventDefault();
+ if(!time){alert('Выберите время');return}
+ const v=id=>document.getElementById(id).value.trim();
+ const msg=encodeURIComponent(`Здравствуйте! Заявка на пробный урок (с сайта 2x2)\n\nКурс: ${v('course')}\nУченик: ${v('kid')}, ${v('age')} лет\nКогда: ${day}, ${time}\nРодитель: ${v('parent')}\nТелефон: ${v('phone')}`);
+ window.open(`https://wa.me/${SCHOOL_WA}?text=${msg}`,'_blank');
+};
+</script>
+</body>
+</html>
