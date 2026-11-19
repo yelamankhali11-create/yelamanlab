@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Podium — салон красоты, Караганда</title>
+<meta name="description" content="Podium — салон красоты в Караганде. Онлайн-запись к мастеру за 1 минуту.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8f5f1;--ink:#1f1b18;--mut:#7a716a;--acc:#a8875a;--acc2:#efe6d8;--line:#e8e0d5;--ok:#25a35a;--dark:#1f1b18}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+a{color:inherit;text-decoration:none}
+.demo{background:#000;color:#fff;text-align:center;font-size:13px;padding:7px 12px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+nav{position:sticky;top:0;z-index:20;background:rgba(248,245,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;letter-spacing:3px}
+.nr{display:flex;gap:8px;align-items:center}
+.lang{border:1px solid var(--line);background:#fff;border-radius:20px;padding:6px 12px;font-size:13px;font-weight:600;cursor:pointer}
+.btn{display:inline-block;background:var(--dark);color:#fff;padding:12px 24px;border-radius:26px;font-weight:600;border:0;cursor:pointer;font-size:15px;font-family:inherit}
+.btn.g{background:var(--acc)}
+.btn.sm{padding:9px 16px;font-size:14px}
+.hero{padding:56px 0 44px;text-align:center}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,7vw,64px);line-height:1.05;margin-bottom:14px}
+.hero p{color:var(--mut);max-width:540px;margin:0 auto 24px;font-size:17px}
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--mut)}
+.badges span{background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 14px}
+section{padding:42px 0}
+h2{font-family:'Cormorant Garamond',serif;font-size:38px;line-height:1.1;margin-bottom:8px}
+.sub{color:var(--mut);margin-bottom:22px}
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.sc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+.sc h3{font-size:18px;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+.sc li{list-style:none;display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.sc li:last-child{border:0}
+.sc li b{white-space:nowrap}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.m{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;text-align:center}
+.av{width:84px;height:84px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:700;color:#fff}
+.m small{color:var(--mut);display:block;margin-bottom:10px}
+/* booking */
+.book{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px}
+.steps{display:flex;gap:6px;margin-bottom:18px}
+.steps span{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.steps span.on{background:var(--acc)}
+.st h3{font-size:18px;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.opt{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:12px;text-align:left;cursor:pointer;font-family:inherit;font-size:14px}
+.opt small{display:block;color:var(--mut)}
+.opt.on{border-color:var(--acc);background:var(--acc2)}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px}
+.day{flex:none;width:62px;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:8px 0;text-align:center;cursor:pointer;font-family:inherit}
+.day small{display:block;color:var(--mut);font-size:12px}
+.day b{font-size:18px}
+.day.on{border-color:var(--acc);background:var(--acc2)}
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:8px}
+.tm{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 0;cursor:pointer;font-family:inherit;font-size:14px}
+.tm.on{border-color:var(--acc);background:var(--acc2);font-weight:700}
+.tm:disabled{opacity:.35;text-decoration:line-through;cursor:default}
+.fm{display:grid;gap:10px;max-width:420px}
+.fm input{border:1px solid var(--line);border-radius:12px;padding:12px;font-size:15px;font-family:inherit}
+.sum{background:var(--acc2);border-radius:14px;padding:14px;margin-bottom:14px;font-size:14px}
+.nav2{display:flex;justify-content:space-between;margin-top:18px;gap:10px}
+.back{background:none;border:0;color:var(--mut);cursor:pointer;font-family:inherit;font-size:14px}
+.okbox{text-align:center;padding:20px 0}
+.okbox .ic{font-size:46px}
+/* owner view */
+.owner{background:var(--dark);color:#fff;border-radius:24px;padding:30px 24px}
+.owner h2{color:#fff}
+.owner .sub{color:#bdb3a8}
+.og{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.ob{background:#2c2622;border-radius:16px;padding:18px}
+.ob h4{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--acc);margin-bottom:12px}
+.bub{background:#dcf8c6;color:#111;border-radius:12px 12px 12px 2px;padding:10px 12px;font-size:13px;margin-bottom:8px}
+.bub small{display:block;color:#667;font-size:11px;margin-top:4px}
+.row{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-bottom:1px solid #3a332e}
+.row:last-child{border:0}
+.kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi div{background:#3a332e;border-radius:12px;padding:12px}
+.kpi b{display:block;font-size:22px}
+.kpi small{color:#bdb3a8;font-size:12px}
+.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.rv{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;font-size:14px}
+.rv .s{color:#e0a100;margin-bottom:6px}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.contact a,.contact div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:block}
+.contact small{color:var(--mut);display:block}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 0 90px}
+.fab{position:fixed;right:16px;bottom:16px;background:var(--dark);color:#fff;border-radius:28px;padding:14px 20px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:30}
+@media(max-width:600px){h2{font-size:30px}.book{padding:18px}.opts{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="demo" data-i="Демо-версия: услуги, цены и мастера показаны для примера">Демо-версия: услуги, цены и мастера показаны для примера</div>
+<nav><div class="wrap">
+  <a class="logo" href="#">PODIUM</a>
+  <div class="nr"><button class="lang" id="lang">KZ</button><a class="btn sm" href="#book" data-i="Записаться">Записаться</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <h1 data-i="Салон красоты Podium">Салон красоты Podium</h1>
+  <p data-i="Запишитесь к мастеру за 1 минуту — без звонков и переписки. Выберите услугу, мастера и удобное время.">Запишитесь к мастеру за 1 минуту — без звонков и переписки. Выберите услугу, мастера и удобное время.</p>
+  <a class="btn g" href="#book" data-i="Онлайн-запись">Онлайн-запись</a>
+  <div class="badges">
+    <span data-i="⭐ 4,8 · 158 оценок в 2ГИС">⭐ 4,8 · 158 оценок в 2ГИС</span>
+    <span data-i="📍 пр. Бухар-жырау, 79">📍 пр. Бухар-жырау, 79</span>
+  </div>
+</div></header>
+
+<section id="book"><div class="wrap">
+  <h2 data-i="Онлайн-запись">Онлайн-запись</h2>
+  <p class="sub" data-i="Свободные окна обновляются автоматически">Свободные окна обновляются автоматически</p>
+  <div class="book">
+    <div class="steps" id="steps"><span></span><span></span><span></span><span></span></div>
+    <div id="bk"></div>
+  </div>
+</div></section>
+
+<section id="services"><div class="wrap">
+  <h2 data-i="Услуги и цены">Услуги и цены</h2>
+  <p class="sub" data-i="Точная стоимость зависит от длины и сложности">Точная стоимость зависит от длины и сложности</p>
+  <div class="svc" id="svc"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 data-i="Наши мастера">Наши мастера</h2>
+  <p class="sub" data-i="Можно выбрать любимого мастера при записи">Можно выбрать любимого мастера при записи</p>
+  <div class="team" id="team"></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="owner">
+    <h2 data-i="А это видит салон">А это видит салон</h2>
+    <p class="sub" data-i="Всё работает само — администратор не тратит время на переписку">Всё работает само — администратор не тратит время на переписку</p>
+    <div class="og">
+      <div class="ob">
+        <h4 data-i="Автосообщения клиентам">Автосообщения клиентам</h4>
+        <div class="bub" data-i="Айгерим, напоминаем: завтра в 14:00 маникюр у мастера Дины 💅 Ответьте 1 — подтвердить, 2 — перенести.">Айгерим, напоминаем: завтра в 14:00 маникюр у мастера Дины 💅 Ответьте 1 — подтвердить, 2 — перенести.</div>
+        <div class="bub" data-i="Спасибо, что были у нас! Оцените визит в 2ГИС — это займёт 10 секунд ⭐">Спасибо, что были у нас! Оцените визит в 2ГИС — это займёт 10 секунд ⭐</div>
+        <div class="bub" data-i="Мадина, прошло 4 недели с окрашивания — пора обновить цвет? Свободные окна: …">Мадина, прошло 4 недели с окрашивания — пора обновить цвет? Свободные окна: …</div>
+      </div>
+      <div class="ob">
+        <h4 data-i="Записи на сегодня">Записи на сегодня</h4>
+        <div class="row"><span>10:00 · Асель</span><span data-i="Стрижка">Стрижка</span></div>
+        <div class="row"><span>11:30 · Дана</span><span data-i="Маникюр + покрытие">Маникюр + покрытие</span></div>
+        <div class="row"><span>13:00 · Айгерим</span><span data-i="Окрашивание">Окрашивание</span></div>
+        <div class="row"><span>15:00 · Жанна</span><span data-i="Брови">Брови</span></div>
+        <div class="row"><span>17:30 · Камила</span><span data-i="Укладка">Укладка</span></div>
+      </div>
+      <div class="ob">
+        <h4 data-i="Итоги месяца">Итоги месяца</h4>
+        <div class="kpi">
+          <div><b>312</b><small data-i="записей">записей</small></div>
+          <div><b>−60%</b><small data-i="неявок">неявок</small></div>
+          <div><b>47%</b><small data-i="клиентов вернулись">клиентов вернулись</small></div>
+          <div><b>+23</b><small data-i="новых отзыва">новых отзыва</small></div>
+        </div>
+        <p style="font-size:12px;color:#bdb3a8;margin-top:10px" data-i="Цифры для примера">Цифры для примера</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 data-i="Контакты">Контакты</h2>
+  <div class="contact">
+    <a href="https://2gis.kz/karaganda/firm/11822477302828894" target="_blank"><small>2ГИС</small><b data-i="пр. Бухар-жырау, 79">пр. Бухар-жырау, 79</b></a>
+    <a href="https://wa.me/77075255578" target="_blank"><small>WhatsApp</small><b>+7 707 525 55 78</b></a>
+    <a href="https://instagram.com/podium.beauty.krg" target="_blank"><small>Instagram</small><b>@podium.beauty.krg</b></a>
+  </div>
+</div></section>
+
+<footer>© Podium, Караганда</footer>
+<a class="fab" href="#book" data-i="📅 Записаться">📅 Записаться</a>
+
+<script>
+const WA='77075255578';
+const S=[
+ {id:'hair',e:'✂️',n:'Волосы',k:'Шаш',items:[['Женская стрижка','Әйелдер шаш қиюы',6000,60],['Укладка','Сәндеу',5000,45],['Окрашивание в один тон','Бір түсті бояу',15000,120],['Сложное окрашивание','Күрделі бояу',30000,180]]},
+ {id:'nails',e:'💅',n:'Ногти',k:'Тырнақ',items:[['Маникюр + покрытие','Маникюр + жабын',7000,90],['Педикюр + покрытие','Педикюр + жабын',9000,90],['Наращивание','Ұзарту',12000,150]]},
+ {id:'brow',e:'👁️',n:'Брови и ресницы',k:'Қас пен кірпік',items:[['Коррекция и окрашивание бровей','Қас түзету және бояу',4000,40],['Ламинирование ресниц','Кірпік ламинациясы',8000,60],['Наращивание ресниц','Кірпік ұзарту',10000,120]]},
+ {id:'make',e:'💄',n:'Макияж',k:'Макияж',items:[['Дневной макияж','Күндізгі макияж',8000,60],['Вечерний / свадебный','Кешкі / үйлену',15000,90]]}
+];
+const M=[
+ {n:'Дина',r:'Мастер маникюра',rk:'Маникюр шебері',c:['nails'],g:'#c9a27a'},
+ {n:'Алия',r:'Парикмахер-колорист',rk:'Шаштараз-колорист',c:['hair'],g:'#8a6d55'},
+ {n:'Сабина',r:'Бровист, лэшмейкер',rk:'Бровист, лэшмейкер',c:['brow','make'],g:'#b07c8a'},
+ {n:'Жанар',r:'Универсал',rk:'Әмбебап шебер',c:['hair','make'],g:'#6f7f73'}
+];
+const KK={
+ 'Демо-версия: услуги, цены и мастера показаны для примера':'Демо-нұсқа: қызметтер, бағалар мен шеберлер мысал ретінде көрсетілген',
+ 'Записаться':'Жазылу','📅 Записаться':'📅 Жазылу','Салон красоты Podium':'Podium сұлулық салоны',
+ 'Запишитесь к мастеру за 1 минуту — без звонков и переписки. Выберите услугу, мастера и удобное время.':'Шеберге 1 минутта жазылыңыз — қоңыраусыз және хат алмасусыз. Қызметті, шеберді және ыңғайлы уақытты таңдаңыз.',
+ 'Онлайн-запись':'Онлайн-жазылу','⭐ 4,8 · 158 оценок в 2ГИС':'⭐ 4,8 · 2ГИС-те 158 баға','📍 пр. Бухар-жырау, 79':'📍 Бұқар жырау даңғ., 79','пр. Бухар-жырау, 79':'Бұқар жырау даңғ., 79',
+ 'Свободные окна обновляются автоматически':'Бос уақыттар автоматты түрде жаңарады',
+ 'Услуги и цены':'Қызметтер мен бағалар','Точная стоимость зависит от длины и сложности':'Нақты баға ұзындық пен күрделілікке байланысты',
+ 'Наши мастера':'Біздің шеберлер','Можно выбрать любимого мастера при записи':'Жазылғанда сүйікті шеберіңізді таңдай аласыз',
+ 'А это видит салон':'Ал салон мынаны көреді','Всё работает само — администратор не тратит время на переписку':'Бәрі өздігінен жұмыс істейді — әкімші хат алмасуға уақыт жұмсамайды',
+ 'Автосообщения клиентам':'Клиенттерге автохабарламалар',
+ 'Айгерим, напоминаем: завтра в 14:00 маникюр у мастера Дины 💅 Ответьте 1 — подтвердить, 2 — перенести.':'Айгерим, еске саламыз: ертең 14:00-де Дина шеберде маникюр 💅 Растау үшін 1, ауыстыру үшін 2 деп жазыңыз.',
+ 'Спасибо, что были у нас! Оцените визит в 2ГИС — это займёт 10 секунд ⭐':'Келгеніңізге рахмет! 2ГИС-те бағалаңыз — 10 секунд қана ⭐',
+ 'Мадина, прошло 4 недели с окрашивания — пора обновить цвет? Свободные окна: …':'Мадина, бояғаныңызға 4 апта болды — түсті жаңартатын уақыт келді ме? Бос уақыттар: …',
+ 'Записи на сегодня':'Бүгінгі жазылулар','Стрижка':'Шаш қию','Маникюр + покрытие':'Маникюр + жабын','Окрашивание':'Бояу','Брови':'Қас','Укладка':'Сәндеу',
+ 'Итоги месяца':'Ай қорытындысы','записей':'жазылу','неявок':'келмей қалу','клиентов вернулись':'клиент қайта келді','новых отзыва':'жаңа пікір','Цифры для примера':'Сандар мысал ретінде',
+ 'Контакты':'Байланыс'
+};
+let L='ru';try{L=localStorage.getItem('pdlang')||'ru'}catch(e){}
+const tr=s=>L==='kk'?(KK[s]||s):s;
+const kk=()=>L==='kk';
+const $=id=>document.getElementById(id);
+const fmt=n=>n.toLocaleString('ru-RU').replace(/\s/g,' ')+' ₸';
+let step=0,B={};
+const DOW=[['Вс','Жс'],['Пн','Дс'],['Вт','Сс'],['Ср','Ср'],['Чт','Бс'],['Пт','Жм'],['Сб','Сб']];
+function days(){const r=[],d=new Date();for(let i=0;i<10;i++){const x=new Date(d);x.setDate(d.getDate()+i);r.push(x)}return r}
+function busy(day,t){let h=0;const s=day+t+(B.m||'');for(const c of s)h=(h*31+c.charCodeAt(0))%997;return h%3===0}
+function renderSvc(){
+ $('svc').innerHTML=S.map(s=>`<div class="sc"><h3>${s.e} ${kk()?s.k:s.n}</h3><ul>${s.items.map(i=>`<li><span>${kk()?i[1]:i[0]}</span><b>${kk()?'':'от '}${fmt(i[2])}${kk()?'-ден':''}</b></li>`).join('')}</ul></div>`).join('');
+ $('team').innerHTML=M.map(m=>`<div class="m"><div class="av" style="background:${m.g}">${m.n[0]}</div><b>${m.n}</b><small>${kk()?m.rk:m.r}</small><a class="btn sm" href="#book" data-pick="${m.n}">${tr('Записаться')}</a></div>`).join('');
+}
+function renderBk(){
+ document.querySelectorAll('#steps span').forEach((s,i)=>s.classList.toggle('on',i<=step));
+ let h='';
+ if(step===0){
+  h=`<div class="st"><h3>${kk()?'1. Қызметті таңдаңыз':'1. Выберите услугу'}</h3>`+S.map(s=>`<p style="margin:12px 0 8px;font-weight:600">${s.e} ${kk()?s.k:s.n}</p><div class="opts">${s.items.map((i,j)=>`<button class="opt ${B.s===s.id+j?'on':''}" data-s="${s.id}" data-j="${j}">${kk()?i[1]:i[0]}<small>${fmt(i[2])} · ${i[3]} ${kk()?'мин':'мин'}</small></button>`).join('')}</div>`).join('')+`</div>`;
+ }else if(step===1){
+  const ms=M.filter(m=>m.c.includes(B.cat));
+  h=`<div class="st"><h3>${kk()?'2. Шеберді таңдаңыз':'2. Выберите мастера'}</h3><div class="opts">${ms.map(m=>`<button class="opt ${B.m===m.n?'on':''}" data-m="${m.n}"><b>${m.n}</b><small>${kk()?m.rk:m.r}</small></button>`).join('')}<button class="opt ${B.m==='any'?'on':''}" data-m="any"><b>${kk()?'Кез келген':'Любой мастер'}</b><small>${kk()?'Ең жақын уақыт':'Ближайшее время'}</small></button></div></div>`;
+ }else if(step===2){
+  const ds=days();if(!B.d)B.d=ds[0].toDateString();
+  const T=['10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'];
+  h=`<div class="st"><h3>${kk()?'3. Күн мен уақыт':'3. Дата и время'}</h3><div class="days">${ds.map(d=>`<button class="day ${B.d===d.toDateString()?'on':''}" data-d="${d.toDateString()}"><small>${DOW[d.getDay()][kk()?1:0]}</small><b>${d.getDate()}</b></button>`).join('')}</div><div class="times">${T.map(t=>{const b=busy(B.d,t);return`<button class="tm ${B.t===t?'on':''}" data-t="${t}" ${b?'disabled':''}>${t}</button>`}).join('')}</div></div>`;
+ }else if(step===3){
+  h=`<div class="st"><h3>${kk()?'4. Байланыс':'4. Ваши данные'}</h3><div class="sum">${summary()}</div><div class="fm"><input id="bn" placeholder="${kk()?'Атыңыз':'Ваше имя'}" value="${B.n||''}"><input id="bp" type="tel" placeholder="+7 7__ ___ __ __" value="${B.p||''}"></div></div>`;
+ }else{
+  h=`<div class="okbox"><div class="ic">✅</div><h3>${kk()?'Жазылу WhatsApp-та ашылды':'Запись открыта в WhatsApp'}</h3><p style="color:var(--mut)">${kk()?'Хабарламаны жіберіңіз — салон уақытты растайды. Бір күн бұрын еске саламыз.':'Отправьте сообщение — салон подтвердит время. За день до визита придёт напоминание.'}</p><button class="btn" style="margin-top:14px" id="again">${kk()?'Тағы жазылу':'Записаться ещё'}</button></div>`;
+ }
+ if(step<4){
+  const can=[B.s,B.m,B.t,1][step];
+  h+=`<div class="nav2"><button class="back" id="bk-back" style="visibility:${step?'visible':'hidden'}">← ${kk()?'Артқа':'Назад'}</button><button class="btn g" id="bk-next" ${can?'':'disabled style="opacity:.4"'}>${step===3?(kk()?'WhatsApp арқылы жазылу':'Записаться через WhatsApp'):(kk()?'Әрі қарай →':'Далее →')}</button></div>`;
+ }
+ $('bk').innerHTML=h;
+}
+function svcItem(){const s=S.find(x=>x.id===B.cat);return s.items[B.j]}
+function summary(){const i=svcItem();const d=new Date(B.d);return`<b>${kk()?i[1]:i[0]}</b> · ${fmt(i[2])}<br>${kk()?'Шебер':'Мастер'}: ${B.m==='any'?(kk()?'кез келген':'любой'):B.m}<br>${d.getDate()}.${String(d.getMonth()+1).padStart(2,'0')} · ${B.t}`}
+$('bk').onclick=e=>{
+ const t=e.target.closest('button');if(!t)return;
+ if(t.dataset.s){B.cat=t.dataset.s;B.j=+t.dataset.j;B.s=t.dataset.s+t.dataset.j;B.m=null;B.t=null}
+ else if(t.dataset.m){B.m=t.dataset.m;B.t=null}
+ else if(t.dataset.d){B.d=t.dataset.d;B.t=null}
+ else if(t.dataset.t){B.t=t.dataset.t}
+ else if(t.id==='bk-back'){step--}
+ else if(t.id==='again'){step=0;B={}}
+ else if(t.id==='bk-next'){
+  if(step===3){B.n=$('bn').value;B.p=$('bp').value;
+   if(!B.n||!B.p){alert(kk()?'Атыңыз бен телефонды жазыңыз':'Укажите имя и телефон');return}
+   const i=svcItem(),d=new Date(B.d);
+   const msg=`Здравствуйте! Онлайн-запись:\nУслуга: ${i[0]} (${fmt(i[2])})\nМастер: ${B.m==='any'?'любой':B.m}\nДата: ${d.getDate()}.${String(d.getMonth()+1).padStart(2,'0')} в ${B.t}\nИмя: ${B.n}\nТелефон: ${B.p}`;
+   window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
+  }
+  step++;
+ }
+ else return;
+ renderBk();
+};
+$('team').onclick=e=>{const a=e.target.closest('[data-pick]');if(!a)return;const m=M.find(x=>x.n===a.dataset.pick);B={cat:m.c[0],j:0,s:m.c[0]+'0',m:m.n};step=2;renderBk()};
+function applyLang(){
+ document.documentElement.lang=kk()?'kk':'ru';
+ document.querySelectorAll('[data-i]').forEach(el=>el.textContent=tr(el.dataset.i));
+ $('lang').textContent=kk()?'RU':'KZ';renderSvc();renderBk();
+}
+$('lang').onclick=()=>{L=kk()?'ru':'kk';try{localStorage.setItem('pdlang',L)}catch(e){}applyLang()};
+applyLang();
+</script>
+</body>
+</html>
