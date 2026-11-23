@@ -47,6 +47,28 @@ textarea{min-height:44px;resize:vertical;font-weight:500}
 .hide{display:none!important}
 .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:12px;padding:10px 16px;font-size:13px;opacity:0;transition:.2s;pointer-events:none}
 .toast.on{opacity:1}
+.tabs{display:flex;gap:6px;margin-top:14px}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 16px;cursor:pointer;font-weight:700}
+.tabs button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.hint{font-size:13px;color:var(--mute);background:var(--blue2);border-radius:12px;padding:10px 12px;margin:14px 0}
+.sec{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:10px;padding:0}
+.sec>summary{padding:14px 16px;font-size:15px}
+.sec .body{padding:0 16px 16px;display:grid;gap:12px}
+.fld{display:grid;gap:6px;padding-top:12px;border-top:1px solid var(--line)}
+.fld .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fld label{font-size:11px;font-weight:800;color:var(--mute);display:grid;gap:4px}
+.fld textarea{min-height:40px;font-size:14px}
+.fld.ch textarea{border-color:#f5b400;background:#fffbea}
+.rs{justify-self:start;font-size:12px;color:var(--blue);background:none;border:0;cursor:pointer;padding:0}
+.grow{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px;border-radius:12px;background:var(--bg)}
+.grow input{padding:8px 10px;font-size:13px}
+.grow .x{grid-column:1/-1;justify-self:end}
+.photos{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.pcard{border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:8px}
+.pprev{aspect-ratio:4/5;border-radius:10px;background:#ffe08a center/cover no-repeat;display:grid;place-items:center;font-size:44px;font-weight:800;max-width:200px}
+.save{position:sticky;bottom:0;background:#ffffffee;backdrop-filter:blur(6px);border-top:1px solid var(--line);padding:12px 0;margin-top:14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.save .st{font-size:13px;color:var(--mute);flex:1}
+@media(max-width:560px){.fld .two,.grow{grid-template-columns:1fr}header .wrap{height:auto;padding-top:8px;padding-bottom:8px}header .row{gap:4px}header .btn{padding:8px 9px;font-size:12px}header .brand{font-size:14px}}
 </style>
 </head>
 <body>
@@ -65,9 +87,17 @@ textarea{min-height:44px;resize:vertical;font-weight:500}
     <div class="row"><button class="btn" id="reload">Обновить</button><button class="btn" id="csv">Excel</button><button class="btn" id="out">Выйти</button></div>
   </div></header>
   <main class="wrap">
-    <div class="stats" id="stats"></div>
-    <div class="bar"><input id="q" placeholder="Поиск: имя, телефон"></div>
-    <div id="list"></div>
+    <div class="tabs"><button class="on" data-tab="leads">Заявки</button><button data-tab="site">Редактировать сайт</button></div>
+    <div id="vLeads">
+      <div class="stats" id="stats"></div>
+      <div class="bar"><input id="q" placeholder="Поиск: имя, телефон"></div>
+      <div id="list"></div>
+    </div>
+    <div id="vSite" class="hide">
+      <div class="hint">Меняйте текст в полях и нажмите <b>«Сохранить»</b> внизу — изменения сразу появятся на сайте. Изменённые поля подсвечены жёлтым. Если очистить поле RU — этот пункт скроется с сайта. «Вернуть как было» — исходный текст.</div>
+      <div id="editor"><div class="empty">Загрузка…</div></div>
+      <div class="save"><span class="st" id="sst">Нет несохранённых изменений</span><a class="btn" href="../" target="_blank" rel="noopener">Открыть сайт</a><button class="btn p" id="saveBtn">Сохранить</button></div>
+    </div>
   </main>
 </div>
 <div class="toast" id="toast"></div>
@@ -149,6 +179,118 @@ $('csv').onclick=()=>{
  const csv='﻿'+rows.map(r=>r.map(c=>{c=String(c??'');if(/^[=+\-@]/.test(c))c="'"+c;return '"'+c.replace(/"/g,'""')+'"'}).join(';')).join('\r\n');
  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='2x2-zayavki.csv';a.click();
 };
+// ---------- Site editor ----------
+let D=null,CUR={},groupsEdit=null,dirty=false,editorReady=false;
+const SEC_NAMES={nav:'Шапка сайта (меню)',hero:'Главный экран',footer:'Подвал'};
+document.querySelector('.tabs').onclick=e=>{
+ const t=e.target.dataset.tab;if(!t)return;
+ document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===t));
+ $('vLeads').classList.toggle('hide',t!=='leads');$('vSite').classList.toggle('hide',t!=='site');
+ if(t==='site'&&!editorReady)initEditor();
+};
+function setDirty(v){dirty=v;$('sst').textContent=v?'Есть несохранённые изменения':'Нет несохранённых изменений';$('sst').style.color=v?'#b07800':''}
+window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
+async function initEditor(){
+ editorReady=true;
+ const fr=document.createElement('iframe');fr.src='../?defaults=1';fr.style.cssText='position:absolute;width:1px;height:1px;opacity:0;pointer-events:none';fr.setAttribute('aria-hidden','true');
+ document.body.appendChild(fr);
+ await new Promise(r=>fr.onload=r);
+ const w=fr.contentWindow;D={RU:w.X2.RU,KK:w.X2.T.kk,GROUPS:JSON.parse(JSON.stringify(w.X2.GROUPS)),secs:[]};
+ const doc=fr.contentDocument,seen=new Set(),bySec=new Map();
+ doc.querySelectorAll('[data-i]').forEach(el=>{
+  const k=el.dataset.i;if(seen.has(k))return;seen.add(k);
+  const sec=el.closest('nav')?'nav':el.closest('.hero')?'hero':el.closest('footer')?'footer':(el.closest('section')||{}).id||'';
+  const h2=el.closest('section')?.querySelector('h2');
+  const id=sec||('s'+(h2?h2.dataset.i:'x'));
+  if(!bySec.has(id))bySec.set(id,{id,name:SEC_NAMES[sec]||(h2?D.RU[h2.dataset.i]:'Прочее'),keys:[]});
+  bySec.get(id).keys.push(k);
+ });
+ D.secs=[...bySec.values()];
+ fr.remove();
+ try{const j=await (await fetch('/api/2x2/content',{cache:'no-store'})).json();CUR=j.content||{}}catch(_){CUR={}}
+ groupsEdit=JSON.parse(JSON.stringify(Array.isArray(CUR.groups)?CUR.groups:D.GROUPS));
+ drawEditor();
+}
+const defOf=k=>({ru:D.RU[k],kk:D.KK[k]||D.RU[k]});
+function valOf(k){const o=CUR.text&&CUR.text[k];return o?{ru:o.ru,kk:o.kk||o.ru}:defOf(k)}
+function drawEditor(){
+ $('editor').innerHTML=D.secs.map((s,i)=>`<details class="sec"${i===0?' open':''}><summary>${esc(s.name)}</summary><div class="body">
+  ${s.id==='teachers'?photoBlock():''}
+  ${s.keys.map(k=>{const v=valOf(k),d=defOf(k),ch=v.ru!==d.ru||v.kk!==d.kk;return `<div class="fld${ch?' ch':''}" data-k="${esc(k)}"><div class="two"><label>RU<textarea data-l="ru" rows="${Math.min(5,Math.ceil(v.ru.length/45)||1)}">${esc(v.ru)}</textarea></label><label>KZ<textarea data-l="kk" rows="${Math.min(5,Math.ceil(v.kk.length/45)||1)}">${esc(v.kk)}</textarea></label></div><button class="rs" type="button" data-reset="${esc(k)}">↺ Вернуть как было</button></div>`}).join('')}
+  ${s.id==='courses'?groupsBlock():''}
+ </div></details>`).join('');
+}
+function groupsBlock(){
+ return `<div class="fld"><b style="font-size:14px">Группы по возрасту</b><div id="glist" style="display:grid;gap:8px">${groupsEdit.map((g,i)=>`<div class="grow" data-g="${i}">
+  <input data-f="a.ru" value="${esc(g.a.ru)}" placeholder="Возраст (RU)"><input data-f="a.kk" value="${esc(g.a.kk)}" placeholder="Жасы (KZ)">
+  <input data-f="t.ru" value="${esc(g.t.ru)}" placeholder="Название (RU)"><input data-f="t.kk" value="${esc(g.t.kk)}" placeholder="Атауы (KZ)">
+  <input data-f="d.ru" value="${esc(g.d.ru)}" placeholder="Описание (RU)"><input data-f="d.kk" value="${esc(g.d.kk)}" placeholder="Сипаттама (KZ)">
+  <button class="btn d x" type="button" data-gdel="${i}">Удалить группу</button></div>`).join('')}</div>
+  <div class="row"><button class="btn" type="button" id="gadd">+ Добавить группу</button><button class="rs" type="button" id="greset">↺ Вернуть группы как было</button></div></div>`;
+}
+function photoUrl(k){const p=CUR.photos||{};if(p[k]===undefined)return k==='t1'?'../img/elena.webp':'';return p[k]}
+function photoBlock(){
+ return `<div class="photos">${['t1','t2'].map(k=>{const u=photoUrl(k),nm=valOf(k).ru;return `<div class="pcard"><b style="font-size:14px">Фото: ${esc(nm)}</b>
+  <div class="pprev" style="${u?`background-image:url('${esc(u)}')`:''}">${u?'':esc(nm.split(/\s+/).map(w=>w[0]||'').join('').slice(0,2))}</div>
+  <label class="btn" style="justify-self:start">Загрузить фото<input type="file" accept="image/*" data-photo="${k}" class="hide"></label>
+  <div class="row"><button class="btn" type="button" data-pnone="${k}">Без фото</button><button class="rs" type="button" data-preset="${k}">↺ Как было</button></div></div>`}).join('')}</div>
+  <div class="note" style="font-size:12px;color:var(--mute)">Фото сохраняется сразу, без кнопки «Сохранить». Лучше вертикальное фото, лицо по центру.</div>`;
+}
+$('editor').addEventListener('input',e=>{
+ const f=e.target.closest('.fld[data-k]');
+ if(f){const k=f.dataset.k,d=defOf(k),ru=f.querySelector('[data-l=ru]').value,kk=f.querySelector('[data-l=kk]').value;f.classList.toggle('ch',ru!==d.ru||kk!==d.kk)}
+ const g=e.target.closest('.grow');
+ if(g&&e.target.dataset.f){const [a,b]=e.target.dataset.f.split('.');groupsEdit[+g.dataset.g][a][b]=e.target.value}
+ setDirty(true);
+});
+$('editor').addEventListener('click',async e=>{
+ const t=e.target;
+ if(t.dataset.reset){const f=t.closest('.fld'),d=defOf(t.dataset.reset);f.querySelector('[data-l=ru]').value=d.ru;f.querySelector('[data-l=kk]').value=d.kk;f.classList.remove('ch');setDirty(true)}
+ if(t.dataset.gdel!==undefined){groupsEdit.splice(+t.dataset.gdel,1);redrawKeepOpen();setDirty(true)}
+ if(t.id==='gadd'){groupsEdit.push({a:{ru:'',kk:''},t:{ru:'',kk:''},d:{ru:'',kk:''}});redrawKeepOpen();setDirty(true)}
+ if(t.id==='greset'){groupsEdit=JSON.parse(JSON.stringify(D.GROUPS));redrawKeepOpen();setDirty(true)}
+ if(t.dataset.pnone||t.dataset.preset){
+  const k=t.dataset.pnone||t.dataset.preset;
+  try{const j=await call({action:t.dataset.pnone?'photoNone':'photoReset',key:k});if(j.ok){CUR.photos=j.content.photos;redrawKeepOpen();toast('Фото обновлено')}}catch(_){}
+ }
+});
+$('editor').addEventListener('change',async e=>{
+ const k=e.target.dataset.photo;if(!k||!e.target.files[0])return;
+ toast('Загружаю фото…');
+ try{
+  const data=await resizePhoto(e.target.files[0]);
+  const j=await call({action:'photo',key:k,data});
+  if(j.ok){CUR.photos=j.content.photos;redrawKeepOpen();toast('Фото сохранено')}
+ }catch(err){if(err.message!=='auth')toast('Не удалось загрузить фото')}
+});
+function collectOpen(){return [...document.querySelectorAll('#editor details')].map(d=>d.open)}
+function redrawKeepOpen(){
+ // keep unsaved text edits: copy them into CUR before redraw
+ snapshotText();const o=collectOpen();drawEditor();document.querySelectorAll('#editor details').forEach((d,i)=>d.open=!!o[i]);
+}
+function snapshotText(){
+ const text={};document.querySelectorAll('#editor .fld[data-k]').forEach(f=>{const k=f.dataset.k,d=defOf(k),ru=f.querySelector('[data-l=ru]').value,kk=f.querySelector('[data-l=kk]').value;if(ru!==d.ru||kk!==d.kk)text[k]={ru,kk}});
+ CUR.text=text;return text;
+}
+function resizePhoto(file){
+ return new Promise((res,rej)=>{
+  const img=new Image();img.onload=()=>{
+   const W=560,H=700,c=document.createElement('canvas');c.width=W;c.height=H;
+   const s=Math.max(W/img.width,H/img.height),w=img.width*s,h=img.height*s;
+   c.getContext('2d').drawImage(img,(W-w)/2,(H-h)/2,w,h);
+   const url=c.toDataURL('image/jpeg',0.85);URL.revokeObjectURL(img.src);res(url.split(',')[1]);
+  };img.onerror=()=>rej(new Error('img'));img.src=URL.createObjectURL(file);
+ });
+}
+$('saveBtn').onclick=async()=>{
+ if(!D)return;
+ const text=snapshotText();
+ const same=JSON.stringify(groupsEdit)===JSON.stringify(D.GROUPS);
+ $('saveBtn').disabled=true;
+ try{const j=await call({action:'saveContent',content:{text,groups:same?null:groupsEdit}});if(j.ok){CUR=j.content;setDirty(false);toast('Сохранено — сайт обновлён')}}catch(_){}
+ $('saveBtn').disabled=false;
+};
+
 if(token){showApp(true);load()}
 </script>
 </body>

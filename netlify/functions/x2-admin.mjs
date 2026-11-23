@@ -1,5 +1,5 @@
 // Admin endpoint for the 2x2 school: password login -> session token -> list/update/delete leads.
-import { leads, sys, json, ipKey, clean, sameOrigin, readBody, checkPassword, newToken, sha, STATUSES } from "../lib/x2.mjs";
+import { leads, sys, site, json, ipKey, clean, sameOrigin, readBody, checkPassword, newToken, sha, STATUSES, PHOTO_KEYS, sanitizeContent, imageType } from "../lib/x2.mjs";
 
 const MAX_FAILS = 5;
 const LOCK_MS = 15 * 60 * 1000;
@@ -32,7 +32,7 @@ export default async (req, context) => {
   if (!sameOrigin(req)) return json({ ok: false, error: "origin" }, 403);
   let b;
   try {
-    b = await readBody(req);
+    b = await readBody(req, 900000);
   } catch {
     return json({ ok: false, error: "bad body" }, 400);
   }
@@ -51,6 +51,36 @@ export default async (req, context) => {
     items.sort((a, z) => (a.created < z.created ? 1 : -1));
     return json({ ok: true, items });
   }
+  // --- Site content editing ---
+  if (b.action === "saveContent") {
+    const s = site();
+    const cur = (await s.get("content", { type: "json" })) || {};
+    const next = { ...sanitizeContent(b.content), photos: cur.photos || {}, updated: new Date().toISOString() };
+    if (JSON.stringify(next).length > 200000) return json({ ok: false, error: "too large" }, 413);
+    await s.setJSON("content", next);
+    return json({ ok: true, content: next });
+  }
+  if (b.action === "photo" || b.action === "photoReset" || b.action === "photoNone") {
+    if (!PHOTO_KEYS.includes(b.key)) return json({ ok: false, error: "key" }, 400);
+    const s = site();
+    const cur = (await s.get("content", { type: "json" })) || {};
+    cur.photos = cur.photos || {};
+    if (b.action === "photo") {
+      const buf = Buffer.from(String(b.data || ""), "base64");
+      const type = imageType(buf);
+      if (!type) return json({ ok: false, error: "image" }, 400);
+      await s.set(`photo-${b.key}`, buf, { metadata: { type } });
+      cur.photos[b.key] = `/api/2x2/photo?k=${b.key}&v=${Date.now()}`;
+    } else {
+      await s.delete(`photo-${b.key}`);
+      if (b.action === "photoNone") cur.photos[b.key] = "";
+      else delete cur.photos[b.key];
+    }
+    cur.updated = new Date().toISOString();
+    await s.setJSON("content", cur);
+    return json({ ok: true, content: cur });
+  }
+
   const id = typeof b.id === "string" && /^\d{10,16}-[a-z0-9]{1,10}$/.test(b.id) ? b.id : null;
   if (!id) return json({ ok: false, error: "id" }, 400);
   if (b.action === "update") {

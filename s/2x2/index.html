@@ -135,9 +135,9 @@ footer{text-align:center;color:var(--mute);font-size:12px;padding:28px 16px 90px
     <h2 data-i="cTitle">Курсы и цены</h2>
     <p class="sub" data-i="cSub">Три формата — выберите, что подходит именно вам.</p>
     <div class="grid">
-      <div class="card fmt hl"><div class="tag" data-i="c1tag">Быстрее к результату</div><span class="age" data-i="c1age">с 9 лет</span><h3 data-i="c1">Индивидуальные занятия</h3><p data-i="c1t">Персональный подход — прогресс в разы быстрее. 2 раза в неделю.</p><div class="price">5 000 ₸ <small data-i="perLesson">/ урок</small></div></div>
-      <div class="card fmt"><div class="tag" data-i="c2tag">Максимум внимания</div><span class="age" data-i="c2age">2 ученика</span><h3 data-i="c2">Занятия в паре</h3><p data-i="c2t">Максимум внимания преподавателя и партнёр, подобранный по уровню и темпу.</p><div class="price">25 000 ₸ <small data-i="perMonth">/ месяц · 8 занятий</small></div></div>
-      <div class="card fmt"><div class="tag" data-i="c3tag">Мини-группы</div><span class="age" data-i="c3age">с 5 лет</span><h3 data-i="c3">Групповые занятия</h3><p data-i="c3t">Группы по возрасту и классу, 2 раза в неделю. Первый урок — бесплатно.</p><div class="price">15 500 ₸ <small data-i="perMonth2">/ месяц · 8 занятий</small></div></div>
+      <div class="card fmt hl"><div class="tag" data-i="c1tag">Быстрее к результату</div><span class="age" data-i="c1age">с 9 лет</span><h3 data-i="c1">Индивидуальные занятия</h3><p data-i="c1t">Персональный подход — прогресс в разы быстрее. 2 раза в неделю.</p><div class="price"><span data-i="p1">5 000</span> ₸ <small data-i="perLesson">/ урок</small></div></div>
+      <div class="card fmt"><div class="tag" data-i="c2tag">Максимум внимания</div><span class="age" data-i="c2age">2 ученика</span><h3 data-i="c2">Занятия в паре</h3><p data-i="c2t">Максимум внимания преподавателя и партнёр, подобранный по уровню и темпу.</p><div class="price"><span data-i="p2">25 000</span> ₸ <small data-i="perMonth">/ месяц · 8 занятий</small></div></div>
+      <div class="card fmt"><div class="tag" data-i="c3tag">Мини-группы</div><span class="age" data-i="c3age">с 5 лет</span><h3 data-i="c3">Групповые занятия</h3><p data-i="c3t">Группы по возрасту и классу, 2 раза в неделю. Первый урок — бесплатно.</p><div class="price"><span data-i="p3">15 500</span> ₸ <small data-i="perMonth2">/ месяц · 8 занятий</small></div></div>
     </div>
     <div class="card groups">
       <h3 data-i="gTitle">Группы по возрасту</h3>
@@ -150,7 +150,7 @@ footer{text-align:center;color:var(--mute);font-size:12px;padding:28px 16px 90px
     <h2 data-i="tTitle">Наши преподаватели</h2>
     <div class="tgrid">
       <div class="card teacher">
-        <div class="ph"><img src="img/elena.webp" alt="Елена Ивановна" width="560" height="700" loading="lazy"></div>
+        <div class="ph" id="ph1"><img src="img/elena.webp" alt="Елена Ивановна" width="560" height="700" loading="lazy"></div>
         <div class="tx">
           <div class="role" data-i="t1role">Индивидуальные занятия и занятия в паре</div>
           <h3 data-i="t1">Елена Ивановна</h3>
@@ -163,7 +163,7 @@ footer{text-align:center;color:var(--mute);font-size:12px;padding:28px 16px 90px
         </div>
       </div>
       <div class="card teacher">
-        <div class="ph ini" aria-hidden="true">АА</div>
+        <div class="ph ini" id="ph2" aria-hidden="true">АА</div>
         <div class="tx">
           <div class="role" data-i="t2role">Групповые занятия</div>
           <h3 data-i="t2">Алёна Андреевна</h3>
@@ -279,13 +279,29 @@ kTitle:'Байланыс',kAddr:'Мекенжай',kAddrV:'Шахтинск, А�
 err:{ru:{kid:'Укажите имя ученика',age:'Укажите возраст (от 5 лет)',ind:'Индивидуальные занятия — с 9 лет. Для младших есть группы.',parent:'Укажите имя родителя',phone:'Укажите номер телефона',time:'Выберите, когда удобно заниматься'},
      kk:{kid:'Оқушының атын жазыңыз',age:'Жасын жазыңыз (5 жастан)',ind:'Жеке сабақ — 9 жастан. Кішілерге топтар бар.',parent:'Ата-ананың атын жазыңыз',phone:'Телефон нөмірін жазыңыз',time:'Қашан ыңғайлы екенін таңдаңыз'}}};
 const RU={};document.querySelectorAll('[data-i]').forEach(e=>RU[e.dataset.i]=e.textContent);
-let lang='ru',time='';
+window.X2={RU,T,GROUPS};
+let lang='ru',time='',OV={};
 const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+// Text for a key: admin override (OV.text) wins; empty RU override hides the element.
+function txt(k){
+ const o=OV.text&&OV.text[k];
+ if(o){if(o.ru==='')return null;return lang==='kk'&&o.kk?o.kk:o.ru}
+ return lang==='kk'&&T.kk[k]?T.kk[k]:RU[k];
+}
+function setPhoto(id,url,nameKey){
+ const box=$(id);if(!box)return;
+ if(url===undefined)return;
+ if(url){box.className='ph';box.innerHTML=`<img src="${esc(url)}" alt="${esc(txt(nameKey)||'')}" width="560" height="700" loading="lazy">`}
+ else{box.className='ph ini';box.textContent=(txt(nameKey)||'').split(/\s+/).map(w=>w[0]||'').join('').slice(0,2).toUpperCase()}
+}
 function render(){
  document.documentElement.lang=lang==='kk'?'kk':'ru';
- document.querySelectorAll('[data-i]').forEach(e=>{e.textContent=lang==='kk'&&T.kk[e.dataset.i]?T.kk[e.dataset.i]:RU[e.dataset.i]});
+ document.querySelectorAll('[data-i]').forEach(e=>{const v=txt(e.dataset.i);const box=e.tagName==='SUMMARY'?e.parentElement:e;box.style.display=v===null?'none':'';if(v!==null)e.textContent=v});
  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
- $('groups').innerHTML=GROUPS.map(g=>`<div class="g"><b>${g.a[lang]}</b><span><strong>${g.t[lang]}</strong>${g.d[lang]}</span></div>`).join('');
+ const G=Array.isArray(OV.groups)?OV.groups:GROUPS;
+ $('groups').innerHTML=G.map(g=>`<div class="g"><b>${esc(g.a[lang]||g.a.ru)}</b><span><strong>${esc(g.t[lang]||g.t.ru)}</strong>${esc(g.d[lang]||g.d.ru)}</span></div>`).join('');
+ if(OV.photos){setPhoto('ph1',OV.photos.t1,'t1');setPhoto('ph2',OV.photos.t2,'t2')}
  const cur=$('fmt').value||'group';
  $('fmt').innerHTML=FMTS.map(f=>`<option value="${f.v}"${f.v===cur?' selected':''}>${f[lang]}</option>`).join('');
  $('times').innerHTML=TIMES.map(t=>`<button type="button" class="chip${t.v===time?' on':''}" data-t="${t.v}">${t[lang]}</button>`).join('');
@@ -294,6 +310,8 @@ document.querySelector('.lang').onclick=e=>{const l=e.target.dataset.l;if(l){lan
 $('times').onclick=e=>{const t=e.target.dataset.t;if(t){time=t;render()}};
 try{const s=localStorage.getItem('x2lang');if(s==='kk'||s==='ru')lang=s}catch(_){}
 render();
+// Content edited in the admin panel (texts, prices, groups, photos).
+if(!/[?&]defaults=1/.test(location.search))fetch('/api/2x2/content').then(r=>r.ok?r.json():null).then(j=>{if(j&&j.content){OV=j.content;render()}}).catch(()=>{});
 function showErr(k){const el=$('err');el.textContent=T.err[lang][k];el.style.display='block'}
 $('f').onsubmit=e=>{
  e.preventDefault();

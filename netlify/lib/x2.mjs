@@ -12,6 +12,34 @@ export const TIMES = ["am", "pm", "eve"];
 
 export const leads = () => getStore({ name: "x2-leads", consistency: "strong" });
 export const sys = () => getStore({ name: "x2-sys", consistency: "strong" });
+export const site = () => getStore({ name: "x2-site", consistency: "strong" });
+
+export const PHOTO_KEYS = ["t1", "t2"];
+const str = (v, max) => (typeof v === "string" ? v.replace(/[\u0000-\u0008\u000b-\u001f\u007f]/g, "").slice(0, max) : "");
+
+// Validate admin-edited site content. Everything is rendered with textContent / escaped on the page.
+export function sanitizeContent(c) {
+  const out = { text: {}, groups: null };
+  const text = c && typeof c.text === "object" && c.text ? c.text : {};
+  for (const [k, v] of Object.entries(text).slice(0, 400)) {
+    if (!/^[A-Za-z0-9]{1,24}$/.test(k) || !v || typeof v !== "object") continue;
+    out.text[k] = { ru: str(v.ru, 1500), kk: str(v.kk, 1500) };
+  }
+  if (Array.isArray(c?.groups)) {
+    const pair = (o) => ({ ru: str(o?.ru, 160), kk: str(o?.kk, 160) });
+    out.groups = c.groups.slice(0, 30).map((g) => ({ a: pair(g?.a), t: pair(g?.t), d: pair(g?.d) })).filter((g) => g.a.ru || g.t.ru);
+  }
+  return out;
+}
+
+// Accept only real JPEG / PNG / WebP images up to 600 KB.
+export function imageType(buf) {
+  if (buf.length < 12 || buf.length > 600 * 1024) return null;
+  if (buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff) return "image/jpeg";
+  if (buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47) return "image/png";
+  if (buf.toString("ascii", 0, 4) === "RIFF" && buf.toString("ascii", 8, 12) === "WEBP") return "image/webp";
+  return null;
+}
 
 export const json = (data, status = 200) =>
   new Response(JSON.stringify(data), {
