@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>2x2 — языковая школа в Шахтинске</title>
-<meta name="description" content="Языковая школа 2x2 в Шахтинске: английский для детей, подростков и взрослых. Запись на пробный урок онлайн.">
+<title>2x2 (дважды два) — курсы английского языка в Шахтинске</title>
+<meta name="description" content="2x2 (дважды два) — курсы английского языка в Шахтинске: группы с 5 лет, занятия в паре и индивидуально с 9 лет. Бесплатный пробный урок.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -17,17 +17,19 @@ a{color:inherit}
 .wrap{max-width:960px;margin:0 auto;padding:0 16px}
 nav{position:sticky;top:0;z-index:5;background:#ffffffee;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none}
-.logo{width:40px;height:40px;border-radius:12px;background:var(--blue);color:#fff;font-weight:800;font-size:14px;white-space:nowrap;display:flex;align-items:center;justify-content:center}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.brand b{font-weight:800;display:block;font-size:15px;white-space:nowrap}
+.brand small{display:block;font-size:11px;color:var(--mute);font-weight:600;white-space:nowrap}
+.logo{flex:none;width:40px;height:40px;border-radius:12px;background:var(--blue);color:#fff;font-weight:800;font-size:14px;white-space:nowrap;display:flex;align-items:center;justify-content:center}
 .logo span{color:var(--yel)}
 .links{display:flex;gap:16px;font-size:14px;font-weight:600}
 .links a{text-decoration:none;color:var(--mute)}
-.lang{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.lang{flex:none;display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .lang button{border:0;background:#fff;padding:6px 10px;font:700 12px Montserrat,sans-serif;cursor:pointer;color:var(--mute)}
 .lang button.on{background:var(--blue);color:#fff}
 .hero{background:linear-gradient(135deg,var(--blue),#5b7cff);color:#fff;border-radius:var(--r);padding:28px 24px;margin:20px 0;display:grid;gap:14px}
-.hero h1{font-size:28px;line-height:1.2;font-weight:800}
-.hero p{opacity:.92;font-size:15px;max-width:620px}
+.hero h1{font-size:30px;line-height:1.18;font-weight:800;max-width:640px}
+.hero p{opacity:.95;font-size:17px;font-weight:600;max-width:620px}
 .pills{display:flex;flex-wrap:wrap;gap:8px}
 .pill{background:#ffffff22;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:14px 20px;font:700 15px Montserrat,sans-serif;cursor:pointer;text-decoration:none}
@@ -35,168 +37,284 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .btn.w{background:var(--wa);color:#fff;width:100%}
 .btn.ghost{background:#ffffff22;color:#fff}
 .cta{display:flex;flex-wrap:wrap;gap:10px}
-section{margin:36px 0}
-h2{font-size:22px;font-weight:800;margin-bottom:14px}
+section{margin:40px 0}
+h2{font-size:22px;font-weight:800;margin-bottom:6px}
+.sub{color:var(--mute);font-size:14px;margin-bottom:14px}
+h2+.grid,h2+.steps,h2+.tgrid{margin-top:14px}
 .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
 .card h3{font-size:16px;margin-bottom:4px}
-.age{font-size:12px;font-weight:700;color:var(--blue);background:var(--blue2);display:inline-block;border-radius:8px;padding:3px 8px;margin-bottom:8px}
-.card p{font-size:13px;color:var(--mute)}
-.price{font-size:18px;font-weight:800;margin-top:10px}
+.card p{font-size:13.5px;color:var(--mute)}
+.num{font-size:13px;font-weight:800;color:var(--blue);margin-bottom:6px}
+.age{font-size:12px;font-weight:700;color:var(--blue);background:var(--blue2);display:inline-block;align-self:flex-start;border-radius:8px;padding:3px 8px;margin-bottom:8px}
+.price{font-size:20px;font-weight:800;margin-top:12px}
 .price small{font-size:12px;color:var(--mute);font-weight:600}
-.why .ic{font-size:26px;margin-bottom:6px}
-table{width:100%;border-collapse:collapse;background:var(--card);font-size:13px}
-th,td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line)}
-th{background:var(--blue2);color:var(--blue);font-weight:700}
-td:first-child,th:first-child{text-align:left;font-weight:700}
-.tw{overflow-x:auto;border-radius:var(--r);border:1px solid var(--line)}
-.steps{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.fmt{display:flex;flex-direction:column}
+.fmt .tag{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#b07800;margin-bottom:6px}
+.fmt.hl{border:2px solid var(--blue)}
+.fmt .price{margin-top:auto;padding-top:12px}
+.groups{margin-top:12px}
+.glist{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:10px}
+.g{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:12px;background:var(--bg)}
+.g b{flex:none;font-size:12px;color:var(--blue);background:var(--blue2);border-radius:8px;padding:3px 8px;white-space:nowrap}
+.g span{font-size:13px;color:var(--mute)}
+.g span strong{display:block;color:var(--ink);font-size:13.5px}
+.tgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.teacher{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.teacher .ph{aspect-ratio:4/5;background:#dfe6fb;overflow:hidden}
+.teacher .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.teacher .ph.ini{aspect-ratio:auto;height:170px;display:grid;place-items:center;background:linear-gradient(135deg,#ffe08a,var(--yel));font-size:64px;font-weight:800;color:var(--ink)}
+.teacher .tx{padding:18px}
+.teacher .role{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.teacher ul{margin:10px 0 0 18px;font-size:13.5px;color:var(--mute);display:grid;gap:4px}
+.extra .ic{font-size:26px;margin-bottom:6px}
+.steps{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;gap:12px}
 .step b{flex:none;width:32px;height:32px;border-radius:10px;background:var(--yel);display:grid;place-items:center}
+.step h3{font-size:15px;margin-bottom:2px}
 .step p{font-size:13px;color:var(--mute)}
+.info{margin-top:12px;background:var(--blue2);border-radius:14px;padding:12px 14px;font-size:13.5px;color:var(--ink)}
 form{display:grid;gap:12px}
 label{font-size:13px;font-weight:700;display:grid;gap:6px}
-input,select{font:500 15px Montserrat,sans-serif;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;width:100%}
+input,select{font:500 15px Montserrat,sans-serif;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;width:100%;color:var(--ink)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;font:600 13px Montserrat,sans-serif;cursor:pointer;color:var(--ink)}
 .chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
 .two{display:grid;gap:12px;grid-template-columns:1fr 1fr}
 .note{font-size:12px;color:var(--mute)}
 .lbl{font-size:13px;font-weight:700;margin-bottom:6px}
+.err{font-size:13px;color:#c62828;font-weight:600;display:none}
+.ok{display:none;text-align:center;padding:10px 0}
+.ok .big{font-size:40px}
+.ok h3{font-size:18px;margin:6px 0}
+.ok p{font-size:14px;color:var(--mute)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:8px}
 summary{font-weight:700;cursor:pointer;font-size:15px}
 details p{font-size:14px;color:var(--mute);margin-top:8px}
 .contact{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.contact a.card{text-decoration:none;display:block}
+.contact .card{text-decoration:none;display:block}
 .contact .k{font-size:12px;color:var(--mute);font-weight:600}
 .contact .v{font-size:15px;font-weight:700;margin-top:2px}
+.maps{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.maps a{font-size:13px;font-weight:700;text-decoration:none;background:var(--blue2);color:var(--blue);border-radius:10px;padding:8px 12px}
 footer{text-align:center;color:var(--mute);font-size:12px;padding:28px 16px 90px}
 .fab{position:fixed;right:16px;bottom:16px;z-index:6;background:var(--wa);color:#fff;border-radius:999px;padding:14px 18px;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 10px 24px #25d36655}
-@media(max-width:640px){.links{display:none}.hero h1{font-size:23px}.two{grid-template-columns:1fr}}
+@media(max-width:640px){.links{display:none}.hero h1{font-size:25px}.hero p{font-size:16px}.two{grid-template-columns:1fr}}
+@media(max-width:360px){.brand small{display:none}}
 </style>
 </head>
 <body>
 <nav><div class="wrap">
-  <a class="brand" href="#top"><span class="logo">2<span>x</span>2</span><span>2x2</span></a>
-  <div class="links"><a href="#courses" data-i="nCourses">Курсы</a><a href="#schedule" data-i="nSched">Расписание</a><a href="#book" data-i="nBook">Запись</a><a href="#contacts" data-i="nCont">Контакты</a></div>
+  <a class="brand" href="#top"><span class="logo">2<span>x</span>2</span><span><b data-i="bName">2x2 (дважды два)</b><small data-i="brSub">Курсы английского языка</small></span></a>
+  <div class="links"><a href="#courses" data-i="nCourses">Курсы и цены</a><a href="#teachers" data-i="nTeach">Преподаватели</a><a href="#book" data-i="nBook">Запись</a><a href="#contacts" data-i="nCont">Контакты</a></div>
   <div class="lang"><button data-l="ru" class="on">RU</button><button data-l="kk">KZ</button></div>
 </div></nav>
 
 <main class="wrap" id="top">
   <div class="hero">
-    <div class="pills"><span class="pill">⭐ 5,0 · 2ГИС</span><span class="pill" data-i="pAll">Дети · подростки · взрослые</span></div>
-    <h1 data-i="hTitle">Языковая школа 2x2 в Шахтинске</h1>
-    <p data-i="hText">Английский в мини-группах с разговорной практикой с первого занятия. Запишитесь на пробный урок — выберите курс и удобное время прямо на сайте.</p>
-    <div class="cta"><a href="#book" class="btn y" data-i="hBtn">Записаться на пробный урок</a><a href="https://instagram.com/2x2.shsk" target="_blank" class="btn ghost">Instagram</a></div>
+    <div class="pills"><span class="pill">⭐ 5,0 · 2ГИС</span><span class="pill" data-i="pAge">Группы с 5 лет · индивидуально с 9 лет</span></div>
+    <h1 data-i="hTitle">Хватит учить английский — пора уже на нём говорить</h1>
+    <p data-i="hText">И мы знаем, как это сделать.</p>
+    <div class="cta"><a href="#book" class="btn y" data-i="hBtn">Записаться бесплатно</a><a href="https://instagram.com/2x2.shsk" target="_blank" rel="noopener" class="btn ghost">Instagram</a></div>
   </div>
 
-  <section class="why">
-    <h2 data-i="wTitle">Почему 2x2</h2>
+  <section>
+    <h2 data-i="wTitle">Почему именно 2x2?</h2>
     <div class="grid">
-      <div class="card"><div class="ic">👥</div><h3 data-i="w1">Мини-группы</h3><p data-i="w1t">Небольшие группы — преподаватель успевает поработать с каждым.</p></div>
-      <div class="card"><div class="ic">🗣️</div><h3 data-i="w2">Разговорная практика</h3><p data-i="w2t">Учимся говорить, а не только писать упражнения.</p></div>
-      <div class="card"><div class="ic">🎯</div><h3 data-i="w3">Пробный урок</h3><p data-i="w3t">Познакомьтесь с преподавателем и форматом до оплаты.</p></div>
-      <div class="card"><div class="ic">📍</div><h3 data-i="w4">В центре города</h3><p data-i="w4t">пр. Абая, 54, офис 502 — удобно добираться после школы.</p></div>
+      <div class="card"><div class="num">01</div><h3 data-i="w1">Не случайные пары</h3><p data-i="w1t">Подбираем учеников по уровню и темпу обучения.</p></div>
+      <div class="card"><div class="num">02</div><h3 data-i="w2">Контроль результата</h3><p data-i="w2t">Ежемесячные зачёты помогают отслеживать прогресс.</p></div>
+      <div class="card"><div class="num">03</div><h3 data-i="w3">Вы знаете, как идёт обучение</h3><p data-i="w3t">В индивидуальном и парном формате — обратная связь родителям каждый месяц.</p></div>
+      <div class="card"><div class="num">04</div><h3 data-i="w4">Удобное расписание</h3><p data-i="w4t">Несколько вариантов времени — легко подобрать удобное.</p></div>
+      <div class="card"><div class="num">05</div><h3 data-i="w5">В центре города</h3><p data-i="w5t">ТД «Техника в быту» — рядом остановки и магазины.</p></div>
+      <div class="card"><div class="num">06</div><h3 data-i="w6">Прозрачная оплата</h3><p data-i="w6t">Наличный и безналичный расчёт, подробный учёт занятий.</p></div>
     </div>
   </section>
 
   <section id="courses">
     <h2 data-i="cTitle">Курсы и цены</h2>
-    <div class="grid" id="courseList"></div>
+    <p class="sub" data-i="cSub">Три формата — выберите, что подходит именно вам.</p>
+    <div class="grid">
+      <div class="card fmt hl"><div class="tag" data-i="c1tag">Быстрее к результату</div><span class="age" data-i="c1age">с 9 лет</span><h3 data-i="c1">Индивидуальные занятия</h3><p data-i="c1t">Персональный подход — прогресс в разы быстрее. 2 раза в неделю.</p><div class="price">5 000 ₸ <small data-i="perLesson">/ урок</small></div></div>
+      <div class="card fmt"><div class="tag" data-i="c2tag">Максимум внимания</div><span class="age" data-i="c2age">2 ученика</span><h3 data-i="c2">Занятия в паре</h3><p data-i="c2t">Максимум внимания преподавателя и партнёр, подобранный по уровню и темпу.</p><div class="price">25 000 ₸ <small data-i="perMonth">/ месяц · 8 занятий</small></div></div>
+      <div class="card fmt"><div class="tag" data-i="c3tag">Мини-группы</div><span class="age" data-i="c3age">с 5 лет</span><h3 data-i="c3">Групповые занятия</h3><p data-i="c3t">Группы по возрасту и классу, 2 раза в неделю. Первый урок — бесплатно.</p><div class="price">15 500 ₸ <small data-i="perMonth2">/ месяц · 8 занятий</small></div></div>
+    </div>
+    <div class="card groups">
+      <h3 data-i="gTitle">Группы по возрасту</h3>
+      <div class="glist" id="groups"></div>
+    </div>
+    <div class="info" data-i="schedNote">Расписание подбираем после пробного урока или собеседования — тогда понятно, какая группа и время подойдут. Дошкольники занимаются в удобное время после садика.</div>
   </section>
 
-  <section id="schedule">
-    <h2 data-i="sTitle">Расписание групп</h2>
-    <div class="tw"><table id="sched"></table></div>
+  <section id="teachers">
+    <h2 data-i="tTitle">Наши преподаватели</h2>
+    <div class="tgrid">
+      <div class="card teacher">
+        <div class="ph"><img src="img/elena.webp" alt="Елена Ивановна" width="560" height="700" loading="lazy"></div>
+        <div class="tx">
+          <div class="role" data-i="t1role">Индивидуальные занятия и занятия в паре</div>
+          <h3 data-i="t1">Елена Ивановна</h3>
+          <ul>
+            <li data-i="t1a">Её ученики говорят на английском — это главный результат.</li>
+            <li data-i="t1b">Перед началом приглашает ученика и родителей на знакомство: обсуждаем цели обучения.</li>
+            <li data-i="t1c">Берёт тех, кто хочет по-настоящему заговорить, а не только подтянуть оценку в школе.</li>
+            <li data-i="t1d">Путь не быстрый, но всегда с результатом.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card teacher">
+        <div class="ph ini" aria-hidden="true">АА</div>
+        <div class="tx">
+          <div class="role" data-i="t2role">Групповые занятия</div>
+          <h3 data-i="t2">Алёна Андреевна</h3>
+          <ul>
+            <li data-i="t2a">С малышами — игры, песни и движение, чтобы появился интерес к языку.</li>
+            <li data-i="t2b">Занятия увлекательные и лёгкие, дети ходят с удовольствием.</li>
+            <li data-i="t2c">Со старшими — серьёзный подход и школьная программа.</li>
+            <li data-i="t2d">Индивидуальные занятия — при наличии свободного времени.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="extra">
+    <h2 data-i="eTitle">Не только уроки</h2>
+    <p class="sub" data-i="eSub">Для наших учеников — бесплатно.</p>
+    <div class="grid">
+      <div class="card"><div class="ic">🎃</div><h3 data-i="e1">Тематические праздники</h3><p data-i="e1t">Хэллоуин, Рождество, Весна и другие — с подарками.</p></div>
+      <div class="card"><div class="ic">🎨</div><h3 data-i="e2">Мастер-классы</h3><p data-i="e2t">Учим язык через творчество и интересные занятия.</p></div>
+      <div class="card"><div class="ic">🚌</div><h3 data-i="e3">Поездки и вылазки</h3><p data-i="e3t">Внеурочные выезды всей командой.</p></div>
+      <div class="card"><div class="ic">🌍</div><h3 data-i="e4">Встречи с иностранцами</h3><p data-i="e4t">За последние 3 года у нас в гостях были 4 иностранца — живая практика языка.</p></div>
+    </div>
   </section>
 
   <section>
     <h2 data-i="stTitle">Как начать</h2>
     <div class="steps">
       <div class="step"><b>1</b><div><h3 data-i="st1">Заявка</h3><p data-i="st1t">Оставьте заявку на сайте — она сразу придёт нам в WhatsApp.</p></div></div>
-      <div class="step"><b>2</b><div><h3 data-i="st2">Пробный урок</h3><p data-i="st2t">Определим уровень и подберём группу по возрасту.</p></div></div>
-      <div class="step"><b>3</b><div><h3 data-i="st3">Обучение</h3><p data-i="st3t">Занятия по расписанию, напоминания об уроках и оплате приходят в WhatsApp.</p></div></div>
+      <div class="step"><b>2</b><div><h3 data-i="st2">Знакомство — бесплатно</h3><p data-i="st2t">В группу — пробный урок: определим уровень и подберём группу. Индивидуально или в паре — собеседование с учеником и родителем: знакомимся и определяем цели обучения.</p></div></div>
+      <div class="step"><b>3</b><div><h3 data-i="st3">Обучение</h3><p data-i="st3t">Подбираем удобное время. Ежемесячные зачёты показывают прогресс.</p></div></div>
     </div>
   </section>
 
   <section id="book">
-    <h2 data-i="bTitle">Запись на пробный урок</h2>
+    <h2 data-i="bTitle">Записаться</h2>
+    <p class="sub" data-i="bSub">Пробный урок в группе и собеседование на индивидуальные занятия — бесплатно.</p>
     <div class="card">
-      <form id="f">
-        <label><span data-i="fCourse">Курс</span><select id="course"></select></label>
+      <form id="f" novalidate>
+        <label><span data-i="fFmt">Формат</span><select id="fmt"></select></label>
         <div class="two">
-          <label><span data-i="fKid">Имя ученика</span><input id="kid" required></label>
-          <label><span data-i="fAge">Возраст</span><input id="age" type="number" min="4" max="70" required></label>
+          <label><span data-i="fKid">Имя ученика</span><input id="kid" maxlength="60" autocomplete="off" required></label>
+          <label><span data-i="fAge">Возраст</span><input id="age" type="number" inputmode="numeric" min="5" max="70" required></label>
         </div>
-        <div><div class="lbl" data-i="fDay">Удобный день</div><div class="chips" id="days"></div></div>
-        <div><div class="lbl" data-i="fTime">Удобное время</div><div class="chips" id="times"></div></div>
+        <div><div class="lbl" data-i="fTime">Когда удобно заниматься</div><div class="chips" id="times"></div></div>
         <div class="two">
-          <label><span data-i="fParent">Имя родителя</span><input id="parent" required></label>
-          <label><span data-i="fPhone">Телефон</span><input id="phone" type="tel" placeholder="+7 7__ ___ __ __" required></label>
+          <label><span data-i="fParent">Имя родителя</span><input id="parent" maxlength="60" autocomplete="name" required></label>
+          <label><span data-i="fPhone">Телефон</span><input id="phone" type="tel" maxlength="20" autocomplete="tel" placeholder="+7 7__ ___ __ __" required></label>
         </div>
-        <button class="btn w" type="submit" data-i="fSend">Отправить заявку в WhatsApp</button>
-        <div class="note" data-i="fNote">Мы ответим и подтвердим время пробного урока.</div>
+        <div class="hp" aria-hidden="true"><label>Website<input id="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="err" id="err"></div>
+        <button class="btn w" type="submit" id="send" data-i="fSend">Отправить заявку</button>
+        <div class="note" data-i="fNote">После отправки откроется WhatsApp с готовым сообщением. Мы ответим и согласуем время.</div>
       </form>
+      <div class="ok" id="ok"><div class="big">✅</div><h3 data-i="okT">Заявка отправлена!</h3><p data-i="okP">Мы свяжемся с вами в WhatsApp и согласуем время.</p></div>
     </div>
   </section>
 
   <section>
     <h2 data-i="qTitle">Частые вопросы</h2>
-    <details><summary data-i="q1">С какого возраста можно заниматься?</summary><p data-i="a1">Принимаем детей с 6 лет, подростков и взрослых. Группу подбираем по возрасту и уровню.</p></details>
-    <details><summary data-i="q2">Сколько стоит пробный урок?</summary><p data-i="a2">Уточните у администратора — напишите нам в WhatsApp.</p></details>
-    <details><summary data-i="q3">Как оплачивать обучение?</summary><p data-i="a3">Оплата помесячно. Перед началом месяца мы присылаем напоминание в WhatsApp.</p></details>
-    <details><summary data-i="q4">Что если ребёнок пропустил урок?</summary><p data-i="a4">Напишите нам — подскажем, как догнать группу.</p></details>
+    <details><summary data-i="q1">С какого возраста можно заниматься?</summary><p data-i="a1">В группе — с 5 лет. Индивидуально — с 9 лет.</p></details>
+    <details><summary data-i="q2">Сколько стоит пробный урок?</summary><p data-i="a2">Пробный урок в группе — бесплатно. Собеседование перед индивидуальными занятиями — тоже бесплатно.</p></details>
+    <details><summary data-i="q3">Как оплачивать обучение?</summary><p data-i="a3">Kaspi QR, Halyk QR, удалённая оплата или наличные. Можно оплатить по счёту с последующим АВР.</p></details>
+    <details><summary data-i="q4">Что если ребёнок пропустил урок?</summary><p data-i="a4">Перерасчёт делаем только при пропуске по болезни (при наличии справки) или во время заранее согласованного семейного отпуска.</p></details>
+    <details><summary data-i="q5">Как понять, что занятия дают результат?</summary><p data-i="a5">Каждый месяц ученики сдают зачёт — прогресс видно. А многолетний опыт помогает вовремя заметить трудности и скорректировать обучение.</p></details>
+    <details><summary data-i="q6">Ребёнок ходит на курсы, а в школе всё равно низкие оценки. Почему?</summary><p data-i="a6">Не спешите с выводами — язык требует времени. Не стесняйтесь спрашивать преподавателя о прогрессе, трудностях и результатах ребёнка — мы всегда расскажем.</p></details>
   </section>
 
   <section id="contacts">
     <h2 data-i="kTitle">Контакты</h2>
     <div class="contact">
-      <a class="card" href="https://2gis.kz/karaganda/firm/70000001102694451" target="_blank"><div class="k" data-i="kAddr">Адрес</div><div class="v">Шахтинск, пр. Абая, 54, офис 502, 5 этаж</div></a>
-      <a class="card" href="https://wa.me/77003349335" target="_blank"><div class="k">WhatsApp</div><div class="v">+7 700 334 93 35</div></a>
-      <a class="card" href="https://instagram.com/2x2.shsk" target="_blank"><div class="k">Instagram</div><div class="v">@2x2.shsk</div></a>
+      <div class="card"><div class="k" data-i="kAddr">Адрес</div><div class="v" data-i="kAddrV">Шахтинск, пр. Абая, 54, ТД «Техника в быту», 5 этаж, офис 502</div>
+        <div class="maps"><a href="https://2gis.kz/karaganda/firm/70000001102694451" target="_blank" rel="noopener">2ГИС</a><a href="https://yandex.kz/maps/?text=%D0%A8%D0%B0%D1%85%D1%82%D0%B8%D0%BD%D1%81%D0%BA%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%90%D0%B1%D0%B0%D1%8F%2C%2054" target="_blank" rel="noopener" data-i="kYa">Яндекс Карты</a></div>
+      </div>
+      <a class="card" href="https://wa.me/77003349335" target="_blank" rel="noopener"><div class="k">WhatsApp</div><div class="v">+7 700 334 93 35</div></a>
+      <a class="card" href="https://instagram.com/2x2.shsk" target="_blank" rel="noopener"><div class="k">Instagram</div><div class="v">@2x2.shsk</div></a>
     </div>
   </section>
 </main>
 
-<footer>© 2x2 — языковая школа, Шахтинск</footer>
-<a class="fab" href="https://wa.me/77003349335" target="_blank">WhatsApp</a>
+<footer data-i="foot">© 2x2 (дважды два) — курсы английского языка, Шахтинск</footer>
+<a class="fab" href="https://wa.me/77003349335" target="_blank" rel="noopener">WhatsApp</a>
 
 <script>
-const WA='77003349335';
-const COURSES=[
- {ru:'Kids 6–9',kk:'Kids 6–9',a:{ru:'6–9 лет',kk:'6–9 жас'},d:{ru:'Игровой английский: песни, карточки, первые фразы.',kk:'Ойын арқылы ағылшын: әндер, карточкалар, алғашқы сөйлемдер.'},p:'18 000'},
- {ru:'Junior 10–13',kk:'Junior 10–13',a:{ru:'10–13 лет',kk:'10–13 жас'},d:{ru:'Грамматика и разговорная практика, задания онлайн.',kk:'Грамматика және сөйлеу тәжірибесі, онлайн тапсырмалар.'},p:'20 000'},
- {ru:'Teens 14–17',kk:'Teens 14–17',a:{ru:'14–17 лет',kk:'14–17 жас'},d:{ru:'Уверенный английский, подготовка к ЕНТ и IELTS.',kk:'Сенімді ағылшын, ҰБТ және IELTS-ке дайындық.'},p:'22 000'},
- {ru:'Взрослые',kk:'Ересектер',a:{ru:'18+',kk:'18+'},d:{ru:'Для работы и путешествий, с любого уровня.',kk:'Жұмыс пен саяхатқа, кез келген деңгейден.'},p:'22 000'}
+const WA='77003349335', API='/api/2x2/lead';
+const GROUPS=[
+ {a:{ru:'5–6 лет',kk:'5–6 жас'},t:{ru:'Дошкольники',kk:'Мектеп жасына дейінгілер'},d:{ru:'Игровой английский · песни · первые слова',kk:'Ойын арқылы ағылшын · әндер · алғашқы сөздер'}},
+ {a:{ru:'7–8 лет',kk:'7–8 жас'},t:{ru:'1–2 классы',kk:'1–2 сынып'},d:{ru:'Английский для младших школьников',kk:'Кіші сынып оқушыларына арналған ағылшын'}},
+ {a:{ru:'9–10 лет',kk:'9–10 жас'},t:{ru:'3–4 классы',kk:'3–4 сынып'},d:{ru:'Языковые навыки · разговорная практика',kk:'Тілдік дағдылар · сөйлеу тәжірибесі'}},
+ {a:{ru:'11–12 лет',kk:'11–12 жас'},t:{ru:'5–6 классы',kk:'5–6 сынып'},d:{ru:'Грамматика · словарный запас · разговорный английский',kk:'Грамматика · сөздік қор · ауызекі ағылшын'}},
+ {a:{ru:'13–14 лет',kk:'13–14 жас'},t:{ru:'7–8 классы',kk:'7–8 сынып'},d:{ru:'Уверенный английский · разговорная практика',kk:'Сенімді ағылшын · сөйлеу тәжірибесі'}},
+ {a:{ru:'15 лет',kk:'15 жас'},t:{ru:'9 класс',kk:'9 сынып'},d:{ru:'Подготовка к экзаменам',kk:'Емтихандарға дайындық'}},
+ {a:{ru:'16–17 лет',kk:'16–17 жас'},t:{ru:'10–11 классы',kk:'10–11 сынып'},d:{ru:'Подготовка к ЕНТ · IELTS · SAT',kk:'ҰБТ · IELTS · SAT-қа дайындық'}}
 ];
-const SCHED=[['Kids 6–9','15:00','15:00','10:00'],['Junior 10–13','16:30','16:30','11:30'],['Teens 14–17','18:00','18:00','13:00'],['*','19:30','19:30','—']];
-const T={kk:{nCourses:'Курстар',nSched:'Кесте',nBook:'Жазылу',nCont:'Байланыс',pAll:'Балалар · жасөспірімдер · ересектер',hTitle:'Шахтинскідегі 2x2 тіл мектебі',hText:'Шағын топтарда ағылшын тілі, алғашқы сабақтан бастап сөйлеу тәжірибесі. Сынақ сабаққа жазылыңыз — курс пен ыңғайлы уақытты осы жерден таңдаңыз.',hBtn:'Сынақ сабаққа жазылу',wTitle:'Неге 2x2',w1:'Шағын топтар',w1t:'Топ шағын — мұғалім әр оқушымен жұмыс істеуге үлгереді.',w2:'Сөйлеу тәжірибесі',w2t:'Тек жаттығу жазбаймыз, сөйлеуге үйренеміз.',w3:'Сынақ сабақ',w3t:'Төлемге дейін мұғаліммен және форматпен танысыңыз.',w4:'Қала орталығында',w4t:'Абай даңғылы, 54, 502 кеңсе — мектептен кейін жету оңай.',cTitle:'Курстар мен бағалар',sTitle:'Топтар кестесі',stTitle:'Қалай бастау керек',st1:'Өтінім',st1t:'Сайтта өтінім қалдырыңыз — ол бізге бірден WhatsApp-қа келеді.',st2:'Сынақ сабақ',st2t:'Деңгейді анықтап, жасына қарай топ таңдаймыз.',st3:'Оқу',st3t:'Сабақтар кесте бойынша, сабақ пен төлем туралы еске салу WhatsApp-қа келеді.',bTitle:'Сынақ сабаққа жазылу',fCourse:'Курс',fKid:'Оқушының аты',fAge:'Жасы',fDay:'Ыңғайлы күн',fTime:'Ыңғайлы уақыт',fParent:'Ата-ананың аты',fPhone:'Телефон',fSend:'Өтінімді WhatsApp-қа жіберу',fNote:'Біз жауап беріп, сынақ сабақтың уақытын растаймыз.',qTitle:'Жиі қойылатын сұрақтар',q1:'Неше жастан оқуға болады?',a1:'6 жастан бастап балаларды, жасөспірімдер мен ересектерді қабылдаймыз. Топты жасы мен деңгейіне қарай таңдаймыз.',q2:'Сынақ сабақ қанша тұрады?',a2:'Әкімшіден нақтылаңыз — бізге WhatsApp-қа жазыңыз.',q3:'Оқу ақысы қалай төленеді?',a3:'Ай сайын төленеді. Ай басталар алдында WhatsApp-қа еске салу жібереміз.',q4:'Бала сабақты өткізіп алса ше?',a4:'Бізге жазыңыз — топқа қалай ілесуге болатынын айтамыз.',kTitle:'Байланыс',kAddr:'Мекенжай'}};
+const FMTS=[
+ {v:'group',ru:'Группа (с 5 лет)',kk:'Топ (5 жастан)',w:'Групповые занятия'},
+ {v:'pair',ru:'В паре',kk:'Жұппен',w:'Занятия в паре'},
+ {v:'ind',ru:'Индивидуально (с 9 лет)',kk:'Жеке (9 жастан)',w:'Индивидуальные занятия'}
+];
+const TIMES=[{v:'am',ru:'Первая половина дня',kk:'Түске дейін'},{v:'pm',ru:'После обеда',kk:'Түстен кейін'},{v:'eve',ru:'После 18:00',kk:'18:00-ден кейін'}];
+const T={kk:{bName:'2x2 (екі жерде екі)',brSub:'Ағылшын тілі курстары',nCourses:'Курстар мен бағалар',nTeach:'Мұғалімдер',nBook:'Жазылу',nCont:'Байланыс',
+pAge:'Топтар 5 жастан · жеке сабақ 9 жастан',hTitle:'Ағылшынды жаттай бермеңіз — енді онда сөйлейтін кез келді',hText:'Ал біз мұны қалай істеу керегін білеміз.',hBtn:'Тегін жазылу',
+wTitle:'Неге дәл 2x2?',w1:'Кездейсоқ жұптар емес',w1t:'Оқушыларды деңгейі мен оқу қарқынына қарай таңдаймыз.',w2:'Нәтижені бақылау',w2t:'Ай сайынғы сынақтар прогресті көрсетіп отырады.',w3:'Оқудың қалай жүріп жатқанын білесіз',w3t:'Жеке және жұптық форматта — ата-анаға ай сайын кері байланыс.',w4:'Ыңғайлы кесте',w4t:'Уақыттың бірнеше нұсқасы бар — ыңғайлысын таңдау оңай.',w5:'Қала орталығында',w5t:'«Техника в быту» сауда үйі — жанында аялдамалар мен дүкендер.',w6:'Ашық төлем',w6t:'Қолма-қол және қолма-қолсыз төлем, сабақтардың толық есебі.',
+cTitle:'Курстар мен бағалар',cSub:'Үш формат — өзіңізге сәйкесін таңдаңыз.',c1tag:'Нәтижеге жылдамырақ',c1age:'9 жастан',c1:'Жеке сабақтар',c1t:'Жеке тәсіл — прогресс бірнеше есе жылдам. Аптасына 2 рет.',perLesson:'/ сабақ',c2tag:'Барынша назар',c2age:'2 оқушы',c2:'Жұппен сабақ',c2t:'Мұғалімнің барынша назары және деңгейі мен қарқыны сәйкес серіктес.',perMonth:'/ ай · 8 сабақ',c3tag:'Шағын топтар',c3age:'5 жастан',c3:'Топтық сабақтар',c3t:'Жасы мен сыныбы бойынша топтар, аптасына 2 рет. Алғашқы сабақ — тегін.',perMonth2:'/ ай · 8 сабақ',gTitle:'Жас бойынша топтар',
+schedNote:'Кестені сынақ сабақтан немесе сұхбаттан кейін таңдаймыз — сонда қай топ пен уақыт сәйкес келетіні түсінікті болады. Мектеп жасына дейінгі балалар балабақшадан кейін ыңғайлы уақытта оқиды.',
+tTitle:'Біздің мұғалімдер',t1role:'Жеке және жұптық сабақтар',t1:'Елена Ивановна',t1a:'Оның оқушылары ағылшынша сөйлейді — бұл басты нәтиже.',t1b:'Оқуды бастамас бұрын оқушы мен ата-ананы танысуға шақырады: оқу мақсатын талқылаймыз.',t1c:'Мектептегі бағаны түзеу үшін ғана емес, шынымен сөйлегісі келетіндерді алады.',t1d:'Жол ұзақ, бірақ әрдайым нәтижелі.',
+t2role:'Топтық сабақтар',t2:'Алёна Андреевна',t2a:'Кішкентайлармен — тілге қызығушылық ояту үшін ойын, ән және қимыл.',t2b:'Сабақтар қызықты әрі жеңіл, балалар қуана келеді.',t2c:'Үлкендермен — байыпты тәсіл және мектеп бағдарламасы.',t2d:'Бос уақыты болса — жеке сабақтар да.',
+eTitle:'Тек сабақ емес',eSub:'Біздің оқушылар үшін — тегін.',e1:'Тақырыптық мерекелер',e1t:'Хэллоуин, Рождество, Көктем және басқалар — сыйлықтармен.',e2:'Шеберлік сабақтары',e2t:'Тілді шығармашылық пен қызықты іс-шаралар арқылы үйренеміз.',e3:'Сапарлар мен серуендер',e3t:'Бүкіл команданың сабақтан тыс шығулары.',e4:'Шетелдіктермен кездесу',e4t:'Соңғы 3 жылда бізде 4 шетелдік қонақ болды — тілді тірі тәжірибеде қолдану.',
+stTitle:'Қалай бастау керек',st1:'Өтінім',st1t:'Сайтта өтінім қалдырыңыз — ол бізге бірден WhatsApp-қа келеді.',st2:'Танысу — тегін',st2t:'Топқа — сынақ сабақ: деңгейді анықтап, топ таңдаймыз. Жеке немесе жұппен — оқушы мен ата-анамен сұхбат: танысып, оқу мақсатын анықтаймыз.',st3:'Оқу',st3t:'Ыңғайлы уақытты таңдаймыз. Ай сайынғы сынақтар прогресті көрсетеді.',
+bTitle:'Жазылу',bSub:'Топтағы сынақ сабақ пен жеке сабаққа арналған сұхбат — тегін.',fFmt:'Формат',fKid:'Оқушының аты',fAge:'Жасы',fTime:'Қашан оқу ыңғайлы',fParent:'Ата-ананың аты',fPhone:'Телефон',fSend:'Өтінімді жіберу',fNote:'Жіберген соң дайын хабарламасымен WhatsApp ашылады. Біз жауап беріп, уақытты келісеміз.',okT:'Өтінім жіберілді!',okP:'Біз сізбен WhatsApp арқылы байланысып, уақытты келісеміз.',
+qTitle:'Жиі қойылатын сұрақтар',q1:'Неше жастан оқуға болады?',a1:'Топта — 5 жастан. Жеке — 9 жастан.',q2:'Сынақ сабақ қанша тұрады?',a2:'Топтағы сынақ сабақ — тегін. Жеке сабақ алдындағы сұхбат та тегін.',q3:'Оқу ақысы қалай төленеді?',a3:'Kaspi QR, Halyk QR, қашықтан төлеу немесе қолма-қол. Шот бойынша төлеп, кейін АВР алуға болады.',q4:'Бала сабақты өткізіп алса ше?',a4:'Қайта есептеу тек ауырған жағдайда (анықтама болса) немесе алдын ала келісілген отбасылық демалыс кезінде жасалады.',q5:'Сабақтың нәтиже беріп жатқанын қалай білуге болады?',a5:'Оқушылар ай сайын сынақ тапсырады — прогресс көрініп тұрады. Ал көпжылдық тәжірибе қиындықты уақытында байқап, оқуды түзетуге көмектеседі.',q6:'Бала курсқа барады, бірақ мектепте бағасы бәрібір төмен. Неге?',a6:'Асығыс қорытынды жасамаңыз — тіл үйрену уақытты қажет етеді. Мұғалімнен баланың прогресі, қиындықтары мен нәтижесі туралы сұраудан тартынбаңыз — біз әрдайым айтып береміз.',
+kTitle:'Байланыс',kAddr:'Мекенжай',kAddrV:'Шахтинск, Абай даңғылы, 54, «Техника в быту» СҮ, 5 қабат, 502 кеңсе',kYa:'Яндекс Карталар',foot:'© 2x2 — ағылшын тілі курстары, Шахтинск'},
+err:{ru:{kid:'Укажите имя ученика',age:'Укажите возраст (от 5 лет)',ind:'Индивидуальные занятия — с 9 лет. Для младших есть группы.',parent:'Укажите имя родителя',phone:'Укажите номер телефона',time:'Выберите, когда удобно заниматься'},
+     kk:{kid:'Оқушының атын жазыңыз',age:'Жасын жазыңыз (5 жастан)',ind:'Жеке сабақ — 9 жастан. Кішілерге топтар бар.',parent:'Ата-ананың атын жазыңыз',phone:'Телефон нөмірін жазыңыз',time:'Қашан ыңғайлы екенін таңдаңыз'}}};
 const RU={};document.querySelectorAll('[data-i]').forEach(e=>RU[e.dataset.i]=e.textContent);
-const DAYS={ru:['Пн','Вт','Ср','Чт','Пт','Сб'],kk:['Дс','Сс','Ср','Бс','Жм','Сб']};
-const TIMES=['10:00','11:30','15:00','16:30','18:00','19:30'];
-let lang='ru',day=0,time='';
+let lang='ru',time='';
+const $=id=>document.getElementById(id);
 function render(){
  document.documentElement.lang=lang==='kk'?'kk':'ru';
  document.querySelectorAll('[data-i]').forEach(e=>{e.textContent=lang==='kk'&&T.kk[e.dataset.i]?T.kk[e.dataset.i]:RU[e.dataset.i]});
  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
- const per=lang==='kk'?'/ ай · 8 сабақ':'/ месяц · 8 занятий';
- document.getElementById('courseList').innerHTML=COURSES.map(c=>`<div class="card"><span class="age">${c.a[lang]}</span><h3>${c[lang]}</h3><p>${c.d[lang]}</p><div class="price">${c.p} ₸ <small>${per}</small></div></div>`).join('');
- document.getElementById('course').innerHTML=COURSES.map(c=>`<option>${c[lang]}</option>`).join('');
- const hd=lang==='kk'?['Топ','Дс/Ср','Сс/Бс','Сб']:['Группа','Пн/Ср','Вт/Чт','Сб'];
- document.getElementById('sched').innerHTML='<tr>'+hd.map(h=>`<th>${h}</th>`).join('')+'</tr>'+SCHED.map(r=>'<tr>'+r.map((c,i)=>`<td>${i===0&&c==='*'?(lang==='kk'?'Ересектер':'Взрослые'):c}</td>`).join('')+'</tr>').join('');
- document.getElementById('days').innerHTML=DAYS[lang].map((d,i)=>`<button type="button" class="chip${i===day?' on':''}" data-d="${i}">${d}</button>`).join('');
- document.getElementById('times').innerHTML=TIMES.map(t=>`<button type="button" class="chip${t===time?' on':''}" data-t="${t}">${t}</button>`).join('');
+ $('groups').innerHTML=GROUPS.map(g=>`<div class="g"><b>${g.a[lang]}</b><span><strong>${g.t[lang]}</strong>${g.d[lang]}</span></div>`).join('');
+ const cur=$('fmt').value||'group';
+ $('fmt').innerHTML=FMTS.map(f=>`<option value="${f.v}"${f.v===cur?' selected':''}>${f[lang]}</option>`).join('');
+ $('times').innerHTML=TIMES.map(t=>`<button type="button" class="chip${t.v===time?' on':''}" data-t="${t.v}">${t[lang]}</button>`).join('');
 }
 document.querySelector('.lang').onclick=e=>{const l=e.target.dataset.l;if(l){lang=l;try{localStorage.setItem('x2lang',l)}catch(_){}render()}};
-document.getElementById('days').onclick=e=>{const d=e.target.dataset.d;if(d!==undefined){day=+d;render()}};
-document.getElementById('times').onclick=e=>{const t=e.target.dataset.t;if(t){time=t;render()}};
-try{const s=localStorage.getItem('x2lang');if(s)lang=s}catch(_){}
+$('times').onclick=e=>{const t=e.target.dataset.t;if(t){time=t;render()}};
+try{const s=localStorage.getItem('x2lang');if(s==='kk'||s==='ru')lang=s}catch(_){}
 render();
-document.getElementById('f').onsubmit=e=>{
+function showErr(k){const el=$('err');el.textContent=T.err[lang][k];el.style.display='block'}
+$('f').onsubmit=e=>{
  e.preventDefault();
- const v=id=>document.getElementById(id).value.trim();
- const msg=`Здравствуйте! Заявка на пробный урок с сайта\n\nКурс: ${v('course')}\nУченик: ${v('kid')}, ${v('age')}\nУдобно: ${DAYS.ru[day]}${time?', '+time:''}\nРодитель: ${v('parent')}\nТелефон: ${v('phone')}`;
- window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+ $('err').style.display='none';
+ const v=id=>$(id).value.trim();
+ const f=FMTS.find(x=>x.v===v('fmt'))||FMTS[0];
+ const age=parseInt(v('age'),10), phone=v('phone').replace(/[^\d+]/g,'');
+ if(!v('kid'))return showErr('kid');
+ if(!(age>=5&&age<=70))return showErr('age');
+ if(f.v==='ind'&&age<9)return showErr('ind');
+ if(!time)return showErr('time');
+ if(!v('parent'))return showErr('parent');
+ if(phone.replace(/\D/g,'').length<10)return showErr('phone');
+ const tl=TIMES.find(t=>t.v===time).ru;
+ const lead={fmt:f.v,kid:v('kid'),age,time,parent:v('parent'),phone,lang,website:v('website')};
+ try{fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead),keepalive:true}).catch(()=>{})}catch(_){}
+ const what=f.v==='group'?'пробный урок':'собеседование';
+ const msg=`Здравствуйте! Хочу записаться на ${what} (заявка с сайта)\n\nФормат: ${f.w}\nУченик: ${v('kid')}, ${age} лет\nУдобно: ${tl}\nРодитель: ${v('parent')}\nТелефон: ${phone}`;
+ const url=`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+ $('f').style.display='none';$('ok').style.display='block';
+ const w=window.open(url,'_blank');if(!w)location.href=url;
 };
 </script>
 </body>

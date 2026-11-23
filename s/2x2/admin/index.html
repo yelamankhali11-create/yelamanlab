@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>2x2 — заявки</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--ink:#14213d;--mute:#5b6478;--line:#e3e8f2;--blue:#2f5bea;--blue2:#e8eeff;--yel:#ffc93c;--wa:#25d366;--red:#d93025}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Montserrat,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.4}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:3}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.logo{width:36px;height:36px;border-radius:10px;background:var(--blue);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center}
+.logo span{color:var(--yel)}
+button,select,input,textarea{font:600 14px Montserrat,sans-serif;color:var(--ink)}
+.btn{border:0;border-radius:12px;padding:10px 14px;cursor:pointer;background:var(--blue2);color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13px}
+.btn.p{background:var(--blue);color:#fff}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.d{background:#fdecea;color:var(--red)}
+.btn:disabled{opacity:.6}
+#login{max-width:380px;margin:12vh auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:12px}
+#login h1{font-size:20px}
+input,select,textarea{padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;width:100%}
+.msg{font-size:13px;color:var(--red);min-height:18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:18px 0 12px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;cursor:pointer;text-align:left}
+.stat b{display:block;font-size:22px}
+.stat span{font-size:12px;color:var(--mute)}
+.stat.on{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue2)}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.bar input{flex:1;min-width:180px}
+.lead{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:10px;display:grid;gap:10px}
+.top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.top h3{font-size:16px}
+.meta{font-size:13px;color:var(--mute)}
+.meta a{color:var(--blue)}
+.badge{font-size:11px;font-weight:800;border-radius:8px;padding:3px 8px;white-space:nowrap}
+.s-new{background:#fff4d6;color:#8a5a00}.s-contacted{background:var(--blue2);color:var(--blue)}.s-booked{background:#e6f6ec;color:#137333}.s-studying{background:#e3f2fd;color:#0b57d0}.s-declined{background:#f1f3f4;color:#5f6368}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row select{width:auto;flex:1;min-width:150px}
+textarea{min-height:44px;resize:vertical;font-weight:500}
+.empty{text-align:center;color:var(--mute);padding:40px 0}
+.hide{display:none!important}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:12px;padding:10px 16px;font-size:13px;opacity:0;transition:.2s;pointer-events:none}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<form id="login" autocomplete="on">
+  <div class="brand"><span class="logo">2<span>x</span>2</span>Админ-панель</div>
+  <h1>Вход</h1>
+  <input type="text" name="username" value="2x2" autocomplete="username" class="hide" aria-hidden="true" tabindex="-1">
+  <input id="pw" type="password" placeholder="Пароль" autocomplete="current-password" required>
+  <button class="btn p" id="lb" type="submit" style="justify-content:center;padding:12px">Войти</button>
+  <div class="msg" id="lmsg"></div>
+</form>
+
+<div id="app" class="hide">
+  <header><div class="wrap">
+    <div class="brand"><span class="logo">2<span>x</span>2</span>Заявки</div>
+    <div class="row"><button class="btn" id="reload">Обновить</button><button class="btn" id="csv">Excel</button><button class="btn" id="out">Выйти</button></div>
+  </div></header>
+  <main class="wrap">
+    <div class="stats" id="stats"></div>
+    <div class="bar"><input id="q" placeholder="Поиск: имя, телефон"></div>
+    <div id="list"></div>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const API='/api/2x2/admin';
+const ST={new:'Новая',contacted:'Связались',booked:'Записан на пробный',studying:'Учится',declined:'Отказ'};
+const FM={group:'Группа',pair:'В паре',ind:'Индивидуально'};
+const TM={am:'Первая половина дня',pm:'После обеда',eve:'После 18:00'};
+const $=id=>document.getElementById(id);
+let token='',items=[],filter='all';
+try{token=sessionStorage.getItem('x2tok')||''}catch(_){}
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),1800)}
+async function call(body){
+ const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...body,token})});
+ const j=await r.json().catch(()=>({ok:false,error:'network'}));
+ if(j.error==='auth'){logout(true);throw new Error('auth')}
+ if(!j.ok)toast('Ошибка, попробуйте ещё раз');
+ return j;
+}
+function showApp(on){$('login').classList.toggle('hide',on);$('app').classList.toggle('hide',!on)}
+function logout(expired){token='';items=[];try{sessionStorage.removeItem('x2tok')}catch(_){}showApp(false);if(expired)$('lmsg').textContent='Сессия истекла, войдите снова.'}
+$('login').onsubmit=async e=>{
+ e.preventDefault();$('lmsg').textContent='';$('lb').disabled=true;
+ try{
+  const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'login',password:$('pw').value})});
+  const j=await r.json();
+  if(j.ok){token=j.token;try{sessionStorage.setItem('x2tok',token)}catch(_){}$('pw').value='';showApp(true);load()}
+  else if(j.error==='locked')$('lmsg').textContent=`Слишком много попыток. Попробуйте через ${j.wait} мин.`;
+  else if(j.error==='wrong')$('lmsg').textContent=`Неверный пароль. Осталось попыток: ${j.left}`;
+  else $('lmsg').textContent='Ошибка сервера, попробуйте позже';
+ }catch(_){$('lmsg').textContent='Нет связи с сервером'}
+ $('lb').disabled=false;
+};
+$('out').onclick=async()=>{try{await call({action:'logout'})}catch(_){}logout()};
+$('reload').onclick=()=>load();
+$('q').oninput=render;
+async function load(){
+ try{const j=await call({action:'list'});if(j.ok){items=j.items;render()}}catch(_){}
+}
+function fmtDate(s){return new Date(s).toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}
+function waLink(l){
+ const p=String(l.phone).replace(/\D/g,'').replace(/^8(?=\d{10}$)/,'7');
+ const what=l.fmt==='group'?'пробный урок':'собеседование';
+ const t=`Здравствуйте, ${l.parent}! Это школа английского 2x2. Вы оставили заявку на ${what} (${l.kid}). Когда вам удобно прийти?`;
+ return `https://wa.me/${p}?text=${encodeURIComponent(t)}`;
+}
+function render(){
+ const counts={all:items.length};Object.keys(ST).forEach(k=>counts[k]=items.filter(i=>i.status===k).length);
+ $('stats').innerHTML=[['all','Все'],...Object.entries(ST)].map(([k,n])=>`<button class="stat${filter===k?' on':''}" data-f="${k}"><b>${counts[k]}</b><span>${n}</span></button>`).join('');
+ const q=$('q').value.trim().toLowerCase();
+ const list=items.filter(i=>(filter==='all'||i.status===filter)&&(!q||[i.kid,i.parent,i.phone,i.note].join(' ').toLowerCase().includes(q)));
+ if(!list.length){$('list').innerHTML=`<div class="empty">${items.length?'Ничего не найдено':'Пока заявок нет. Они появятся здесь, когда родители заполнят форму на сайте.'}</div>`;return}
+ $('list').innerHTML=list.map(l=>`<div class="lead" data-id="${esc(l.id)}">
+  <div class="top"><div><h3>${esc(l.kid)}, ${esc(l.age)} лет</h3><div class="meta">${esc(FM[l.fmt]||l.fmt)} · ${esc(TM[l.time]||'—')} · ${fmtDate(l.created)}${l.lang==='kk'?' · KZ':''}</div><div class="meta">Родитель: <b>${esc(l.parent)}</b> · <a href="tel:${esc(l.phone)}">${esc(l.phone)}</a></div></div><span class="badge s-${esc(l.status)}">${esc(ST[l.status]||l.status)}</span></div>
+  <div class="row"><select data-act="status">${Object.entries(ST).map(([k,n])=>`<option value="${k}"${k===l.status?' selected':''}>${n}</option>`).join('')}</select><a class="btn wa" href="${esc(waLink(l))}" target="_blank" rel="noopener">WhatsApp</a><a class="btn" href="tel:${esc(l.phone)}">Позвонить</a></div>
+  <textarea data-act="note" maxlength="1000" placeholder="Заметка (например: пробный во вторник 16:00)">${esc(l.note)}</textarea>
+  <div class="row"><button class="btn" data-act="save">Сохранить заметку</button><button class="btn d" data-act="del">Удалить</button></div>
+ </div>`).join('');
+}
+$('stats').onclick=e=>{const b=e.target.closest('[data-f]');if(b){filter=b.dataset.f;render()}};
+$('list').onchange=async e=>{
+ if(e.target.dataset.act!=='status')return;
+ const id=e.target.closest('.lead').dataset.id;
+ try{const j=await call({action:'update',id,status:e.target.value});
+ if(j.ok){Object.assign(items.find(i=>i.id===id),j.item);render();toast('Статус обновлён')}}catch(_){}
+};
+$('list').onclick=async e=>{
+ const a=e.target.dataset.act;if(a!=='save'&&a!=='del')return;
+ const card=e.target.closest('.lead'),id=card.dataset.id;
+ try{
+ if(a==='save'){const j=await call({action:'update',id,note:card.querySelector('textarea').value});if(j.ok){Object.assign(items.find(i=>i.id===id),j.item);toast('Сохранено')}}
+ if(a==='del'&&confirm('Удалить заявку? Это нельзя отменить.')){const j=await call({action:'delete',id});if(j.ok){items=items.filter(i=>i.id!==id);render();toast('Удалено')}}
+ }catch(_){}
+};
+$('csv').onclick=()=>{
+ const rows=[['Дата','Ученик','Возраст','Формат','Время','Родитель','Телефон','Статус','Заметка']].concat(items.map(l=>[new Date(l.created).toLocaleString('ru-RU'),l.kid,l.age,FM[l.fmt],TM[l.time]||'',l.parent,l.phone,ST[l.status],l.note]));
+ const csv='﻿'+rows.map(r=>r.map(c=>{c=String(c??'');if(/^[=+\-@]/.test(c))c="'"+c;return '"'+c.replace(/"/g,'""')+'"'}).join(';')).join('\r\n');
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='2x2-zayavki.csv';a.click();
+};
+if(token){showApp(true);load()}
+</script>
+</body>
+</html>
