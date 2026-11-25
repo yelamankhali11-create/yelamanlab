@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Дом Белого Кролика - детский центр в Караганде</title>
+<meta name="description" content="Детский центр «Дом Белого Кролика» в Караганде: раннее развитие, подготовка к школе, творчество. Запись на пробное занятие онлайн.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--ink:#14213d;--mute:#5b6478;--line:#e3e8f2;--blue:#2f5bea;--blue2:#e8eeff;--yel:#ffc93c;--wa:#25d366;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+nav{position:sticky;top:0;z-index:5;background:#ffffffee;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none}
+.logo{width:40px;height:40px;border-radius:12px;background:var(--blue);color:#fff;font-weight:800;font-size:14px;white-space:nowrap;display:flex;align-items:center;justify-content:center}
+.logo span{color:var(--yel)}
+.links{display:flex;gap:16px;font-size:14px;font-weight:600}
+.links a{text-decoration:none;color:var(--mute)}
+.lang{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.lang button{border:0;background:#fff;padding:6px 10px;font:700 12px Montserrat,sans-serif;cursor:pointer;color:var(--mute)}
+.lang button.on{background:var(--blue);color:#fff}
+.hero{background:linear-gradient(135deg,var(--blue),#5b7cff);color:#fff;border-radius:var(--r);padding:28px 24px;margin:20px 0;display:grid;gap:14px}
+.hero h1{font-size:28px;line-height:1.2;font-weight:800}
+.hero p{opacity:.92;font-size:15px;max-width:620px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{background:#ffffff22;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:14px 20px;font:700 15px Montserrat,sans-serif;cursor:pointer;text-decoration:none}
+.btn.y{background:var(--yel);color:var(--ink)}
+.btn.w{background:var(--wa);color:#fff;width:100%}
+.btn.ghost{background:#ffffff22;color:#fff}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+section{margin:36px 0}
+h2{font-size:22px;font-weight:800;margin-bottom:14px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.card h3{font-size:16px;margin-bottom:4px}
+.age{font-size:12px;font-weight:700;color:var(--blue);background:var(--blue2);display:inline-block;border-radius:8px;padding:3px 8px;margin-bottom:8px}
+.card p{font-size:13px;color:var(--mute)}
+.price{font-size:18px;font-weight:800;margin-top:10px}
+.price small{font-size:12px;color:var(--mute);font-weight:600}
+.why .ic{font-size:26px;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:13px}
+th,td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line)}
+th{background:var(--blue2);color:var(--blue);font-weight:700}
+td:first-child,th:first-child{text-align:left;font-weight:700}
+.tw{overflow-x:auto;border-radius:var(--r);border:1px solid var(--line)}
+.steps{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;gap:12px}
+.step b{flex:none;width:32px;height:32px;border-radius:10px;background:var(--yel);display:grid;place-items:center}
+.step p{font-size:13px;color:var(--mute)}
+form{display:grid;gap:12px}
+label{font-size:13px;font-weight:700;display:grid;gap:6px}
+input,select{font:500 15px Montserrat,sans-serif;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;width:100%}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;font:600 13px Montserrat,sans-serif;cursor:pointer;color:var(--ink)}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.two{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.note{font-size:12px;color:var(--mute)}
+.lbl{font-size:13px;font-weight:700;margin-bottom:6px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:8px}
+summary{font-weight:700;cursor:pointer;font-size:15px}
+details p{font-size:14px;color:var(--mute);margin-top:8px}
+.contact{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.contact a.card{text-decoration:none;display:block}
+.contact .k{font-size:12px;color:var(--mute);font-weight:600}
+.contact .v{font-size:15px;font-weight:700;margin-top:2px}
+footer{text-align:center;color:var(--mute);font-size:12px;padding:28px 16px 90px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:6;background:var(--wa);color:#fff;border-radius:999px;padding:14px 18px;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 10px 24px #25d36655}
+@media(max-width:640px){.links{display:none}.hero h1{font-size:23px}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body><div style="background:#111;color:#fff;text-align:center;font-size:13px;padding:7px 12px">Демо-версия: курсы, цены и расписание показаны для примера</div>
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span>Дом Белого Кролика</span></a>
+  <div class="links"><a href="#courses" data-i="nCourses">Курсы</a><a href="#schedule" data-i="nSched">Расписание</a><a href="#book" data-i="nBook">Запись</a><a href="#contacts" data-i="nCont">Контакты</a></div>
+  <div class="lang"><button data-l="ru" class="on">RU</button><button data-l="kk">KZ</button></div>
+</div></nav>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div class="pills"><span class="pill">⭐ 4,6 · 2ГИС</span><span class="pill" data-i="pAll">Дети от 1,5 до 7 лет</span></div>
+    <h1 data-i="hTitle">Центр развития детей «Дом Белого Кролика» в Караганде</h1>
+    <p data-i="hText">Раннее развитие, подготовка к школе и творчество в мини-группах. Запишитесь на пробное занятие - выберите программу и удобное время прямо на сайте.</p>
+    <div class="cta"><a href="#book" class="btn y" data-i="hBtn">Записаться на пробное занятие</a><a href="https://instagram.com/_domkrolika_" target="_blank" class="btn ghost">Instagram</a></div>
+  </div>
+
+  <section class="why">
+    <h2 data-i="wTitle">Почему Дом Белого Кролика</h2>
+    <div class="grid">
+      <div class="card"><div class="ic">👥</div><h3 data-i="w1">Мини-группы</h3><p data-i="w1t">Небольшие группы - педагог успевает позаниматься с каждым ребёнком.</p></div>
+      <div class="card"><div class="ic">🧩</div><h3 data-i="w2">Через игру</h3><p data-i="w2t">Ребёнок учится в игре - с интересом и без перегруза.</p></div>
+      <div class="card"><div class="ic">🎯</div><h3 data-i="w3">Пробный урок</h3><p data-i="w3t">Познакомьтесь с педагогом и форматом до оплаты.</p></div>
+      <div class="card"><div class="ic">📍</div><h3 data-i="w4">Рядом с домом</h3><p data-i="w4t">ул. Аманжолова, 15 - удобно добираться.</p></div>
+    </div>
+  </section>
+
+  <section id="courses">
+    <h2 data-i="cTitle">Программы и цены</h2>
+    <div class="grid" id="courseList"></div>
+  </section>
+
+  <section id="schedule">
+    <h2 data-i="sTitle">Расписание групп</h2>
+    <div class="tw"><table id="sched"></table></div>
+  </section>
+
+  <section>
+    <h2 data-i="stTitle">Как начать</h2>
+    <div class="steps">
+      <div class="step"><b>1</b><div><h3 data-i="st1">Заявка</h3><p data-i="st1t">Оставьте заявку на сайте - она сразу придёт нам в WhatsApp.</p></div></div>
+      <div class="step"><b>2</b><div><h3 data-i="st2">Пробный урок</h3><p data-i="st2t">Познакомимся с ребёнком и подберём группу по возрасту.</p></div></div>
+      <div class="step"><b>3</b><div><h3 data-i="st3">Обучение</h3><p data-i="st3t">Занятия по расписанию, напоминания об уроках и оплате приходят в WhatsApp.</p></div></div>
+    </div>
+  </section>
+
+  <section id="book">
+    <h2 data-i="bTitle">Запись на пробное занятие</h2>
+    <div class="card">
+      <form id="f">
+        <label><span data-i="fCourse">Курс</span><select id="course"></select></label>
+        <div class="two">
+          <label><span data-i="fKid">Имя ученика</span><input id="kid" required></label>
+          <label><span data-i="fAge">Возраст</span><input id="age" type="number" min="4" max="70" required></label>
+        </div>
+        <div><div class="lbl" data-i="fDay">Удобный день</div><div class="chips" id="days"></div></div>
+        <div><div class="lbl" data-i="fTime">Удобное время</div><div class="chips" id="times"></div></div>
+        <div class="two">
+          <label><span data-i="fParent">Имя родителя</span><input id="parent" required></label>
+          <label><span data-i="fPhone">Телефон</span><input id="phone" type="tel" placeholder="+7 7__ ___ __ __" required></label>
+        </div>
+        <button class="btn w" type="submit" data-i="fSend">Отправить заявку в WhatsApp</button>
+        <div class="note" data-i="fNote">Мы ответим и подтвердим время пробного урока.</div>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-i="qTitle">Частые вопросы</h2>
+    <details><summary data-i="q1">С какого возраста можно заниматься?</summary><p data-i="a1">Принимаем детей от 1,5 до 7 лет. Группу подбираем по возрасту.</p></details>
+    <details><summary data-i="q2">Сколько стоит пробное занятие?</summary><p data-i="a2">Уточните у администратора - напишите нам в WhatsApp.</p></details>
+    <details><summary data-i="q3">Как оплачивать обучение?</summary><p data-i="a3">Оплата помесячно. Перед началом месяца мы присылаем напоминание в WhatsApp.</p></details>
+    <details><summary data-i="q4">Что если ребёнок пропустил занятие?</summary><p data-i="a4">Напишите нам - подскажем, как догнать группу.</p></details>
+  </section>
+
+  <section id="contacts">
+    <h2 data-i="kTitle">Контакты</h2>
+    <div class="contact">
+      <a class="card" href="https://2gis.kz/karaganda/firm/70000001062151760" target="_blank"><div class="k" data-i="kAddr">Адрес</div><div class="v">Караганда, ул. Аманжолова, 15</div></a>
+      <a class="card" href="https://wa.me/77021652180" target="_blank"><div class="k">WhatsApp</div><div class="v">+7 702 165 21 80</div></a>
+      <a class="card" href="https://instagram.com/_domkrolika_" target="_blank"><div class="k">Instagram</div><div class="v">@_domkrolika_</div></a>
+    </div>
+  </section>
+</main>
+
+<footer>© Дом Белого Кролика - детский центр, Караганда</footer>
+<a class="fab" href="https://wa.me/77021652180" target="_blank">WhatsApp</a>
+
+<script>
+const WA='77021652180';
+const COURSES=[
+ {ru:'Малыши 1,5–3',kk:'Бүлдіршіндер 1,5–3',a:{ru:'1,5–3 года',kk:'1,5–3 жас'},d:{ru:'Сенсорика, моторика, речь - занятия вместе с мамой.',kk:'Сенсорика, моторика, сөйлеу - анасымен бірге сабақ.'},p:'18 000'},
+ {ru:'Развитие 3–5',kk:'Даму 3–5',a:{ru:'3–5 лет',kk:'3–5 жас'},d:{ru:'Логика, речь, творчество и подготовка к садику.',kk:'Логика, сөйлеу, шығармашылық.'},p:'20 000'},
+ {ru:'Подготовка к школе',kk:'Мектепке дайындық',a:{ru:'5–7 лет',kk:'5–7 жас'},d:{ru:'Чтение, счёт, письмо и внимание - спокойный старт в 1 классе.',kk:'Оқу, санау, жазу және зейін - 1-сыныпқа сенімді бастау.'},p:'22 000'},
+ {ru:'Творчество',kk:'Шығармашылық',a:{ru:'3–7 лет',kk:'3–7 жас'},d:{ru:'Рисование, лепка, поделки - развиваем фантазию.',kk:'Сурет, мүсіндеу, қолөнер - қиялды дамытамыз.'},p:'15 000'}
+];
+const SCHED=[['Малыши 1,5–3','10:00','10:00','10:00'],['Развитие 3–5','11:00','16:00','11:00'],['Подготовка к школе','17:00','17:00','12:00'],['Творчество','15:00','15:00','—']];
+const T={kk:{nCourses:'Курстар',nSched:'Кесте',nBook:'Жазылу',nCont:'Байланыс',pAll:'1,5 жастан 7 жасқа дейінгі балалар',hTitle:'Қарағандыдағы «Дом Белого Кролика» балалар даму орталығы',hText:'Шағын топтарда ерте даму, мектепке дайындық және шығармашылық. Сынақ сабаққа жазылыңыз - бағдарлама мен ыңғайлы уақытты осы жерден таңдаңыз.',hBtn:'Сынақ сабаққа жазылу',wTitle:'Неге Дом Белого Кролика',w1:'Шағын топтар',w1t:'Топ шағын - педагог әр баламен айналысуға үлгереді.',w2:'Ойын арқылы',w2t:'Бала ойын арқылы қызығып, шаршамай үйренеді.',w3:'Сынақ сабақ',w3t:'Төлемге дейін мұғаліммен және форматпен танысыңыз.',w4:'Үйге жақын',w4t:'Аманжолов к-сі, 15 - жету оңай.',cTitle:'Бағдарламалар мен бағалар',sTitle:'Топтар кестесі',stTitle:'Қалай бастау керек',st1:'Өтінім',st1t:'Сайтта өтінім қалдырыңыз - ол бізге бірден WhatsApp-қа келеді.',st2:'Сынақ сабақ',st2t:'Баламен танысып, жасына қарай топ таңдаймыз.',st3:'Оқу',st3t:'Сабақтар кесте бойынша, сабақ пен төлем туралы еске салу WhatsApp-қа келеді.',bTitle:'Сынақ сабаққа жазылу',fCourse:'Курс',fKid:'Оқушының аты',fAge:'Жасы',fDay:'Ыңғайлы күн',fTime:'Ыңғайлы уақыт',fParent:'Ата-ананың аты',fPhone:'Телефон',fSend:'Өтінімді WhatsApp-қа жіберу',fNote:'Біз жауап беріп, сынақ сабақтың уақытын растаймыз.',qTitle:'Жиі қойылатын сұрақтар',q1:'Неше жастан оқуға болады?',a1:'1,5 жастан 7 жасқа дейінгі балаларды қабылдаймыз. Топты жасына қарай таңдаймыз.',q2:'Сынақ сабақ қанша тұрады?',a2:'Әкімшіден нақтылаңыз - бізге WhatsApp-қа жазыңыз.',q3:'Оқу ақысы қалай төленеді?',a3:'Ай сайын төленеді. Ай басталар алдында WhatsApp-қа еске салу жібереміз.',q4:'Бала сабақты өткізіп алса ше?',a4:'Бізге жазыңыз - топқа қалай ілесуге болатынын айтамыз.',kTitle:'Байланыс',kAddr:'Мекенжай'}};
+const RU={};document.querySelectorAll('[data-i]').forEach(e=>RU[e.dataset.i]=e.textContent);
+const DAYS={ru:['Пн','Вт','Ср','Чт','Пт','Сб'],kk:['Дс','Сс','Ср','Бс','Жм','Сб']};
+const TIMES=['10:00','11:30','15:00','16:30','18:00','19:30'];
+let lang='ru',day=0,time='';
+function render(){
+ document.documentElement.lang=lang==='kk'?'kk':'ru';
+ document.querySelectorAll('[data-i]').forEach(e=>{e.textContent=lang==='kk'&&T.kk[e.dataset.i]?T.kk[e.dataset.i]:RU[e.dataset.i]});
+ document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
+ const per=lang==='kk'?'/ ай · 8 сабақ':'/ месяц · 8 занятий';
+ document.getElementById('courseList').innerHTML=COURSES.map(c=>`<div class="card"><span class="age">${c.a[lang]}</span><h3>${c[lang]}</h3><p>${c.d[lang]}</p><div class="price">${c.p} ₸ <small>${per}</small></div></div>`).join('');
+ document.getElementById('course').innerHTML=COURSES.map(c=>`<option>${c[lang]}</option>`).join('');
+ const hd=lang==='kk'?['Топ','Дс/Ср','Сс/Бс','Сб']:['Группа','Пн/Ср','Вт/Чт','Сб'];
+ document.getElementById('sched').innerHTML='<tr>'+hd.map(h=>`<th>${h}</th>`).join('')+'</tr>'+SCHED.map(r=>'<tr>'+r.map((c,i)=>`<td>${i===0&&c==='*'?(lang==='kk'?'Ересектер':'Взрослые'):c}</td>`).join('')+'</tr>').join('');
+ document.getElementById('days').innerHTML=DAYS[lang].map((d,i)=>`<button type="button" class="chip${i===day?' on':''}" data-d="${i}">${d}</button>`).join('');
+ document.getElementById('times').innerHTML=TIMES.map(t=>`<button type="button" class="chip${t===time?' on':''}" data-t="${t}">${t}</button>`).join('');
+}
+document.querySelector('.lang').onclick=e=>{const l=e.target.dataset.l;if(l){lang=l;try{localStorage.setItem('x2lang',l)}catch(_){}render()}};
+document.getElementById('days').onclick=e=>{const d=e.target.dataset.d;if(d!==undefined){day=+d;render()}};
+document.getElementById('times').onclick=e=>{const t=e.target.dataset.t;if(t){time=t;render()}};
+try{const s=localStorage.getItem('x2lang');if(s)lang=s}catch(_){}
+render();
+document.getElementById('f').onsubmit=e=>{
+ e.preventDefault();
+ const v=id=>document.getElementById(id).value.trim();
+ const msg=`Здравствуйте! Заявка на пробный урок с сайта\n\nКурс: ${v('course')}\nУченик: ${v('kid')}, ${v('age')}\nУдобно: ${DAYS.ru[day]}${time?', '+time:''}\nРодитель: ${v('parent')}\nТелефон: ${v('phone')}`;
+ window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+};
+</script>
+</body>
+</html>
