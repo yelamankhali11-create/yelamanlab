@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tumar Kids - детский сад в Павлодаре</title>
+<meta name="description" content="Tumar Kids - частный детский сад в Павлодаре. Группы с раннего возраста, 7:00-19:00. Запись на экскурсию онлайн.">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff8ee;--ink:#2d2a3e;--mut:#6f6a80;--teal:#16a39a;--teal2:#d8f3ef;--coral:#ff7a59;--coral2:#ffe3d9;--sun:#ffc83d;--sun2:#fff1c7;--lil:#8f7cf0;--lil2:#ebe7ff;--line:#f0e3cf}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Nunito,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:inherit;text-decoration:none}
+.demo{background:var(--ink);color:#fff;text-align:center;font-size:13px;padding:7px 12px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+h1,h2,h3,.logo{font-family:Fredoka,Nunito,sans-serif}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,248,238,.92);backdrop-filter:blur(8px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:10px}
+.logo{font-size:24px;font-weight:700;display:flex;align-items:center;gap:8px}
+.logo i{font-style:normal;width:38px;height:38px;border-radius:12px;background:var(--sun);display:grid;place-items:center;font-size:20px}
+.logo b{color:var(--teal)}
+.nr{display:flex;gap:8px;align-items:center}
+.lang{border:2px solid var(--line);background:#fff;border-radius:20px;padding:5px 12px;font-weight:800;font-size:13px;cursor:pointer;font-family:inherit}
+.btn{display:inline-block;background:var(--coral);color:#fff;padding:13px 24px;border-radius:999px;font-weight:800;border:0;cursor:pointer;font-size:15px;font-family:inherit;box-shadow:0 6px 0 #e05d3d}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #e05d3d}
+.btn.t{background:var(--teal);box-shadow:0 6px 0 #0e7f78}
+.btn.sm{padding:9px 16px;font-size:14px;box-shadow:0 4px 0 #e05d3d}
+.hero{padding:34px 0 20px}
+.hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:center}
+.tag{display:inline-block;background:var(--teal2);color:#0d7c75;font-weight:800;font-size:13px;border-radius:999px;padding:6px 12px;margin-bottom:14px}
+.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.05;margin-bottom:14px}
+.hero h1 span{color:var(--coral)}
+.hero p{color:var(--mut);font-size:17px;margin-bottom:22px;max-width:520px}
+.facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.facts div{background:#fff;border:2px solid var(--line);border-radius:16px;padding:8px 14px;font-weight:700;font-size:14px}
+.art{position:relative;aspect-ratio:1;max-width:380px;margin:0 auto;width:100%}
+.blob{position:absolute;border-radius:50%;display:grid;place-items:center;font-size:56px}
+.b1{inset:8% 10% 22% 8%;background:var(--sun2);font-size:110px}
+.b2{width:34%;height:34%;right:2%;top:2%;background:var(--coral2)}
+.b3{width:30%;height:30%;left:0;bottom:4%;background:var(--teal2)}
+.b4{width:24%;height:24%;right:10%;bottom:0;background:var(--lil2);font-size:40px}
+section{padding:40px 0}
+h2{font-size:clamp(28px,4.5vw,38px);margin-bottom:6px}
+.sub{color:var(--mut);margin-bottom:22px}
+.wave{height:28px;background:radial-gradient(circle at 14px -6px,transparent 18px,var(--teal2) 19px) 0 0/28px 28px repeat-x}
+.band{background:var(--teal2)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:#fff;border-radius:22px;padding:20px;border:2px solid var(--line)}
+.card .e{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px;margin-bottom:10px}
+.card h3{font-size:19px;margin-bottom:4px}
+.card p{color:var(--mut);font-size:14px}
+.day{display:grid;gap:10px;max-width:640px}
+.step{display:flex;gap:14px;align-items:center;background:#fff;border-radius:18px;padding:12px 16px;border:2px solid var(--line)}
+.step b{font-family:Fredoka;font-size:18px;color:var(--teal);min-width:62px}
+.step span{font-size:15px}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.g{border-radius:24px;padding:22px;position:relative;overflow:hidden}
+.g h3{font-size:22px}
+.g .age{font-weight:800;opacity:.75;margin-bottom:10px}
+.g ul{list-style:none;font-size:14px;margin-bottom:14px}
+.g li{padding:3px 0}
+.g .pr{font-family:Fredoka;font-size:28px}
+.g .pr small{font-family:Nunito;font-size:13px;opacity:.7}
+.note{font-size:12px;color:var(--mut);margin-top:10px}
+.game{background:#fff;border-radius:26px;border:2px solid var(--line);padding:20px;max-width:520px}
+.gtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-weight:800}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tile{aspect-ratio:1;border-radius:16px;border:0;background:var(--lil);cursor:pointer;font-size:34px;display:grid;place-items:center;color:transparent}
+.tile.open,.tile.done{background:var(--sun2);color:inherit}
+.tile.done{background:var(--teal2)}
+.win{display:none;text-align:center;margin-top:14px;font-weight:800}
+.upsell{background:var(--lil2);border-radius:18px;padding:14px 16px;margin-top:14px;font-size:14px}
+.portal{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+.phone{background:var(--ink);border-radius:34px;padding:14px;max-width:300px;margin:0 auto;width:100%}
+.scr{background:#fff;border-radius:24px;padding:16px;font-size:13px}
+.scr h4{font-family:Fredoka;font-size:17px;margin-bottom:10px}
+.row{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.ok{color:var(--teal);font-weight:800}
+.pay{background:var(--coral2);border-radius:12px;padding:10px;margin-top:10px;font-weight:700}
+.photo{background:var(--sun2);border-radius:12px;padding:10px;margin-top:8px}
+.pl li{list-style:none;padding:6px 0;font-size:15px}
+.form{background:#fff;border-radius:26px;border:2px solid var(--line);padding:22px;max-width:560px}
+.fm{display:grid;gap:10px}
+.fm input,.fm select{border:2px solid var(--line);border-radius:14px;padding:12px;font-size:15px;font-family:inherit;background:#fffdf9;width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+details{background:#fff;border:2px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:10px}
+summary{font-weight:800;cursor:pointer}
+details p{color:var(--mut);margin-top:8px;font-size:15px}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.contact a,.contact div{background:#fff;border:2px solid var(--line);border-radius:18px;padding:16px;display:block}
+.contact small{color:var(--mut);display:block}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:26px 0 90px}
+.fab{position:fixed;right:16px;bottom:16px;background:#25d366;color:#fff;border-radius:999px;padding:13px 18px;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.2);z-index:30}
+@media(max-width:760px){.hgrid,.portal{grid-template-columns:1fr}.art{max-width:260px}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demo" data-i="d0">Демо-версия: группы, цены и фото показаны для примера</div>
+<nav><div class="wrap">
+  <a class="logo" href="#"><i>☀️</i><span>Tumar <b>Kids</b></span></a>
+  <div class="nr"><button class="lang" id="lang">KZ</button><a class="btn sm" href="#visit" data-i="n1">Экскурсия</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap hgrid">
+  <div>
+    <span class="tag" data-i="h0">Частный детский сад · Павлодар</span>
+    <h1><span data-i="h1a">Тёплый садик,</span><br><span data-i="h1b" style="color:var(--ink)">где ребёнку хорошо</span></h1>
+    <p data-i="h2">Маленькие группы, забота воспитателей и развивающие занятия каждый день. Приходите на экскурсию - покажем группы, познакомим с воспитателями.</p>
+    <a class="btn" href="#visit" data-i="h3">Записаться на экскурсию</a>
+    <div class="facts">
+      <div data-i="f1">⭐ 4,9 в 2ГИС</div>
+      <div data-i="f2">🕖 Пн-Пт 7:00-19:00</div>
+      <div data-i="f3">👶 Группы с раннего возраста</div>
+    </div>
+  </div>
+  <div class="art"><div class="blob b1">🧸</div><div class="blob b2">🎨</div><div class="blob b3">🧩</div><div class="blob b4">🍎</div></div>
+</div></header>
+
+<section><div class="wrap">
+  <h2 data-i="w0">Почему родители выбирают нас</h2>
+  <p class="sub" data-i="w1">Главное - чтобы ребёнку было спокойно и интересно</p>
+  <div class="cards">
+    <div class="card"><div class="e" style="background:var(--coral2)">👩‍🏫</div><h3 data-i="c1">Маленькие группы</h3><p data-i="c1t">Воспитатель успевает уделить внимание каждому ребёнку.</p></div>
+    <div class="card"><div class="e" style="background:var(--sun2)">🍲</div><h3 data-i="c2">Домашнее питание</h3><p data-i="c2t">Готовим каждый день, меню на неделю видно родителям.</p></div>
+    <div class="card"><div class="e" style="background:var(--teal2)">🧠</div><h3 data-i="c3">Развитие каждый день</h3><p data-i="c3t">Речь, логика, творчество, подготовка к школе.</p></div>
+    <div class="card"><div class="e" style="background:var(--lil2)">📸</div><h3 data-i="c4">Фото дня родителям</h3><p data-i="c4t">Вы видите, как прошёл день, даже на работе.</p></div>
+  </div>
+</div></section>
+
+<div class="wave"></div>
+<section class="band"><div class="wrap">
+  <h2 data-i="r0">Один день в Tumar Kids</h2>
+  <p class="sub" data-i="r1">Режим дня, к которому быстро привыкают дети</p>
+  <div class="day" id="day"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 data-i="p0">Группы и стоимость</h2>
+  <p class="sub" data-i="p1">Подберём группу по возрасту ребёнка</p>
+  <div class="groups" id="groups"></div>
+  <p class="note" data-i="p2">Группы и цены - пример. На сайте будут ваши реальные данные.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2 data-i="m0">Игра для малышей</h2>
+  <p class="sub" data-i="m1">Найди пары - тренирует память и внимание</p>
+  <div class="game">
+    <div class="gtop"><span data-i="m2">Открой две одинаковые карточки</span><span id="moves">0</span></div>
+    <div class="grid4" id="board"></div>
+    <div class="win" id="win">🎉 <span data-i="m3">Молодец! Все пары найдены</span><br><button class="btn t sm" style="margin-top:10px" id="again" data-i="m4">Ещё раз</button></div>
+    <div class="upsell" data-i="m5">Такие развивающие игры можно добавить на ваш сайт: дети играют дома, а родители видят ваш садик и кнопку записи.</div>
+  </div>
+</div></section>
+
+<div class="wave"></div>
+<section class="band"><div class="wrap portal">
+  <div>
+    <h2 data-i="o0">Кабинет для родителей</h2>
+    <p class="sub" data-i="o1">По желанию - портал садика вместо десятков сообщений в WhatsApp</p>
+    <ul class="pl">
+      <li data-i="o2">✅ Посещаемость: пришёл, ушёл, болеет</li>
+      <li data-i="o3">💳 Оплата и напоминания об оплате</li>
+      <li data-i="o4">📸 Фото и новости дня</li>
+      <li data-i="o5">🍽️ Меню на неделю</li>
+    </ul>
+  </div>
+  <div class="phone"><div class="scr">
+    <h4>👧 Айлин, <span data-i="o6">средняя группа</span></h4>
+    <div class="row"><span data-i="o7">Сегодня</span><span class="ok" data-i="o8">В саду с 8:05</span></div>
+    <div class="row"><span data-i="o9">Обед</span><span data-i="o10">Суп, котлета, компот</span></div>
+    <div class="row"><span data-i="o11">Сон</span><span>13:00-15:00</span></div>
+    <div class="pay" data-i="o12">Оплата за декабрь - до 5 числа</div>
+    <div class="photo" data-i="o13">📸 3 новых фото с занятия по рисованию</div>
+  </div></div>
+</div></section>
+
+<section id="visit"><div class="wrap">
+  <h2 data-i="v0">Запись на экскурсию</h2>
+  <p class="sub" data-i="v1">Заявка придёт нам в WhatsApp - мы перезвоним и согласуем время</p>
+  <div class="form"><div class="fm">
+    <div class="two"><input id="cn" data-ph="v2" placeholder="Имя ребёнка"><input id="ca" data-ph="v3" placeholder="Возраст"></div>
+    <select id="cg"></select>
+    <div class="two"><input id="pn" data-ph="v4" placeholder="Ваше имя"><input id="pp" type="tel" placeholder="+7 7__ ___ __ __"></div>
+    <button class="btn t" id="send" data-i="v5">Отправить в WhatsApp</button>
+  </div></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 data-i="q0">Частые вопросы</h2>
+  <details><summary data-i="q1">С какого возраста принимаете?</summary><p data-i="a1">Есть группы с раннего возраста. Точный возраст и свободные места уточните у администратора.</p></details>
+  <details><summary data-i="q2">Можно сначала посмотреть садик?</summary><p data-i="a2">Конечно - запишитесь на экскурсию, покажем группы и познакомим с воспитателями.</p></details>
+  <details><summary data-i="q3">Как проходит адаптация?</summary><p data-i="a3">Первые дни ребёнок остаётся на короткое время, постепенно увеличиваем. Родители всё время на связи.</p></details>
+</div></section>
+
+<section><div class="wrap">
+  <h2 data-i="k0">Контакты</h2>
+  <div class="contact">
+    <a href="https://2gis.kz/pavlodar/firm/70000001050267625" target="_blank"><small>2ГИС</small><b data-i="k1">Павлодар, ул. Павлова, 95/2</b></a>
+    <a href="https://wa.me/77018775616" target="_blank"><small>WhatsApp</small><b>+7 701 877 56 16</b></a>
+    <a href="https://instagram.com/tumarkids.pvl" target="_blank"><small>Instagram</small><b>@tumarkids.pvl</b></a>
+    <div><small data-i="k2">Режим работы</small><b data-i="k3">Пн-Пт, 7:00-19:00</b></div>
+  </div>
+</div></section>
+
+<footer>© Tumar Kids, Павлодар</footer>
+<a class="fab" href="https://wa.me/77018775616" target="_blank">WhatsApp</a>
+
+<script>
+const WA='77018775616';
+const DAY=[['7:00','19:00','Встреча детей, зарядка','Балаларды қарсы алу, жаттығу'],['8:30','','Завтрак','Таңғы ас'],['9:30','','Занятия: речь, логика, творчество','Сабақтар: сөйлеу, логика, шығармашылық'],['11:00','','Прогулка','Серуен'],['12:30','','Обед','Түскі ас'],['13:00','','Тихий час','Ұйқы'],['15:30','','Полдник и игры','Бесін ас және ойындар'],['17:00','','Кружки, прогулка','Үйірмелер, серуен'],['19:00','','Родители забирают детей','Ата-аналар балаларды алып кетеді']];
+const GR=[
+ {n:'Ясельная',k:'Бөбектер',a:['от 1,5 до 3 лет','1,5 - 3 жас'],c:'var(--sun2)',p:'85 000',i:[['Мягкая адаптация','Жұмсақ бейімделу'],['Сенсорные игры, моторика','Сенсорлық ойындар, моторика'],['Дневной сон','Күндізгі ұйқы']]},
+ {n:'Младшая и средняя',k:'Кіші және ортаңғы',a:['3 - 5 лет','3 - 5 жас'],c:'var(--teal2)',p:'80 000',i:[['Речь, счёт, творчество','Сөйлеу, санау, шығармашылық'],['Английский и казахский','Ағылшын және қазақ тілі'],['Музыка и ритмика','Музыка және ырғақ']]},
+ {n:'Подготовка к школе',k:'Мектепке дайындық',a:['5 - 6 лет','5 - 6 жас'],c:'var(--coral2)',p:'90 000',i:[['Чтение и письмо','Оқу және жазу'],['Математика, логика','Математика, логика'],['Готовность к 1 классу','1-сыныпқа дайындық']]}
+];
+const KK={d0:'Демо-нұсқа: топтар, бағалар мен суреттер мысал ретінде көрсетілген',n1:'Экскурсия',h0:'Жеке балабақша · Павлодар',h1a:'Жылы балабақша,',h1b:'балаға жайлы орын',h2:'Шағын топтар, тәрбиешілердің қамқорлығы және күн сайын дамытушы сабақтар. Экскурсияға келіңіз - топтарды көрсетіп, тәрбиешілермен таныстырамыз.',h3:'Экскурсияға жазылу',f1:'⭐ 2ГИС-те 4,9',f2:'🕖 Дс-Жм 7:00-19:00',f3:'👶 Ерте жастан топтар',w0:'Ата-аналар бізді неге таңдайды',w1:'Ең бастысы - бала тыныш әрі қызықты сезінсін',c1:'Шағын топтар',c1t:'Тәрбиеші әр балаға көңіл бөлуге үлгереді.',c2:'Үй тамағы',c2t:'Күн сайын пісіреміз, апталық мәзір ата-аналарға көрінеді.',c3:'Күнде даму',c3t:'Сөйлеу, логика, шығармашылық, мектепке дайындық.',c4:'Ата-аналарға күн суреттері',c4t:'Жұмыста отырып та балаңыздың күні қалай өткенін көресіз.',r0:'Tumar Kids-тегі бір күн',r1:'Балалар тез үйренетін күн тәртібі',p0:'Топтар мен бағасы',p1:'Баланың жасына қарай топ таңдаймыз',p2:'Топтар мен бағалар - мысал. Сайтта сіздің нақты деректеріңіз болады.',m0:'Бүлдіршіндерге ойын',m1:'Жұбын тап - есте сақтау мен зейінді жаттықтырады',m2:'Екі бірдей карточканы аш',m3:'Жарайсың! Барлық жұп табылды',m4:'Тағы ойнау',m5:'Осындай дамытушы ойындарды сайтыңызға қосуға болады: балалар үйде ойнайды, ал ата-аналар балабақшаңызды және жазылу батырмасын көреді.',o0:'Ата-аналарға кабинет',o1:'Қаласаңыз - WhatsApp-тағы көп хабарламаның орнына балабақша порталы',o2:'✅ Қатысу: келді, кетті, ауырып жатыр',o3:'💳 Төлем және төлем туралы еске салу',o4:'📸 Күннің суреттері мен жаңалықтары',o5:'🍽️ Апталық мәзір',o6:'ортаңғы топ',o7:'Бүгін',o8:'8:05-тен балабақшада',o9:'Түскі ас',o10:'Сорпа, котлет, компот',o11:'Ұйқы',o12:'Желтоқсан төлемі - 5-іне дейін',o13:'📸 Сурет сабағынан 3 жаңа фото',v0:'Экскурсияға жазылу',v1:'Өтінім бізге WhatsApp-қа келеді - қоңырау шалып, уақытты келісеміз',v2:'Баланың аты',v3:'Жасы',v4:'Сіздің атыңыз',v5:'WhatsApp-қа жіберу',q0:'Жиі қойылатын сұрақтар',q1:'Неше жастан қабылдайсыздар?',a1:'Ерте жастағы топтар бар. Нақты жасы мен бос орындарды әкімшіден нақтылаңыз.',q2:'Алдымен балабақшаны көруге бола ма?',a2:'Әрине - экскурсияға жазылыңыз, топтарды көрсетіп, тәрбиешілермен таныстырамыз.',q3:'Бейімделу қалай өтеді?',a3:'Алғашқы күндері бала аз уақыт қалады, біртіндеп ұзартамыз. Ата-аналар үнемі байланыста.',k0:'Байланыс',k1:'Павлодар, Павлов к-сі, 95/2',k2:'Жұмыс уақыты',k3:'Дс-Жм, 7:00-19:00'};
+const RU={};document.querySelectorAll('[data-i]').forEach(e=>RU[e.dataset.i]=e.textContent);document.querySelectorAll('[data-ph]').forEach(e=>RU[e.dataset.ph]=e.placeholder);
+let L='ru';try{L=localStorage.getItem('tklang')||'ru'}catch(e){}
+const kk=()=>L==='kk';const $=id=>document.getElementById(id);
+function render(){
+ document.documentElement.lang=kk()?'kk':'ru';
+ document.querySelectorAll('[data-i]').forEach(e=>e.textContent=kk()?(KK[e.dataset.i]||RU[e.dataset.i]):RU[e.dataset.i]);
+ document.querySelectorAll('[data-ph]').forEach(e=>e.placeholder=kk()?(KK[e.dataset.ph]||RU[e.dataset.ph]):RU[e.dataset.ph]);
+ $('lang').textContent=kk()?'RU':'KZ';
+ $('day').innerHTML=DAY.map(d=>`<div class="step"><b>${d[0]}</b><span>${kk()?d[3]:d[2]}</span></div>`).join('');
+ $('groups').innerHTML=GR.map(g=>`<div class="g" style="background:${g.c}"><h3>${kk()?g.k:g.n}</h3><div class="age">${g.a[kk()?1:0]}</div><ul>${g.i.map(i=>`<li>• ${kk()?i[1]:i[0]}</li>`).join('')}</ul><div class="pr">${g.p} ₸ <small>/ ${kk()?'ай':'месяц'}</small></div></div>`).join('');
+ $('cg').innerHTML=GR.map(g=>`<option>${kk()?g.k:g.n} (${g.a[kk()?1:0]})</option>`).join('');
+}
+$('lang').onclick=()=>{L=kk()?'ru':'kk';try{localStorage.setItem('tklang',L)}catch(e){}render()};
+$('send').onclick=()=>{const cn=$('cn').value.trim(),pn=$('pn').value.trim(),pp=$('pp').value.trim();if(!cn||!pp){alert(kk()?'Баланың аты мен телефонды жазыңыз':'Укажите имя ребёнка и телефон');return}
+ const m=`Здравствуйте! Хочу на экскурсию в Tumar Kids.\nРебёнок: ${cn}, ${$('ca').value||'-'}\nГруппа: ${$('cg').value}\nРодитель: ${pn||'-'}\nТелефон: ${pp}`;window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(m),'_blank')};
+const IC=['🐻','🐰','🦊','🐸','🐥','🐳','🦁','🐼'];let open=[],done=0,moves=0,lock=false;
+function deal(){const deck=[...IC,...IC].sort(()=>Math.random()-.5);open=[];done=0;moves=0;$('moves').textContent='0';$('win').style.display='none';
+ $('board').innerHTML=deck.map(e=>`<button class="tile" data-e="${e}" aria-label="card">${e}</button>`).join('')}
+$('board').onclick=ev=>{const t=ev.target.closest('.tile');if(!t||lock||t.classList.contains('open')||t.classList.contains('done'))return;t.classList.add('open');open.push(t);
+ if(open.length===2){moves++;$('moves').textContent=moves;const[a,b]=open;if(a.dataset.e===b.dataset.e){a.classList.add('done');b.classList.add('done');open=[];done+=2;if(done===IC.length*2)$('win').style.display='block'}else{lock=true;setTimeout(()=>{a.classList.remove('open');b.classList.remove('open');open=[];lock=false},800)}}};
+$('again').onclick=deal;
+render();deal();
+</script>
+</body>
+</html>
